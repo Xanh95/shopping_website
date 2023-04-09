@@ -36,8 +36,8 @@
         <div class="header-container d-flex">
           <div class="box-logo">
             <img
-              src="./greenhome/logo.png"
-              alt="./greenhome/logo.png"
+              src="./img/logo/logo.png"
+              alt="./img/logo/logo.png"
               title="logo"
               class="img-logo"
             />
@@ -74,7 +74,7 @@
                         alt="img/svg/cart-icon.svg"
                         title="giỏ hàng"
                       />
-                      <span>Giỏ Hàng</span>
+                      <span class="text-item-dropdow">Giỏ Hàng</span>
                     </a>
                   </li>
                   <li>
@@ -84,7 +84,7 @@
                         alt="img/svg/napviatm.svg"
                         title="thanh toán ATM"
                       />
-                      <span>Thanh toán ATM</span>
+                      <span class="text-item-dropdow">Thanh toán ATM</span>
                     </a>
                   </li>
                   <li>
@@ -94,7 +94,7 @@
                         alt="img/svg/pc.svg"
                         title="pc"
                       />
-                      <span>Bộ PC</span>
+                      <span class="text-item-dropdow">Bộ PC</span>
                     </a>
                   </li>
                   <li>
@@ -105,7 +105,7 @@
                         title="laptop"
                         title="laptop"
                       />
-                      <span>Laptop</span>
+                      <span class="text-item-dropdow">Laptop</span>
                     </a>
                   </li>
                   <li>
@@ -115,14 +115,14 @@
                         alt="img/svg/tintuc.svg"
                         title="tin tức"
                       />
-                      <span>Tin Tức</span>
+                      <span class="text-item-dropdow">Danh sách sản phẩm</span>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="d-flex">
+          <div class="d-flex sale">
             <div class="box-icon">
               <img src="img/svg/sale.svg" alt="img/svg/sale.svg" title="Sale" />
             </div>
@@ -288,26 +288,720 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        <div class="produts">
+        <div class="products">
           <div class="container-fluid">
-            <div class="row d-flex justify-content-between">
-              <div class="name-products"><h3>PC</h3></div>
+            <div class="row d-flex justify-content-between px-5">
+              <div class="name-products"><h3> <i class="icon-title pc"></i>Máy Tính-PC</h3></div>
               <div class="more-products">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  >asdasdasd</a
+                <a class="read-all" href="#" target="_blank" rel="noopener noreferrer"
+                  >Xem thêm</a
                 >
               </div>
             </div>
             <div class="row d-flex justify-content-around">
-              <div class="col-md-3 col-12 col-sm-8">a</div>
-              <div class="col-md-3 col-12 col-sm-8">a</div>
-              <div class="col-md-3 col-12 col-sm-8">a</div>
-              <div class="col-md-3 col-12 col-sm-8">a</div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                        alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                        title="nova-i4070Ti"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Nova i4070Ti</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 30</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/pc/Glacier-I1660-Super-WH-228x228.jpg"
+                        alt="img/pc/Glacier-I1660-Super-WH-228x228.jpg"
+                        title="nova-i4070Ti"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Glacier-I1660-Super</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 50</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/pc/Glacier-I2060-BL-228x228.jpg"
+                        alt="img/pc/Glacier-I2060-BL-228x228.jpg"
+                        title="nova-i4070Ti"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Glacier-I2060-BL</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 40</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/pc/Sniper I3060 -WH-228x228.jpg"
+                        alt="img/pc/Sniper I3060 -WH-228x228.jpg"
+                        title="nova-i4070Ti"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Sniper I3060-WH</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 10</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class="products-hr" />
+        </div>
+        <div class="products">
+          <div class="container-fluid">
+            <div class="row d-flex justify-content-between px-5">
+              <div class="name-products"><h3> <i class="icon-title laptop"></i>Máy Tính-LapTop</h3></div>
+              <div class="more-products">
+                <a class="read-all" href="#" target="_blank" rel="noopener noreferrer"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/laptop/ROG Strix SCAR 18 G834JY-N6039W-228x228.jpg"
+                        alt="img/laptop/ROG Strix SCAR 18 G834JY-N6039W-228x228.jpg"
+                        title="ROG Strix SCAR 18"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>ROG Strix SCAR 18 </h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 30</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/laptop/laptop-gigabyte-aero-15-oled-xd-73s1624gh-1-228x228.jpg"
+                        alt="img/laptop/laptop-gigabyte-aero-15-oled-xd-73s1624gh-1-228x228.jpg"
+                        title="Gigabyte-Aero-15"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Gigabyte-Aero-15</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 10</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/laptop/laptop-acer-gaming-predator-triton-500-se-pt516-52s-91xh-1-228x228.jpg"
+                        alt="img/laptop/laptop-acer-gaming-predator-triton-500-se-pt516-52s-91xh-1-228x228.jpg"
+                        title="Acer Gaming Predator Triton 500"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Acer Gaming Predator Triton 500</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 27</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/laptop/laptop-lenovo-legion-5-pro-1-228x228.jpg"
+                        alt="img/laptop/laptop-lenovo-legion-5-pro-1-228x228.jpg"
+                        title="Lenovo Legion 5"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Lenovo Legion 5</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 12</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class="products-hr" />
+        </div>
+        <div class="products">
+          <div class="container-fluid">
+            <div class="row d-flex justify-content-between px-5">
+              <div class="name-products"><h3> <i class="icon-title speak gaminggear"></i>Gaming Gears</h3></div>
+              <div class="more-products">
+                <a class="read-all" href="#" target="_blank" rel="noopener noreferrer"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/gear/ban-phim-corsa ir-k100-rgb-op tical-switch-o px-11-228x228.jpg"
+                        alt="img/gear/ban-phim-corsa ir-k100-rgb-op tical-switch-o px-11-228x228.jpg"
+                        title="Corsair K100 RGB"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Corsair K100 RGB</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 10</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/gear/chuot-logitech-g502x-plus-white-1-228x228.png"
+                        alt="img/gear/chuot-logitech-g502x-plus-white-1-228x228.png"
+                        title="Logitech G502 X Plus White"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Logitech G502 X Plus White</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 40</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/gear/tai-nghe-steelseries-arctis-pro-gamedac-11-228x228.jpg"
+                        alt="img/gear/tai-nghe-steelseries-arctis-pro-gamedac-11-228x228.jpg"
+                        title="SteelSeries Arctis Pro + GameDAC"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>SteelSeries Arctis Pro + GameDAC</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 5</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/gear/sennheiser-clipmic-digital-mobile-recording-1-228x228.jpg"
+                        alt="img/products/nova-i4070Ti-BL-228x228.jpg"
+                        title="Micro Sennheiser CLIPMIC DIGITAL"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Micro Sennheiser CLIPMIC DIGITAL</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 30</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class="products-hr" />
+        </div>
+        <div class="products">
+          <div class="container-fluid">
+            <div class="row d-flex justify-content-between px-5">
+              <div class="name-products"><h3> <i class="icon-title manhinh"></i>Màn Hình</h3></div>
+              <div class="more-products">
+                <a class="read-all" href="#" target="_blank" rel="noopener noreferrer"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/manhinh/man-hinh-samsung-odyssey-g9-lc49g950nexxv-1-228x228.jpg"
+                        alt="img/manhinh/man-hinh-samsung-odyssey-g9-lc49g950nexxv-1-228x228.jpg"
+                        title="Samsung Odyssey G9"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Samsung Odyssey G9</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 18</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/manhinh/asus-pg43uq-228x228.jpg"
+                        alt="img/manhinh/asus-pg43uq-228x228.jpg"
+                        title="Asus ROG Swift PG43UQ"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Asus ROG Swift PG43UQ</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 10</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/manhinh/man-hinh-lg-48gq900-b-1 (1)-228x228.png"
+                        alt="img/manhinh/man-hinh-lg-48gq900-b-1 (1)-228x228.png"
+                        title="LG 48GQ900-B"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>LG 48GQ900-B</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 9</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/manhinh/man-hinh-acer-xb323qk-nv-1-228x228.jpg"
+                        alt="img/manhinh/man-hinh-acer-xb323qk-nv-1-228x228.jpg"
+                        title="Acer Predator"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Acer Predator</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      <span>Số lượng hiện có: 20</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class="products-hr" />
+        </div>
+        <div class="products">
+          <div class="container-fluid">
+            <div class="row d-flex justify-content-between px-5">
+              <div class="name-products"><h3><i class="icon-title speak"></i>Thông Báo</h3></div>
+              <div class="more-products">
+                <a class="read-all" href="#" target="_blank" rel="noopener noreferrer"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/1826_test_rtx_4090_7.jpg"
+                        alt="img/1826_test_rtx_4090_7.jpg"
+                        title="Test RTX 4090"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>RTX 4090 trên laptop mạnh ngang RTX 4070 Ti trên desktop</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/1817_cover_msi_laptop.jpg"
+                        alt="img/1817_cover_msi_laptop.jpg"
+                        title="Cover msi laptop"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Loạt laptop MSI mới trang bị Raptor Lake-HX và RTX 40 Series</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/1746_cover_corei9_13900hx.jpg"
+                        alt="img/1746_cover_corei9_13900hx.jpg"
+                        title="Core i9-13900HX"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Core i9-13900HX cho laptop lộ điểm hiệu năng vượt trội với thế hệ tiền nhiệm</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 card-product">
+                <a href="#" class="card-product-a">
+                  <div class="card-product-body">
+                    <div class="card-product-img justify-content-center">
+                      <img
+                        src="img/1824_helios_intel_gen_13_rtx4080_1.jpg"
+                        alt="img/1824_helios_intel_gen_13_rtx4080_1.jpg"
+                        title="latop gaming Predator Helios"
+                        class="img-fluid img-product"
+                      />
+                    </div>
+                    <div class="card-product-title">
+                      <h6>Acer trình làng latop gaming Predator Helios Intel gen 13 RTX4080 mới nhất trên 100 triệu</h6>
+                    </div>
+                    <div class="card-product-quantity">
+                      
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class="products-hr" />
+        </div>
+        <div class="block-home">
+          <div class="block-header">
+            <span class="block-header-title">DANH MỤC SẢN PHẨM</span>
+          </div> 
+          <div class="block-content home-category">
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(26, 93, 196);">
+              </div> 
+              <img src="img/cat_maytinh_v2.png" alt="">
+              <div class="text">
+                <div>PC Gaming</div><div class="sm">Chiến mọi game</div>
+              </div>
+            </a> 
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(13, 20, 48);">
+              </div> 
+              <img src="img/cat_banphimco_v2.png" alt=""> 
+              <div class="text">
+                <div>Bàn Phím Cơ</div>
+                <div class="sm">Gõ lướt <br>như bay
+                </div>
+              </div>
+            </a> 
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(1, 249, 201);">
+              </div> 
+              <img src="img/cat_dohoa_v3.png" alt=""> 
+              <div class="text">
+                <div>PC ĐỒ HỌA</div>
+                <div class="sm">TỐI ƯU CÔNG VIỆC</div>
+              </div>
+            </a> 
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(255, 204, 58);">
+              </div> 
+              <img src="img/cat_ laptop_v2.png" alt=""> 
+              <div class="text">
+                <div>GAMING LAPTOP</div>
+                <div class="sm">Làm chủ cuộc chơi <br>mọi nơi</div>
+              </div>
+            </a> 
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(209, 33, 55);"></div> 
+              <img src="img/cat_manhinhgame_v2.png" alt=""> 
+              <div class="text">
+                <div>MÀN HÌNH<br> GAMING</div>
+                <div class="sm">tận hưởng<br> thế giới game</div>
+              </div>
+            </a> 
+            <a href="#">
+            <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(52, 61, 87);"></div> 
+            <img src="img/cat_laptop_hoctap_v2.png" alt=""> 
+            <div class="text">
+              <div>laptop<br> văn phòng</div>
+              <div class="sm">Mỏng nhẹ,<br> bền bỉ</div>
+            </div>
+            </a> 
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(255, 144, 5);"></div> 
+              <img src="img/cat_chuot_gaming_v2.png" alt=""> 
+              <div class="text">
+                <div>Chuột <br>Gaming</div>
+                <div class="sm">chuyên nghiệp <br>từng cú click</div>
+              </div>
+            </a> 
+            <a href="#">
+              <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(253, 242, 146);"></div> 
+              <img src="img/cat_banghe_gaming_v2.png" alt=""> 
+              <div class="text">
+                <div>GhẾ gaming</div>
+                <div class="sm">hiện đại, thoải mái</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="intro">
+          <div class="intro-header">
+            <span class="intro-header-title">GIỚI THIỆU VỀ GH</span>
+          </div>
+          <div class="intro-content">
+            <div class="intro-content-info">
+              <div class="intro-text">
+              <h3>Green-Home - Chất Lượng uy tín hàng đầu Việt Nam!</h3>
+              </div>
+            <span class="intro-span">
+            Green-Home tự hào với tôn chỉ luôn lấy khách hàng làm trọng tâm bằng
+            việc cung cấp các dịch vụ hậu mãi chu đáo, tận tâm để mang đến cho
+            khách hàng những sản phẩm có chất lượng và trải nghiệm với Web và
+            vóc dáng cơ thể tốt nhất! Chúng tôi đảm bảo bạn sẽ có được những
+            trải nghiệm tuyệt vời nhất khi, sử dụng các dịch vụ và sản phẩm của
+            Green-Home.
+            </span>
+          </div>
+          <div class="intro-img">
+            <img src="img/intro-demo.png" alt="" />
+            <a href="https://www.youtube.com/channel/UCdWP4f3gZTNPc4VzciBeNZg"><span class="btn-play"></span></a>
+          </div>
+        </div>
+        </div>
+      
+      <div class="products">
+        <div class="container-fluid">
+          
+          <div class="row d-flex justify-content-around card-container">
+            <div class="col-md-6 col-sm-12 col-xl-3 col-lg-4 card-product">
+              
+                <div class="card-product-body intro-body">
+                  <div class="card-product-img justify-content-center">
+                    <img
+                      src="img/intro1.svg"
+                      alt="img/intro1.svg"
+                      class="img-fluid img-product"
+                    />
+                  </div>
+                  <div class="card-product-title">
+                    <h6>
+                      Sản phẩm, dịch vụ đa dạng, cập nhật thường xuyên
+                  </h6>
+                  </div>
+                  <div class="card-product-quantity">
+                    <span>
+                      Hệ thống luôn cung cấp, cập nhật những sản phẩm mới/hot nhất trên thị trường.
+                  </span>
+                  </div>
+                </div>
+              
+            </div>
+            <div class="col-md-6 col-sm-12 col-xl-3 col-lg-4 card-product">
+              
+                <div class="card-product-body intro-body">
+                  <div class="card-product-img justify-content-center">
+                    <img
+                      src="img/intro2.svg"
+                      alt="img/intro2.svg"
+                      class="img-fluid img-product"
+                    />
+                  </div>
+                  <div class="card-product-title">
+                    <h6>
+                      Hàng nghìn khách hàng tin tưởng
+                  </h6>
+                  </div>
+                  <div class="card-product-quantity">
+                    <span>Hơn 260.000 giao dịch thành công mỗi ngày. Chúng tôi luôn đặt uy tín, chất lượng dịch vụ lên hàng đầu.</span>
+                  </div>
+                </div>
+              
+            </div>
+            <div class="col-md-6 col-sm-12 col-xl-3 col-lg-4 card-product">
+              
+                <div class="card-product-body intro-body">
+                  <div class="card-product-img justify-content-center">
+                    <img
+                      src="img/intro3.svg"
+                      alt="img/intro3.svg"
+                      class="img-fluid img-product"
+                    />
+                  </div>
+                  <div class="card-product-title">
+                    <h6>Trung tâm trợ giúp hỗ trợ tư vấn 24/24</h6>
+                  </div>
+                  <div class="card-product-quantity">
+                    <span>                            Đội ngũ chăm sóc khách hàng luôn tư vấn và hỗ trợ nhiệt tình khi gặp sự cố trong quá trình trải nghiệm sản phẩm.
+                    </span>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-sm-12 col-xl-3 col-lg-4 card-product">
+                <div class="card-product-body intro-body">
+                  <div class="card-product-img justify-content-center">
+                    <img
+                      src="img/intro4.svg"
+                      alt="img/intro4.svg"
+                      class="img-fluid img-product"
+                    />
+                  </div>
+                  <div class="card-product-title">
+                    <h6>Giá cả ưu đãi, siêu rẻ trên thị trường</h6>
+                  </div>
+                  <div class="card-product-quantity">
+                    <span>Cung cấp những sản phẩm với giá cả tốt nhất cùng với đó là những ưu đãi vô cùng hấp dẫn.</span>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
+        <hr class="products-hr" />
       </div>
+      
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="f-links">
+            <div class="f-links-group">
+              <span class="f-title">Thông tin chung</span> 
+              <p><a href="">Giới thiệu GH Store</a>
+              </p> 
+              <p><a href="">Tuyển dụng</a></p> 
+              <p><a href="#">Tin tức</a></p> 
+              <p><a href="#">Ý kiến khách hàng</a></p> 
+              <p><a href="#">Liện hệ hợp tác</a></p>
+            </div> 
+            <div class="f-links-group">
+              <span class="f-title">Chính sách chung</span> 
+              <p><a href="#">Quy định chung</a></p> 
+              <p><a href="#">Chính sách vận chuyển</a></p> 
+              <p><a href="#">Chính sách bảo hành</a></p> 
+              <p><a href="#">Chính sách đổi, trả lại hàng</a></p> 
+              <p><a href="">Chính sách cho doanh nghiệp</a></p>
+            </div> 
+            <div class="f-links-group">
+              <span class="f-title">Thông tin khuyến mãi</span> 
+              <p><a href="#">Sản phẩm bán chạy</a></p> 
+              <p><a href="#">Sản phẩm khuyến mãi</a></p> 
+              <p><a href="#">Hàng thanh lý</a></p></div> 
+              <div class="f-links-group">
+                <span class="f-title">Follow us!</span> 
+                <div class="f-links-social">
+                  <a href="https://www.facebook.com/bach.t.vuong" target="_blank">
+                    <img src="img/facebook.png"></a> 
+                    <a href="https://www.youtube.com/channel/UCdWP4f3gZTNPc4VzciBeNZg" target="_blank">
+                      <img src="img/youtube.png">
+                    </a> 
+                    <a href="https://www.instagram.com/bach.t.vuong/" target="_blank">
+                      <img src="img/instagram.png">
+                    </a>
+                  </div>
+                </div>
+              </div> 
+              </div>
+            
+              <div class="footer-bottom text-center">
+           
+                  <div class="f-bottom-copyright">© 2023 - Bản quyền của Tăng Xuân Anh</div> 
+            
+              </div>
+              
+    </footer>
   </body>
 </html>
