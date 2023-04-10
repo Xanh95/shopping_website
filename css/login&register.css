@@ -31,6 +31,7 @@ button {
   height: 550px;
   background: #fff;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: 8px;
 }
 
 .form {
@@ -145,6 +146,7 @@ button {
   -webkit-transition: -webkit-transform 1.2s ease-in-out;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out;
+  border-radius: 5px;
 }
 
 .cont.s-signup .sub-cont {
@@ -170,7 +172,7 @@ button {
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url(images/bg.jpg);
+  background-image: url(../img/login&register/bg.jpg);
   background-size: cover;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
@@ -311,4 +313,107 @@ button {
 .cont.s-signup .sign-up {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+
+.cont:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 900px;
+  height: 550px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #45f3ff,
+    #45f3ff,
+    #45f3ff
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+.cont:after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 900px;
+  height: 550px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #45f3ff,
+    #45f3ff,
+    #45f3ff
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
+.border-line {
+  position: absolute;
+  top: 0;
+  inset: 0;
+}
+.border-line:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 900px;
+  height: 550px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #ff2770,
+    #ff2770,
+    #ff2770
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -1.5s;
+}
+.border-line:after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 900px;
+  height: 550px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #ff2770,
+    #ff2770,
+    #ff2770
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -4.5s;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.form-box {
+  position: absolute;
+  inset: 4px;
+  background: #fffdfd;
+  padding: 50px 40px;
+  border-radius: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
 }
