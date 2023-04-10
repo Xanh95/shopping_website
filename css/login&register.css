@@ -137,12 +137,11 @@ button {
 .sub-cont {
   overflow: hidden;
   position: absolute;
-  left: 640px;
+  left: 626px;
   top: 0;
   width: 900px;
   height: 100%;
   padding-left: 260px;
-  background: #fff;
   -webkit-transition: -webkit-transform 1.2s ease-in-out;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out;
@@ -150,19 +149,20 @@ button {
 }
 
 .cont.s-signup .sub-cont {
-  -webkit-transform: translate3d(-640px, 0, 0);
-  transform: translate3d(-640px, 0, 0);
+  -webkit-transform: translate3d(-634px, 0, 0);
+  transform: translate3d(-634px, 0, 0);
 }
 
 .img {
   overflow: hidden;
   z-index: 2;
   position: absolute;
-  left: 0;
+  left: 7px;
   top: 0;
   width: 260px;
   height: 100%;
   padding-top: 360px;
+  border-radius: 5px;
 }
 
 .img:before {
@@ -243,8 +243,8 @@ button {
   transition-timing-function: ease-in-out;
   -webkit-transition-duration: 1.2s;
   transition-duration: 1.2s;
-  -webkit-transform: translate3d(640px, 0, 0);
-  transform: translate3d(640px, 0, 0);
+  -webkit-transform: translate3d(715px, 0, 0);
+  transform: translate3d(715px, 0, 0);
 }
 
 .img-btn {
@@ -411,7 +411,7 @@ button {
   position: absolute;
   inset: 4px;
   background: #fffdfd;
-  padding: 50px 40px;
+
   border-radius: 8px;
   z-index: 2;
   display: flex;
