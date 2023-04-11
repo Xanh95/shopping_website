@@ -466,3 +466,19 @@ li:hover {
   border-radius: 50%;
   z-index: 5;
 }
+/* css don hang  */
+.info-product {
+  display: flex;
+}
+.info-product-img {
+  width: 115px;
+}
+.text-descript > ul > li {
+  display: block;
+}
+.text-descript > ul {
+  padding-inline-start: 0px;
+}
+input.number-input {
+  width: 25px;
+}
