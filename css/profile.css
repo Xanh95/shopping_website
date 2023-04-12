@@ -5,7 +5,11 @@
   li {
     padding: 0 !important;
   }
+  .gird {
+    grid-template-columns: 255px 60% !important;
+  }
 }
+
 @media (max-width: 992px) {
   #formSearchHeader {
     width: 200px !important;
@@ -52,7 +56,7 @@
     margin: 0 !important;
   }
   .gird {
-    grid-template-columns: 70px 70% !important;
+    grid-template-columns: 70px 60% !important;
   }
   .user-activity {
     height: 335px !important;
@@ -550,7 +554,7 @@ input.number-input {
   position: relative;
   top: -27px;
   left: 45px;
-  margin-left: 10px;
+  margin-left: 36px;
   color: red;
   font-weight: bold;
   width: 60%;
@@ -611,4 +615,67 @@ input.number-input {
   font-size: 12px;
   color: #007bff;
   cursor: pointer;
+}
+.btn-change-number {
+  -moz-box-shadow: inset 0px 1px 0px 0px #fceaca;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #fceaca;
+  box-shadow: inset 0px 1px 0px 0px #fceaca;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #ffce79),
+    color-stop(1, #eeaf41)
+  );
+  background: -moz-linear-gradient(center top, #ffce79 5%, #eeaf41 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffce79', endColorstr='#eeaf41');
+  background-color: #ffce79;
+  -webkit-border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  text-indent: 0;
+  border: 1px solid #eeb44f;
+  display: inline-block;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  height: 21px;
+  line-height: 21px;
+  width: 21px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px #ce8e28;
+}
+.btn-change-number:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #eeaf41),
+    color-stop(1, #ffce79)
+  );
+  background: -moz-linear-gradient(center top, #eeaf41 5%, #ffce79 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeaf41', endColorstr='#ffce79');
+  background-color: #eeaf41;
+}
+.btn-change-number:active {
+  position: relative;
+  top: 1px;
+}
+.number-input {
+  margin: 0 5px;
+  width: 26px;
+  height: 22px;
+  border: 1px solid #ffc107;
 }
