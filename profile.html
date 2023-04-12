@@ -7,10 +7,10 @@
     <title>Shop PC and GEAR</title>
     <!-- bootstrap jquery font-awesome -->
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
     />
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -372,32 +372,112 @@
 
               </div>
             </div>
-            <div class="info-product" >
-          
-              <div class="info-product-img">
-                  <a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank"><img src="https://hanoicomputercdn.com/media/product/250_71017_ghe_game_e_dra_level_e_egc229_black_red_0003_4.jpg" width="100%" class="loading" data-was-processed="true"></a>
-              </div>
-            
-              <div class="info-product-text">
-                  <div class="text-name"><a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank">Ghế game E-Dra Level E EGC229 Black Red</a></div>
-                  <div class="text-descript">
-                    <ul>
-                      <li>- CPU: Intel Core i5 - 13600KF 14C/20T ( Up to 5.1GHz, 24MB )</li>
-                      <li>- Main: Asus TUF GAMING B660M-PLUS WIFI D4</li>
-                      <li>- RAM: KIMTIGO Z3 Gaming RGB 16GB (8GBx2) DDR4 3200MHz</li>
-                      <li>- SSD: GIGABYTE M2 2280 256GB NVMe PCI-Express 3.0 x4</li>
-                      <li>- VGA: Asus Dual Geforce RTX 3060 O8G White</li>
-                      <li>- PSU: MSI MAG A650BN 650W - 80 Plus Bronze</li>
-                      <li>- Vỏ case: XIGMATEK AQUA M ARCTIC</li>
-                    </ul>
+            <div class="products">
+              <h5>Đơn Hàng của tôi</h5>
+              <hr>
+              <div class="info-product" >
+                <div class="info-product-img">
+                    <a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank"><img src="https://hanoicomputercdn.com/media/product/250_71017_ghe_game_e_dra_level_e_egc229_black_red_0003_4.jpg" width="100%" class="loading" data-was-processed="true"></a>
+                </div>
+              
+                <div class="info-product-text">
+                    <div class="text-name"><a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank">Ghế game E-Dra Level E EGC229 Black Red</a></div>
+                    <span class="btn-text-descript"  onclick="toggleDescription(this)">Xem Chi Tiết Sản Phẩm ></span>
+                    <div class="text-descript">
+                      <ul>
+                        <li>- CPU: Intel Core i5 - 13600KF 14C/20T ( Up to 5.1GHz, 24MB )</li>
+                        <li>- Main: Asus TUF GAMING B660M-PLUS WIFI D4</li>
+                        <li>- RAM: KIMTIGO Z3 Gaming RGB 16GB (8GBx2) DDR4 3200MHz</li>
+                        <li>- SSD: GIGABYTE M2 2280 256GB NVMe PCI-Express 3.0 x4</li>
+                        <li>- VGA: Asus Dual Geforce RTX 3060 O8G White</li>
+                        <li>- PSU: MSI MAG A650BN 650W - 80 Plus Bronze</li>
+                        <li>- Vỏ case: XIGMATEK AQUA M ARCTIC</li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="products-number">
+                  <div class="change-number">
+                  <span class="btn-decrease">-</span><input type="tel" class="number-input"><span class="btn-increase">+</span>
                   </div>
+                  <div class="info-product-price"><span class="current-price">2.849.000 đ</span></div>
+                  <button class="btn-pay">Thanh Toán</button>
+                </div>
+                <div class="product-delete">
+                  <img src="img/svg/close.svg" alt="img/svg/close.svg" title="Xoas">
+                </div>
               </div>
-              <div class="products-number"><span class="btn-decrease">-</span><input type="tel" class="number-input"><span class="btn-increase">+</span></div>
-              <div class="info-product-price"><span class="current-price">2.849.000 đ</span></div>
-              <div class="product-delete">
-                <img src="img/svg/close.svg" alt="img/svg/close.svg" title="Xoas">
+            </div>
+            <div class="products-later">
+              <h5>Sản phẩm Mua Sau</h5>
+              <hr>
+              <div class="info-product" >
+                <div class="info-product-img">
+                    <a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank"><img src="https://hanoicomputercdn.com/media/product/250_71017_ghe_game_e_dra_level_e_egc229_black_red_0003_4.jpg" width="100%" class="loading" data-was-processed="true"></a>
+                </div>
+              
+                <div class="info-product-text">
+                    <div class="text-name"><a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank">Ghế game E-Dra Level E EGC229 Black Red</a></div>
+                    <span class="btn-text-descript"  onclick="toggleDescription(this)">Xem Chi Tiết Sản Phẩm ></span>
+                    <div class="text-descript" >
+                      <ul>
+                        <li>- CPU: Intel Core i5 - 13600KF 14C/20T ( Up to 5.1GHz, 24MB )</li>
+                        <li>- Main: Asus TUF GAMING B660M-PLUS WIFI D4</li>
+                        <li>- RAM: KIMTIGO Z3 Gaming RGB 16GB (8GBx2) DDR4 3200MHz</li>
+                        <li>- SSD: GIGABYTE M2 2280 256GB NVMe PCI-Express 3.0 x4</li>
+                        <li>- VGA: Asus Dual Geforce RTX 3060 O8G White</li>
+                        <li>- PSU: MSI MAG A650BN 650W - 80 Plus Bronze</li>
+                        <li>- Vỏ case: XIGMATEK AQUA M ARCTIC</li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="products-number">
+                  <div class="change-number">
+                  <span class="btn-decrease">-</span><input type="tel" class="number-input"><span class="btn-increase">+</span>
+                  </div>
+                  <div class="info-product-price"><span class="current-price">2.849.000 đ</span></div>
+                  <button class="btn-pay">Thanh Toán</button>
+                </div>
+                <div class="product-delete">
+                  <img src="img/svg/close.svg" alt="img/svg/close.svg" title="Xoas">
+                </div>
               </div>
-          </div>
+              
+            </div>
+            <div class="products-seen">
+              <h5>Sản Phẩm Đã Xem</h5>
+              <hr>
+              <div class="info-product" >
+                <div class="info-product-img">
+                    <a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank"><img src="https://hanoicomputercdn.com/media/product/250_71017_ghe_game_e_dra_level_e_egc229_black_red_0003_4.jpg" width="100%" class="loading" data-was-processed="true"></a>
+                </div>
+              
+                <div class="info-product-text">
+                    <div class="text-name"><a href="/ghe-game-e-dra-level-e-egc229-black-red" target="_blank">Ghế game E-Dra Level E EGC229 Black Red</a></div>
+                    <span class="btn-text-descript"  onclick="toggleDescription(this)">Xem Chi Tiết Sản Phẩm ></span>
+                    <div class="text-descript">
+                      <ul>
+                        <li>- CPU: Intel Core i5 - 13600KF 14C/20T ( Up to 5.1GHz, 24MB )</li>
+                        <li>- Main: Asus TUF GAMING B660M-PLUS WIFI D4</li>
+                        <li>- RAM: KIMTIGO Z3 Gaming RGB 16GB (8GBx2) DDR4 3200MHz</li>
+                        <li>- SSD: GIGABYTE M2 2280 256GB NVMe PCI-Express 3.0 x4</li>
+                        <li>- VGA: Asus Dual Geforce RTX 3060 O8G White</li>
+                        <li>- PSU: MSI MAG A650BN 650W - 80 Plus Bronze</li>
+                        <li>- Vỏ case: XIGMATEK AQUA M ARCTIC</li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="products-number">
+                  <div class="change-number">
+                  <span class="btn-decrease">-</span><input type="tel" class="number-input"><span class="btn-increase">+</span>
+                  </div>
+                  <div class="info-product-price"><span class="current-price">2.849.000 đ</span></div>
+                  <button class="btn-pay">Thanh Toán</button>
+                </div>
+                <div class="product-delete">
+                  <img src="img/svg/close.svg" alt="img/svg/close.svg" title="Xoas">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
        </div> 

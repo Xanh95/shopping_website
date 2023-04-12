@@ -145,3 +145,16 @@ $(function () {
     $(this).boom(e);
   });
 });
+// ẩn hiện mô tả sản phẩm
+$(document).ready(function () {
+  $(".btn-text-descript").click(function () {
+    var desc = $(this).next(".text-descript");
+    desc.toggle(); // Hiển thị/ẩn div kế tiếp nó
+    // Nếu đối tượng kế tiếp đang ẩn đi
+    if (desc.css("display") === "none") {
+      $(this).text("Xem Chi Tiết Sản Phẩm >");
+    } else {
+      $(this).text("Ẩn Chi Tiết Sản Phẩm <");
+    }
+  });
+});
