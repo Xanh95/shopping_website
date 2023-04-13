@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop PC and GEAR</title>
+    <title>Shop PC and GEAR - Trang Chủ</title>
     <!-- bootstrap -->
     <link
       rel="stylesheet"
@@ -29,6 +29,7 @@
     ></script>
     <!-- my css -->
     <link rel="stylesheet" href="css/index.css" />
+    <script src="js/index.js" defer></script>
   </head>
   <body>
     <header class="heading">
@@ -67,6 +68,22 @@
                       <span class="text-item-dropdow">Trang Chủ</span>
                     </a>
                   </li>
+                  <li class="have-menu">
+                    <a href="#">
+                      <img
+                        src="img/svg/tintuc.svg"
+                        alt="img/svg/tintuc.svg"
+                        title="tin tức"
+                      />
+                      <span class="text-item-dropdow">Danh sách sản phẩm</span>
+                    </a>
+                    <ul class="drop-menu">
+                      <li><a href="#">Bàn Phím Cơ</a></li>
+                      <li><a href="#">Màn Hình Gaming</a></li>
+                      <li><a href="#">Chuột Gaming</a></li>
+                      <li><a href="#">Ghế Gaming</a></li>
+                    </ul>
+                  </li>
                   <li>
                     <a href="#" target="_blank">
                       <img
@@ -87,7 +104,7 @@
                       <span class="text-item-dropdow">Thanh toán ATM</span>
                     </a>
                   </li>
-                  <li>
+                  <li class="have-menu">
                     <a href="">
                       <img
                         src="img/svg/pc.svg"
@@ -96,8 +113,13 @@
                       />
                       <span class="text-item-dropdow">Bộ PC</span>
                     </a>
+                    <ul class="drop-menu">
+                      <li><a href="#">Gaming</a></li>
+                      <li><a href="#">Văn phòng</a></li>
+                      
+                    </ul>
                   </li>
-                  <li>
+                  <li class="have-menu">
                     <a href="#">
                       <img
                         src="img/svg/laptop.svg"
@@ -107,17 +129,13 @@
                       />
                       <span class="text-item-dropdow">Laptop</span>
                     </a>
+                    <ul class="drop-menu">
+                      <li><a href="#">Gaming</a></li>
+                      <li><a href="#">Văn phòng</a></li>
+                      
+                    </ul>
                   </li>
-                  <li>
-                    <a href="#">
-                      <img
-                        src="img/svg/tintuc.svg"
-                        alt="img/svg/tintuc.svg"
-                        title="tin tức"
-                      />
-                      <span class="text-item-dropdow">Danh sách sản phẩm</span>
-                    </a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -132,7 +150,7 @@
             <form action="" class="form-search" id="formSearchHeader">
               <input type="search" placeholder="Tìm kiếm" class="has-submit" />
               <button type="reset" class="search-cancel"></button>
-              <button type="submit"></button>
+              <button type="submit" class="btn-search"></button>
             </form>
           </div>
           <div class="d-flex">
@@ -159,6 +177,65 @@
       </nav>
     </header>
     <main>
+      <div class="popup-cart ">
+        <div class="box-cart">
+          <div class="container">
+            <div class="cart-header">
+              <h6 class="number-cart-title">Bạn đang có 6 sản phẩm</h6>
+              <img src="img/svg/close.svg" class="close" alt="img/svg/close.svg" title="Đóng">
+            </div>
+            <div class="container-content">
+              <div class="products-cart">
+                <div class="product-cart">
+                  <div class="product-cart-img"><img class="img-fluid" src="img/pc/Glacier-I1660-Super-WH-228x228.jpg" alt=""></div>
+                  <div class="product-cart-text">
+                    <a href="#">Bàn Phím Cơ E-DRA EK387FL - Polar Night - Red Switch</a>
+                    <div class="product-cart-price">19.363.000 vnđ</div>
+                  </div>
+                  <div class="product-cart-action">
+                      <div class="cart-p-qty"><span class="qty-decrease">-</span>
+                          <input type="tel" class="qty-input"><span class="qty-increase">+</span>
+                      </div>
+                      <div class="cart-p-remove">
+                          <img src="img/svg/Trash.svg" alt="img/svg/Trash.svg">
+                      </div>
+                  </div>
+                </div>
+                <div class="product-cart">
+                  <div class="product-cart-img"><img class="img-fluid" src="img/pc/Glacier-I1660-Super-WH-228x228.jpg" alt=""></div>
+                  <div class="product-cart-text">
+                    <a href="#">Bàn Phím Cơ E-DRA EK387FL - Polar Night - Red Switch</a>
+                    <div class="product-cart-price">19.363.000 vnđ</div>
+                  </div>
+                  <div class="product-cart-action">
+                      <div class="cart-p-qty"><span class="qty-decrease">-</span>
+                          <input type="tel" class="qty-input"><span class="qty-increase">+</span>
+                      </div>
+                      <div class="cart-p-remove">
+                          <img src="img/svg/Trash.svg" alt="img/svg/Trash.svg">
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="total-pay">
+                <div class="container">
+                  <h6>Thông tin giỏ hàng</h6>
+                  <div class="products-count">
+                    <span class="products-count-text">Số lượng sản phẩm :</span>
+                    <span class="products-count-number">20</span>
+                  </div>
+                  <div class="total-cart">
+                    <span class="total-cart-text">Tổng chi phí :</span>
+                    <span class="total-cart-number">64.782.000 vnđ</span>
+                  </div>
+                  <div style="font-size: 14px; color: rgb(78, 78, 84); font-weight: normal; justify-content: flex-end;">Đã bao gồm VAT (nếu có)</div>
+                  <a href="#" class="btn-cart">Đến Giỏ Hàng</a><a href="#" class="btn-cart">Xoá Giỏ Hàng</a><a href="#" class="btn-cart">Xem Sản Phẩm Khác</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container">
         <div
           id="carouselExampleIndicators"
@@ -310,6 +387,8 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
+                    
                     <div class="card-product-title">
                       <h6>Nova i4070Ti</h6>
                     </div>
@@ -330,6 +409,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Glacier-I1660-Super</h6>
                     </div>
@@ -350,6 +430,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Glacier-I2060-BL</h6>
                     </div>
@@ -370,6 +451,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Sniper I3060-WH</h6>
                     </div>
@@ -405,6 +487,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>ROG Strix SCAR 18 </h6>
                     </div>
@@ -425,6 +508,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Gigabyte-Aero-15</h6>
                     </div>
@@ -445,6 +529,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Acer Gaming Predator Triton 500</h6>
                     </div>
@@ -465,6 +550,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Lenovo Legion 5</h6>
                     </div>
@@ -500,6 +586,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Corsair K100 RGB</h6>
                     </div>
@@ -520,6 +607,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Logitech G502 X Plus White</h6>
                     </div>
@@ -540,6 +628,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>SteelSeries Arctis Pro + GameDAC</h6>
                     </div>
@@ -560,6 +649,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Micro Sennheiser CLIPMIC DIGITAL</h6>
                     </div>
@@ -595,6 +685,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Samsung Odyssey G9</h6>
                     </div>
@@ -615,6 +706,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Asus ROG Swift PG43UQ</h6>
                     </div>
@@ -635,6 +727,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>LG 48GQ900-B</h6>
                     </div>
@@ -655,6 +748,7 @@
                         class="img-fluid img-product"
                       />
                     </div>
+                    <button class="add-to-cart"> Mua Ngay</button>
                     <div class="card-product-title">
                       <h6>Acer Predator</h6>
                     </div>
@@ -690,11 +784,9 @@
                         class="img-fluid img-product"
                       />
                     </div>
-                    <div class="card-product-title">
+                    
+                    <div class="news-title">
                       <h6>RTX 4090 trên laptop mạnh ngang RTX 4070 Ti trên desktop</h6>
-                    </div>
-                    <div class="card-product-quantity">
-                      
                     </div>
                   </div>
                 </a>
@@ -710,11 +802,9 @@
                         class="img-fluid img-product"
                       />
                     </div>
-                    <div class="card-product-title">
+                    
+                    <div class="news-title">
                       <h6>Loạt laptop MSI mới trang bị Raptor Lake-HX và RTX 40 Series</h6>
-                    </div>
-                    <div class="card-product-quantity">
-                      
                     </div>
                   </div>
                 </a>
@@ -730,11 +820,9 @@
                         class="img-fluid img-product"
                       />
                     </div>
-                    <div class="card-product-title">
+                    
+                    <div class="news-title">
                       <h6>Core i9-13900HX cho laptop lộ điểm hiệu năng vượt trội với thế hệ tiền nhiệm</h6>
-                    </div>
-                    <div class="card-product-quantity">
-                      
                     </div>
                   </div>
                 </a>
@@ -750,11 +838,9 @@
                         class="img-fluid img-product"
                       />
                     </div>
-                    <div class="card-product-title">
+                    
+                    <div class="news-title">
                       <h6>Acer trình làng latop gaming Predator Helios Intel gen 13 RTX4080 mới nhất trên 100 triệu</h6>
-                    </div>
-                    <div class="card-product-quantity">
-                      
                     </div>
                   </div>
                 </a>
@@ -832,7 +918,7 @@
               <div class="shape" style="border-color: rgb(41, 50, 78) transparent rgb(253, 242, 146);"></div> 
               <img src="img/cat_banghe_gaming_v2.png" alt=""> 
               <div class="text">
-                <div>GhẾ gaming</div>
+                <div>Ghế gaming</div>
                 <div class="sm">hiện đại, thoải mái</div>
               </div>
             </a>
@@ -877,12 +963,13 @@
                       class="img-fluid img-product"
                     />
                   </div>
-                  <div class="card-product-title">
+                  
+                  <div class="service-title">
                     <h6>
                       Sản phẩm, dịch vụ đa dạng, cập nhật thường xuyên
                   </h6>
                   </div>
-                  <div class="card-product-quantity">
+                  <div class="service-text">
                     <span>
                       Hệ thống luôn cung cấp, cập nhật những sản phẩm mới/hot nhất trên thị trường.
                   </span>
@@ -900,12 +987,13 @@
                       class="img-fluid img-product"
                     />
                   </div>
-                  <div class="card-product-title">
+                  
+                  <div class="service-title">
                     <h6>
                       Hàng nghìn khách hàng tin tưởng
                   </h6>
                   </div>
-                  <div class="card-product-quantity">
+                  <div class="service-text">
                     <span>Hơn 260.000 giao dịch thành công mỗi ngày. Chúng tôi luôn đặt uy tín, chất lượng dịch vụ lên hàng đầu.</span>
                   </div>
                 </div>
@@ -921,10 +1009,11 @@
                       class="img-fluid img-product"
                     />
                   </div>
-                  <div class="card-product-title">
+                  
+                  <div class="service-title">
                     <h6>Trung tâm trợ giúp hỗ trợ tư vấn 24/24</h6>
                   </div>
-                  <div class="card-product-quantity">
+                  <div class="service-text">
                     <span>                            Đội ngũ chăm sóc khách hàng luôn tư vấn và hỗ trợ nhiệt tình khi gặp sự cố trong quá trình trải nghiệm sản phẩm.
                     </span>
                   </div>
@@ -940,10 +1029,11 @@
                       class="img-fluid img-product"
                     />
                   </div>
-                  <div class="card-product-title">
+                  
+                  <div class="service-title">
                     <h6>Giá cả ưu đãi, siêu rẻ trên thị trường</h6>
                   </div>
-                  <div class="card-product-quantity">
+                  <div class="service-text">
                     <span>Cung cấp những sản phẩm với giá cả tốt nhất cùng với đó là những ưu đãi vô cùng hấp dẫn.</span>
                   </div>
                 </div>

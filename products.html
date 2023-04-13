@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop PC and GEAR - Products</title>
+    <!-- bootstrap jquery font-awesome -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- my css -->
+    
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/products.css">
+    
+  </head>
+  <body>
+    <header class="heading">
+      <nav class="nav-heading">
+        <div class="header-container d-flex">
+          <div class="box-logo">
+            <img
+              src="./img/logo/logo.png"
+              alt="./img/logo/logo.png"
+              title="logo"
+              class="img-logo"
+            />
+          </div>
+          <div class="d-flex">
+            <div
+              class="box-icon"
+              data-toggle="collapse"
+              href="#menu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="menu"
+            >
+              <img src="img/svg/menu.svg" alt="img/svg/menu.svg" />
+            </div>
+            <span class="span-header">Danh mục</span>
+            <div class="menu-list collapse multi-collapse" id="menu">
+              <div class="items">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <img
+                        src="img/svg/home.svg"
+                        alt="img/svg/home.svg"
+                        title="home"
+                      />
+                      <span class="text-item-dropdow">Trang Chủ</span>
+                    </a>
+                  </li>
+                  <li class="have-menu">
+                    <a href="#">
+                      <img
+                        src="img/svg/tintuc.svg"
+                        alt="img/svg/tintuc.svg"
+                        title="tin tức"
+                      />
+                      <span class="text-item-dropdow">Danh sách sản phẩm</span>
+                    </a>
+                    <ul class="drop-menu">
+                      <li><a href="#">Bàn Phím Cơ</a></li>
+                      <li><a href="#">Màn Hình Gaming</a></li>
+                      <li><a href="#">Chuột Gaming</a></li>
+                      <li><a href="#">Ghế Gaming</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank">
+                      <img
+                        src="img/svg/cart-icon.svg"
+                        alt="img/svg/cart-icon.svg"
+                        title="giỏ hàng"
+                      />
+                      <span class="text-item-dropdow">Giỏ Hàng</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img
+                        src="img/svg/napviatm.svg"
+                        alt="img/svg/napviatm.svg"
+                        title="thanh toán ATM"
+                      />
+                      <span class="text-item-dropdow">Thanh toán ATM</span>
+                    </a>
+                  </li>
+                  <li class="have-menu">
+                    <a href="">
+                      <img
+                        src="img/svg/pc.svg"
+                        alt="img/svg/pc.svg"
+                        title="pc"
+                      />
+                      <span class="text-item-dropdow">Bộ PC</span>
+                    </a>
+                    <ul class="drop-menu">
+                      <li><a href="#">Gaming</a></li>
+                      <li><a href="#">Văn phòng</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li class="have-menu">
+                    <a href="#">
+                      <img
+                        src="img/svg/laptop.svg"
+                        alt="img/svg/laptop.svg"
+                        title="laptop"
+                        title="laptop"
+                      />
+                      <span class="text-item-dropdow">Laptop</span>
+                    </a>
+                    <ul class="drop-menu">
+                      <li><a href="#">Gaming</a></li>
+                      <li><a href="#">Văn phòng</a></li>
+                      
+                    </ul>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex sale">
+            <div class="box-icon">
+              <img src="img/svg/sale.svg" alt="img/svg/sale.svg" title="Sale" />
+            </div>
+            <span class="span-header">Khuyến mãi</span>
+          </div>
+          <div class="box-seach">
+            <form action="" class="form-search" id="formSearchHeader">
+              <input type="search" placeholder="Tìm kiếm" class="has-submit" />
+              <button type="reset" class="search-cancel"></button>
+              <button type="submit"></button>
+            </form>
+          </div>
+          <div class="d-flex">
+            <div class="box-notify">
+              <div class="box-icon">
+                <img
+                  src="img/svg/ring.svg"
+                  alt="img/svg/ring.svg"
+                  title="notify"
+                />
+              </div>
+            </div>
+            <div class="box-account">
+              <div class="box-icon">
+                <img
+                  src="img/svg/profile.svg"
+                  alt="img/svg/profile.svg"
+                  title="notify"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+        <div class="container-products ">
+            <div class="grid">
+            <div class="user-activity ">
+                <ul>
+                    <li><a href="#">PC - Gaming</a></li>
+                    <li><a href="">PC - Đồ Hoạ/Văn Phòng</a></li>
+                    <li><a href="">Laptop Gaming</a></li>
+                    <li><a href="">Laptop Văn phòng</a></li>
+                    <li><a href="">Bàn Phím</a></li>
+                    <li><a href="">Màn Hình</a></li>
+                    <li><a href="">Chuột Gaming</a></li>
+                    <li><a href="">Ghế Gaming</a></li>
+                    <li><a href="">Tin Tức Khuyến Mãi</a></li>
+                    <li><a href="">Tin Tức Công Nghệ</a></li>
+                </ul>
+                
+              </div>
+          
+          <div class="show-activity " id="result-ajax">
+            <div class="products">
+                <div class="container-fluid">
+                  <div class="row d-flex justify-content-between px-5">
+                    <div class="name-products"><h3> <i class="icon-title pc"></i>Máy Tính-PC</h3>
+                        <hr>
+                    </div>
+                  </div>
+                  <div class="container-card-products">
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              alt="img/pc/nova-i4070Ti-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Nova i4070Ti</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 30</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/Glacier-I1660-Super-WH-228x228.jpg"
+                              alt="img/pc/Glacier-I1660-Super-WH-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Glacier-I1660-Super</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 50</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/Glacier-I2060-BL-228x228.jpg"
+                              alt="img/pc/Glacier-I2060-BL-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Glacier-I2060-BL</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 40</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class=" card-product">
+                      <a href="#" class="card-product-a">
+                        <div class="card-product-body">
+                          <div class="card-product-img justify-content-center">
+                            <img
+                              src="img/pc/Sniper I3060 -WH-228x228.jpg"
+                              alt="img/pc/Sniper I3060 -WH-228x228.jpg"
+                              title="nova-i4070Ti"
+                              class="img-fluid img-product"
+                            />
+                          </div>
+                          <div class="card-product-title">
+                            <h6>Sniper I3060-WH</h6>
+                          </div>
+                          <div class="card-product-quantity">
+                            <span>Số lượng hiện có: 10</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <hr class="products-hr" />
+                <div class="pagination ">
+                    <a href="#">&lt;&lt;</a> 
+                    <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a>
+                    <a href="#">&gt;&gt;</a> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div> 
+    </main>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="f-links">
+            <div class="f-links-group">
+              <span class="f-title">Thông tin chung</span> 
+              <p><a href="">Giới thiệu GH Store</a>
+              </p> 
+              <p><a href="">Tuyển dụng</a></p> 
+              <p><a href="#">Tin tức</a></p> 
+              <p><a href="#">Ý kiến khách hàng</a></p> 
+              <p><a href="#">Liện hệ hợp tác</a></p>
+            </div> 
+            <div class="f-links-group">
+              <span class="f-title">Chính sách chung</span> 
+              <p><a href="#">Quy định chung</a></p> 
+              <p><a href="#">Chính sách vận chuyển</a></p> 
+              <p><a href="#">Chính sách bảo hành</a></p> 
+              <p><a href="#">Chính sách đổi, trả lại hàng</a></p> 
+              <p><a href="">Chính sách cho doanh nghiệp</a></p>
+            </div> 
+            <div class="f-links-group">
+              <span class="f-title">Thông tin khuyến mãi</span> 
+              <p><a href="#">Sản phẩm bán chạy</a></p> 
+              <p><a href="#">Sản phẩm khuyến mãi</a></p> 
+              <p><a href="#">Hàng thanh lý</a></p></div> 
+              <div class="f-links-group">
+                <span class="f-title">Follow us!</span> 
+                <div class="f-links-social">
+                  <a href="https://www.facebook.com/bach.t.vuong" target="_blank">
+                    <img src="img/facebook.png"></a> 
+                    <a href="https://www.youtube.com/channel/UCdWP4f3gZTNPc4VzciBeNZg" target="_blank">
+                      <img src="img/youtube.png">
+                    </a> 
+                    <a href="https://www.instagram.com/bach.t.vuong/" target="_blank">
+                      <img src="img/instagram.png">
+                    </a>
+                  </div>
+                </div>
+              </div> 
+              </div>
+            
+              <div class="footer-bottom text-center">
+           
+                  <div class="f-bottom-copyright">© 2023 - Bản quyền của Tăng Xuân Anh</div> 
+            
+              </div>
+              
+    </footer>
+
+  </body>
+</html>

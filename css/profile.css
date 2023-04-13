@@ -8,9 +8,15 @@
   .gird {
     grid-template-columns: 255px 60% !important;
   }
+  .drop-menu {
+    top: 22px;
+  }
 }
 
 @media (max-width: 992px) {
+  .drop-menu {
+    display: none;
+  }
   #formSearchHeader {
     width: 200px !important;
   }
@@ -797,4 +803,29 @@ td {
   background-color: green;
   border: 1px solid #efefef;
   border-radius: 15px;
+}
+.have-menu {
+  position: relative;
+}
+ul.drop-menu li {
+  display: block;
+}
+.drop-menu {
+  position: absolute;
+  top: 41px;
+  box-shadow: 0 2px rgb(0 0 0 / 5%);
+  background-color: #f3f3f7;
+  padding-inline-start: 0;
+  left: 0;
+  border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
+  display: none;
+  width: 100%;
+}
+.have-menu:hover > .drop-menu {
+  display: block;
+}
+.have-menu:hover {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }

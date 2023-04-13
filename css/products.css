@@ -1,0 +1,52 @@
+.user-activity ul li {
+  display: block;
+  margin: 5px 0;
+}
+
+.user-activity {
+  background-color: #f3f3f7;
+  border-radius: 15px;
+  position: sticky;
+  top: 105px;
+  left: 69px;
+  right: 0;
+  height: 319px;
+  width: 196px;
+}
+.user-activity ul {
+  padding-inline-start: 10px;
+}
+.user-activity ul li:first-child {
+  padding-top: 10px;
+}
+.user-activity ul li:last-child {
+  padding-bottom: 10px;
+}
+.user-activity ul li a {
+  color: black;
+  padding: 5px;
+  border-radius: 13px;
+}
+
+.user-activity ul li a:hover {
+  text-decoration: none;
+  background-color: #a8a8a8;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 196px calc(100% - 196px);
+}
+.show-activity {
+  margin-left: 80px;
+}
+.container-card-products {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.pagination {
+  justify-content: center;
+}
+.pagination a {
+  margin: 0 5px;
+}
