@@ -28,8 +28,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- my css -->
-    
+    <!-- my css and js -->
+    <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/products.css">
     
@@ -180,6 +180,65 @@
       </nav>
     </header>
     <main>
+      <div class="popup-cart ">
+        <div class="box-cart">
+          <div class="container">
+            <div class="cart-header">
+              <h6 class="number-cart-title">Bạn đang có 6 sản phẩm</h6>
+              <img src="img/svg/close.svg" class="close" alt="img/svg/close.svg" title="Đóng">
+            </div>
+            <div class="container-content">
+              <div class="products-cart">
+                <div class="product-cart">
+                  <div class="product-cart-img"><img class="img-fluid" src="img/pc/Glacier-I1660-Super-WH-228x228.jpg" alt=""></div>
+                  <div class="product-cart-text">
+                    <a href="#">Bàn Phím Cơ E-DRA EK387FL - Polar Night - Red Switch</a>
+                    <div class="product-cart-price">19.363.000 vnđ</div>
+                  </div>
+                  <div class="product-cart-action">
+                      <div class="cart-p-qty"><span class="qty-decrease">-</span>
+                          <input type="tel" class="qty-input"><span class="qty-increase">+</span>
+                      </div>
+                      <div class="cart-p-remove">
+                          <img src="img/svg/Trash.svg" alt="img/svg/Trash.svg">
+                      </div>
+                  </div>
+                </div>
+                <div class="product-cart">
+                  <div class="product-cart-img"><img class="img-fluid" src="img/pc/Glacier-I1660-Super-WH-228x228.jpg" alt=""></div>
+                  <div class="product-cart-text">
+                    <a href="#">Bàn Phím Cơ E-DRA EK387FL - Polar Night - Red Switch</a>
+                    <div class="product-cart-price">19.363.000 vnđ</div>
+                  </div>
+                  <div class="product-cart-action">
+                      <div class="cart-p-qty"><span class="qty-decrease">-</span>
+                          <input type="tel" class="qty-input"><span class="qty-increase">+</span>
+                      </div>
+                      <div class="cart-p-remove">
+                          <img src="img/svg/Trash.svg" alt="img/svg/Trash.svg">
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="total-pay">
+                <div class="container">
+                  <h6>Thông tin giỏ hàng</h6>
+                  <div class="products-count">
+                    <span class="products-count-text">Số lượng sản phẩm :</span>
+                    <span class="products-count-number">20</span>
+                  </div>
+                  <div class="total-cart">
+                    <span class="total-cart-text">Tổng chi phí :</span>
+                    <span class="total-cart-number">64.782.000 vnđ</span>
+                  </div>
+                  <div style="font-size: 14px; color: rgb(78, 78, 84); font-weight: normal; justify-content: flex-end;">Đã bao gồm VAT (nếu có)</div>
+                  <a href="#" class="btn-cart">Đến Giỏ Hàng</a><a href="#" class="btn-cart">Xoá Giỏ Hàng</a><a href="#" class="btn-cart">Xem Sản Phẩm Khác</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="container-products ">
             <div class="grid">
             <div class="user-activity ">
@@ -218,9 +277,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -238,9 +299,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -258,9 +321,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -278,9 +343,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -298,9 +365,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -318,9 +387,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -338,9 +409,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -358,9 +431,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -378,9 +453,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -398,9 +475,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -418,9 +497,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -438,9 +519,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -458,9 +541,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -478,9 +563,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -498,9 +585,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -518,9 +607,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -538,9 +629,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -558,9 +651,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -578,9 +673,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -598,9 +695,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -618,9 +717,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -638,9 +739,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -658,9 +761,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -678,9 +783,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -698,9 +805,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -718,9 +827,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -738,9 +849,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -758,9 +871,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Nova i4070Ti</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 30</span>
                           </div>
@@ -778,9 +893,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Glacier-I1660-Super</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 50</span>
                           </div>
@@ -798,9 +915,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Glacier-I2060-BL</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 40</span>
                           </div>
@@ -818,9 +937,11 @@
                               class="img-fluid img-product"
                             />
                           </div>
+                          <button class="add-to-cart"> Mua Ngay</button>
                           <div class="card-product-title">
                             <h6>Sniper I3060-WH</h6>
                           </div>
+                          <div class="product-price">19.363.000 vnđ</div>
                           <div class="card-product-quantity">
                             <span>Số lượng hiện có: 10</span>
                           </div>
