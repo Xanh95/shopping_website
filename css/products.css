@@ -232,3 +232,30 @@
   margin-left: 83px;
   width: 383px;
 }
+.short-desc {
+  font-size: 13px;
+}
+.block--policy {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 55px;
+}
+.block--policy .policy__item {
+  width: 255px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f3fc;
+}
+.policy__item__text {
+  margin-left: 24px;
+  width: 117px;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  color: #000;
+}
+.title {
+  margin-top: 20px;
+}
