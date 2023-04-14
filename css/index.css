@@ -240,13 +240,15 @@
 .search-cancel {
   position: absolute;
   top: 50%;
-  right: 30px;
+  right: 40px;
   transform: translateY(-50%);
   background: url(../img/svg/search-cancel.svg) no-repeat 50% 50%;
   border: none;
   font-size: 16px;
   cursor: pointer;
   opacity: 0;
+  height: 20px;
+  width: 20px;
 }
 .has-submit:focus + .search-cancel {
   opacity: 1;
