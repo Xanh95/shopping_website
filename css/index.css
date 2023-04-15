@@ -23,6 +23,7 @@
     left: 25px !important;
     width: calc(100% - 50px) !important;
     font-size: 11px !important;
+    cursor: pointer;
   }
 }
 @media (max-width: 992px) {
@@ -409,6 +410,11 @@ a > span {
 .btn-cart:hover {
   text-decoration: none;
 }
+.card-product-a,
+.btn-cart {
+  text-decoration: none;
+}
+
 .card-product-a:hover {
   text-decoration: none;
 }
@@ -900,7 +906,76 @@ input.qty-input {
   border: 1px solid #005ec4;
   background-color: white;
 }
-
+.add-to-cart-nopopup:focus {
+  outline: none;
+}
 .show-popup {
   display: block;
+}
+/* css toast */
+.toast-cart {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  min-width: 200px;
+  max-width: 324px;
+  border-left: 4px solid #27ae60;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
+  transition: all linear 0.3s;
+  animation: slideInLeft ease 0.3s, fadeOut linear 1s 3s forwards;
+}
+.toast-cart + .toast-cart {
+  margin-top: 20px;
+}
+.toast-icon,
+.toast-close {
+  padding: 0 16px;
+}
+.toast-icon {
+  font-size: 24px;
+}
+.toast-close {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.toast-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.toast-msg {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+.toast-success {
+  border-color: #27ae60;
+}
+.toast-success .toast-icon {
+  color: #27ae60;
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+#toast-cart {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 999999;
 }
