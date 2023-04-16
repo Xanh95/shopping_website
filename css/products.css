@@ -343,6 +343,20 @@
   position: relative;
   left: 38%;
 }
+.option-address td {
+  padding: 0 8px;
+  max-width: 251px;
+}
+.option-address {
+  border: 1px solid #1eff0a;
+}
+.banking-pay td {
+  vertical-align: top;
+  padding-left: 10px;
+}
+input[type="radio"] {
+  background-color: green;
+}
 /* css confirm cart */
 .confirm-cart a {
   text-decoration: none;
