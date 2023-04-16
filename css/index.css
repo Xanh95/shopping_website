@@ -250,10 +250,26 @@
   background-color: #f3f3f7;
   width: 40px;
   height: 40px;
-
+  position: relative;
   padding-top: 6px;
   cursor: pointer;
   border-radius: 5px;
+}
+.notify-number {
+  position: absolute;
+  background-color: red;
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  display: flex;
+  color: white;
+  border-radius: 50%;
+  right: -3px;
+  top: -8px;
+  font-size: 12px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
 }
 .span-header {
   margin-left: 10px;
@@ -923,7 +939,7 @@ input.qty-input {
   border-left: 4px solid #27ae60;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
   transition: all linear 0.3s;
-  animation: slideInLeft ease 0.3s, fadeOut linear 1s 3s forwards;
+  animation: slideInLeft ease 0.3s, fadeOut linear 1s 2s forwards;
 }
 .toast-cart + .toast-cart {
   margin-top: 20px;
@@ -944,6 +960,7 @@ input.qty-input {
   font-size: 16px;
   font-weight: 600;
   color: #333;
+  padding-top: 5px;
 }
 .toast-msg {
   font-size: 14px;
