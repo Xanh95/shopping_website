@@ -224,6 +224,9 @@
   right: 4px;
   border: none;
 }
+.btn-search:focus {
+  outline: none;
+}
 .menu-list {
   position: absolute;
   top: 80px;

@@ -5,11 +5,224 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang Chủ Hệ Thống GH</title>
+    <!-- bootstrap  jquery font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- my css js -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index-system.css" />
   </head>
   <body>
-    <header></header>
-    <main>
-      <div class="sidebar"></div>
+    <header>
+      <nav class="header">
+        <div class="box-logo">
+          <img
+            src="./img/logo/logo.png"
+            alt="./img/logo/logo.png"
+            title="logo"
+            class="img-logo"
+          />
+        </div>
+        <div class="d-flex">
+          <div class="box-icon" href="#menu" role="button">
+            <img src="img/svg/menu.svg" alt="img/svg/menu.svg" />
+          </div>
+          <span class="span-header">Danh mục</span>
+        </div>
+        <div class="box-seach">
+          <form action="" class="form-search" id="formSearchHeader">
+            <input
+              type="search"
+              placeholder="Tìm kiếm Đơn Hàng"
+              class="has-submit"
+            />
+            <button type="reset" class="search-cancel"></button>
+            <button type="submit" class="btn-search"></button>
+          </form>
+        </div>
+        <div class="box-account">
+          <div class="box-icon">
+            <img
+              src="img/svg/profile.svg"
+              alt="img/svg/profile.svg"
+              title="notify"
+            />
+          </div>
+          <span class="username">Tăng Xuân Anh(nhân viên)</span>
+          <a href="#">Logout</a>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="sidebar">
+        <div id="accordion">
+          <div class="menu-item">
+            <div class="item" id="headingOne">
+              <h5 class="mb-0">
+                <button
+                  class="title"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Nhân Sự
+                </button>
+              </h5>
+            </div>
+
+            <div
+              id="collapseOne"
+              class="collapse"
+              aria-labelledby="headingOne"
+              data-parent="#accordion"
+            >
+              <div class="menu-item-body">
+                <ul>
+                  <li><a href="#">Danh sách nhân sự</a></li>
+                  <li><a href="#">Thêm mới nhân sự</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="item" id="headingTwo">
+              <h5 class="mb-0">
+                <button
+                  class="title"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Đơn hàng
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseTwo"
+              class="collapse"
+              aria-labelledby="headingTwo"
+              data-parent="#accordion"
+            >
+              <div class="menu-item-body">
+                <ul>
+                  <li><a href="#">Danh sách đơn hàng</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="item" id="headingThree">
+              <h5 class="mb-0">
+                <button
+                  class="title"
+                  data-toggle="collapse"
+                  data-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Sản Phẩm
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseThree"
+              class="collapse"
+              aria-labelledby="headingThree"
+              data-parent="#accordion"
+            >
+              <div class="menu-item-body">
+                <ul>
+                  <li><a href="#">Danh sách đơn hàng</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="item" id="headingfour">
+              <h5 class="mb-0">
+                <button
+                  class="title"
+                  data-toggle="collapse"
+                  data-target="#collapsefour"
+                  aria-expanded="false"
+                  aria-controls="collapsefour"
+                >
+                  khách hàng
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapsefour"
+              class="collapse"
+              aria-labelledby="headingfour"
+              data-parent="#accordion"
+            >
+              <div class="menu-item-body">
+                <ul>
+                  <li><a href="#">Danh sách khách hàng</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="item" id="headingfive">
+              <h5 class="mb-0">
+                <button
+                  class="title"
+                  data-toggle="collapse"
+                  data-target="#collapsefive"
+                  aria-expanded="false"
+                  aria-controls="collapsefive"
+                >
+                  Bài viết
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapsefive"
+              class="collapse"
+              aria-labelledby="headingfive"
+              data-parent="#accordion"
+            >
+              <div class="menu-item-body">
+                <ul>
+                  <li>
+                    <a href="#">Mô tả Sản Phẩm</a>
+                  </li>
+                  <li>
+                    <a href="#">Mô Tả Linh Kiện</a>
+                  </li>
+                  <li>
+                    <a href="#">Tin Tức</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="active">a</div>
     </main>
     <footer></footer>
   </body>
