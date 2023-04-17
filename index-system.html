@@ -30,6 +30,7 @@
     <!-- my css js -->
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/index-system.css" />
+    <link rel="stylesheet" href="css/products.css" />
   </head>
   <body>
     <header>
@@ -79,7 +80,7 @@
             <div class="item" id="headingOne">
               <h5 class="mb-0">
                 <button
-                  class="title"
+                  class="title-menu"
                   data-toggle="collapse"
                   data-target="#collapseOne"
                   aria-expanded="true"
@@ -108,7 +109,7 @@
             <div class="item" id="headingTwo">
               <h5 class="mb-0">
                 <button
-                  class="title"
+                  class="title-menu"
                   data-toggle="collapse"
                   data-target="#collapseTwo"
                   aria-expanded="false"
@@ -135,7 +136,7 @@
             <div class="item" id="headingThree">
               <h5 class="mb-0">
                 <button
-                  class="title"
+                  class="title-menu"
                   data-toggle="collapse"
                   data-target="#collapseThree"
                   aria-expanded="false"
@@ -162,7 +163,7 @@
             <div class="item" id="headingfour">
               <h5 class="mb-0">
                 <button
-                  class="title"
+                  class="title-menu"
                   data-toggle="collapse"
                   data-target="#collapsefour"
                   aria-expanded="false"
@@ -189,7 +190,7 @@
             <div class="item" id="headingfive">
               <h5 class="mb-0">
                 <button
-                  class="title"
+                  class="title-menu"
                   data-toggle="collapse"
                   data-target="#collapsefive"
                   aria-expanded="false"
@@ -222,7 +223,70 @@
           </div>
         </div>
       </div>
-      <div class="active">a</div>
+      <div class="active">
+        <div class="title-menu">
+          <h6>Danh Sách nhân sự</h6>
+          <input type="search" placeholder="tìm kiếm nhân sự" />
+          Theo Tên
+          <select name="sortname " id="">
+            <option value="1">Từ a-z</option>
+            <option value="2">Từ z-a</option>
+          </select>
+          Theo Thời Gian vào
+          <select name="sorttime " id="">
+            <option value="1">Mới->Cũ</option>
+            <option value="2">Cũ->Mới</option>
+          </select>
+          Theo Tuổi
+          <input type="text" />
+          <button class="btn-search-employee">Tìm Kiếm</button>
+        </div>
+        <hr />
+        <div class="list-employee">
+          <table class="table-employee" border="1px">
+            <tr>
+              <th>Mã Số</th>
+              <th>Họ và Tên</th>
+              <th>Ngày Sinh</th>
+              <th>Số Điện Thoại</th>
+              <th>Địa Chỉ</th>
+              <th>Quê Quán</th>
+              <th>Bộ Phận</th>
+              <th>Chức Vụ</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>VP01</td>
+              <td>Tăng Xuân Anh</td>
+              <td>04/12/1995</td>
+              <td>0389607406</td>
+              <td>Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội</td>
+              <td>Bảo yên thanh thuỷ phú thọ</td>
+              <td>Văn phòng</td>
+              <td>Nhân viên</td>
+              <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+            </tr>
+            <tr>
+              <td>VP01</td>
+              <td>Tăng Xuân Anh</td>
+              <td>04/12/1995</td>
+              <td>0389607406</td>
+              <td>Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội</td>
+              <td>Bảo yên thanh thuỷ phú thọ</td>
+              <td>Văn phòng</td>
+              <td>Nhân viên</td>
+              <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+            </tr>
+          </table>
+        </div>
+        <hr />
+        <div class="pagination">
+          <a href="#">&lt;&lt;</a>
+          <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
+          ><a href="">5</a>
+          <a href="#">&gt;&gt;</a>
+        </div>
+      </div>
     </main>
     <footer></footer>
   </body>
