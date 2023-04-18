@@ -91,7 +91,7 @@ header {
 td {
   font-size: 11px;
 }
-.active {
+.action-container {
   margin: 0 10px;
 }
 .btn-search-employee {
@@ -109,9 +109,102 @@ td {
 .sidebar .title-menu {
   cursor: pointer;
 }
-.active .title-menu input:focus {
+.action-container .title-menu input:focus {
   outline: none;
 }
-.active .title-menu input {
+.action-container .title-menu input {
   -webkit-appearance: auto;
+}
+.edit-pass {
+  -moz-box-shadow: inset 0px 1px 0px 0px #fceaca;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #fceaca;
+  box-shadow: inset 0px 1px 0px 0px #fceaca;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #ffce79),
+    color-stop(1, #eeaf41)
+  );
+  background: -moz-linear-gradient(center top, #ffce79 5%, #eeaf41 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffce79', endColorstr='#eeaf41');
+  background-color: #ffce79;
+  -webkit-border-top-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-radius-topright: 0px;
+  border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -moz-border-radius-bottomright: 0px;
+  border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-bottom-left-radius: 0px;
+  text-indent: 0;
+  border: 1px solid #eeb44f;
+  display: inline-block;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  height: 25px;
+  line-height: 25px;
+  width: 100px;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 5px;
+  text-shadow: 1px 1px 0px #ce8e28;
+}
+.edit-pass:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #eeaf41),
+    color-stop(1, #ffce79)
+  );
+  background: -moz-linear-gradient(center top, #eeaf41 5%, #ffce79 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeaf41', endColorstr='#ffce79');
+  background-color: #eeaf41;
+}
+.edit-pass:action-container {
+  position: relative;
+  top: 1px;
+}
+.edit-pass:focus {
+  outline: none;
+}
+.employee-text {
+  color: #229118;
+  width: 100px;
+  display: inline-block;
+  font-size: 13px;
+}
+.add-employee-form div {
+  margin-top: 10px;
+}
+
+.add-employee-form {
+  display: grid;
+  grid-template-columns: 312px 294px;
+}
+select#Role {
+  width: 93px;
+}
+.btn-search-employee:focus {
+  outline: none;
+}
+.btn-success:focus {
+  box-shadow: none;
+  outline: none;
+}
+.input-img {
+  width: 189px;
+  font-size: 11px;
+}
+.container-edit label {
+  display: inline-block;
+  width: 200px;
 }

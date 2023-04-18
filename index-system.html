@@ -29,8 +29,8 @@
     ></script>
     <!-- my css js -->
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/index-system.css" />
     <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet" href="css/index-system.css" />
   </head>
   <body>
     <header>
@@ -68,6 +68,7 @@
               title="notify"
             />
           </div>
+
           <span class="username">Tăng Xuân Anh(nhân viên)</span>
           <a href="#">Logout</a>
         </div>
@@ -101,6 +102,7 @@
                 <ul>
                   <li><a href="#">Danh sách nhân sự</a></li>
                   <li><a href="#">Thêm mới nhân sự</a></li>
+                  <li><a href="#">Thêm mới Bộ Phận</a></li>
                 </ul>
               </div>
             </div>
@@ -154,7 +156,8 @@
             >
               <div class="menu-item-body">
                 <ul>
-                  <li><a href="#">Danh sách đơn hàng</a></li>
+                  <li><a href="#">Danh sách Sản Phẩm</a></li>
+                  <li><a href="#">Thêm Sản Phẩm</a></li>
                 </ul>
               </div>
             </div>
@@ -212,9 +215,6 @@
                     <a href="#">Mô tả Sản Phẩm</a>
                   </li>
                   <li>
-                    <a href="#">Mô Tả Linh Kiện</a>
-                  </li>
-                  <li>
                     <a href="#">Tin Tức</a>
                   </li>
                 </ul>
@@ -223,68 +223,410 @@
           </div>
         </div>
       </div>
-      <div class="active">
-        <div class="title-menu">
-          <h6>Danh Sách nhân sự</h6>
-          <input type="search" placeholder="tìm kiếm nhân sự" />
-          Theo Tên
-          <select name="sortname " id="">
-            <option value="1">Từ a-z</option>
-            <option value="2">Từ z-a</option>
-          </select>
-          Theo Thời Gian vào
-          <select name="sorttime " id="">
-            <option value="1">Mới->Cũ</option>
-            <option value="2">Cũ->Mới</option>
-          </select>
-          Theo Tuổi
+      <div class="action-container">
+        <div class="container-employee">
+          <div class="title-menu">
+            <h6>Danh Sách nhân sự</h6>
+            <input type="search" placeholder="tìm kiếm nhân sự" />
+            Theo Tên
+            <select name="sortname " id="">
+              <option value="1">Từ a-z</option>
+              <option value="2">Từ z-a</option>
+            </select>
+            Theo Thời Gian vào
+            <select name="sorttime " id="">
+              <option value="1">Mới->Cũ</option>
+              <option value="2">Cũ->Mới</option>
+            </select>
+            Theo Ngày Sinh
+            <input type="text" />
+            <button class="btn-search-employee">Tìm Kiếm</button>
+          </div>
+          <hr />
+          <div class="list-employee">
+            <table class="table-employee" border="1px">
+              <tr>
+                <th>Mã Số</th>
+                <th>Họ và Tên</th>
+                <th>Ngày Sinh</th>
+                <th>Số Điện Thoại</th>
+                <th>Mật Khẩu</th>
+                <th>Địa Chỉ</th>
+                <th>Quê Quán</th>
+                <th>Bộ Phận</th>
+                <th>Chức Vụ</th>
+                <th></th>
+              </tr>
+              <tr>
+                <td>VP01</td>
+                <td>Tăng Xuân Anh</td>
+                <td>04/12/1995</td>
+                <td>0389607406</td>
+                <td>
+                  <input type="password" />
+                  <button class="edit-pass">Đổi Mật Khẩu</button>
+                </td>
+                <td>
+                  Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội
+                </td>
+                <td>Bảo yên thanh thuỷ phú thọ</td>
+                <td>Văn phòng</td>
+                <td>Nhân viên</td>
+                <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+              </tr>
+            </table>
+          </div>
+          <hr />
+          <div class="pagination">
+            <a href="#">&lt;&lt;</a>
+            <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
+            ><a href="">5</a>
+            <a href="#">&gt;&gt;</a>
+          </div>
+        </div>
+        <div class="add-employee">
+          <div class="add-employee-title">
+            <h6>Thêm Nhân Sự</h6>
+            <hr />
+          </div>
+          <div class="add-employee-form">
+            <div class="name-employee">
+              <span class="employee-text">Họ và Tên</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="birthday-employee">
+              <span class="employee-text">Ngày Sinh</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="phone-employee">
+              <span class="employee-text">số điện Thoại</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="pass-employee">
+              <span class="employee-text">Mật Khẩu</span>
+              <input type="password" class="employee-input" />
+            </div>
+            <div class="address-employee">
+              <span class="employee-text">Địa Chỉ</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">Quê Quán</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="job-employee">
+              <span class="employee-text">Chức Vụ</span>
+              <select name="Department" id="Department">
+                <option value="0">Bán Hàng</option>
+                <option value="1">Văn Phòng</option>
+                <option value="2">Kỹ Thuật</option>
+                <option value="2">Lãnh Đạo</option>
+              </select>
+              <select name="Role" id="Role">
+                <option value="0">nhân viên</option>
+                <option value="1">quản lý</option>
+                <option value="2">giám đốc</option>
+                <option value="2">Trưởng Phòng</option>
+              </select>
+            </div>
+            <div class="add-employee-btn">
+              <button class="btn btn-success">Thêm</button>
+            </div>
+          </div>
+        </div>
+        <div class="add-department">
+          <h6>Thêm Bộ Phận</h6>
+          <span>Bộ Phận</span>
           <input type="text" />
-          <button class="btn-search-employee">Tìm Kiếm</button>
+          <span>vị trí</span>
+          <input type="text" />
+          <button class="btn-success">thêm mới</button>
         </div>
-        <hr />
-        <div class="list-employee">
-          <table class="table-employee" border="1px">
-            <tr>
-              <th>Mã Số</th>
-              <th>Họ và Tên</th>
-              <th>Ngày Sinh</th>
-              <th>Số Điện Thoại</th>
-              <th>Địa Chỉ</th>
-              <th>Quê Quán</th>
-              <th>Bộ Phận</th>
-              <th>Chức Vụ</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>VP01</td>
-              <td>Tăng Xuân Anh</td>
-              <td>04/12/1995</td>
-              <td>0389607406</td>
-              <td>Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội</td>
-              <td>Bảo yên thanh thuỷ phú thọ</td>
-              <td>Văn phòng</td>
-              <td>Nhân viên</td>
-              <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
-            </tr>
-            <tr>
-              <td>VP01</td>
-              <td>Tăng Xuân Anh</td>
-              <td>04/12/1995</td>
-              <td>0389607406</td>
-              <td>Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội</td>
-              <td>Bảo yên thanh thuỷ phú thọ</td>
-              <td>Văn phòng</td>
-              <td>Nhân viên</td>
-              <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
-            </tr>
-          </table>
+        <div class="container-employee">
+          <div class="title-menu">
+            <h6>Danh Sách Đơn Hàng</h6>
+            <input type="search" placeholder="tìm kiếm theo tên KH" />
+            Theo Tên
+            <select name="sortname " id="">
+              <option value="1">Từ a-z</option>
+              <option value="2">Từ z-a</option>
+            </select>
+            Theo Thời Gian Đặt
+            <select name="sorttime " id="">
+              <option value="1">Mới->Cũ</option>
+              <option value="2">Cũ->Mới</option>
+            </select>
+            <button class="btn-success">Tìm kiếm</button>
+          </div>
+          <hr />
+          <div class="list-employee">
+            <table class="table-employee" border="1px">
+              <tr>
+                <th>Mã Đơn Hàng</th>
+                <th>Tên Khách Hàng</th>
+                <th>Mã Sản Phẩm</th>
+                <th>Tỉnh/Thành phố</th>
+                <th>Quận/Huyện</th>
+                <th>Địa Chỉ</th>
+                <th>Loại Địa chỉ</th>
+                <th>Thời Gian Đặt</th>
+                <th>Sản Phẩm</th>
+                <th>Giá trị Đơn</th>
+              </tr>
+              <tr>
+                <td>DH18420231</td>
+                <td>Tăng Xuân Anh</td>
+                <td>0389607406</td>
+                <td>Hà Nội</td>
+                <td>Long Biên</td>
+                <td>
+                  Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội
+                </td>
+                <td>nha riêng</td>
+                <td>2/2/2013</td>
+                <td>rtx 4090</td>
+                <td>90000000tr</td>
+                <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+              </tr>
+            </table>
+          </div>
+          <hr />
+          <div class="pagination">
+            <a href="#">&lt;&lt;</a>
+            <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
+            ><a href="">5</a>
+            <a href="#">&gt;&gt;</a>
+          </div>
         </div>
-        <hr />
-        <div class="pagination">
-          <a href="#">&lt;&lt;</a>
-          <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
-          ><a href="">5</a>
-          <a href="#">&gt;&gt;</a>
+        <div class="container-employee">
+          <div class="title-menu">
+            <h6>Danh Sách Sản Phẩm</h6>
+            <input type="search" placeholder="tìm kiếm theo tên SP" />
+            Theo Danh Mục
+            <select name="sortname " id="">
+              <option value="0">Pc Gaming</option>
+              <option value="1">Pc Đồ Hoạ/Văn Phòng</option>
+              <option value="2">Laptop Gaming</option>
+              <option value="3">Laptop Văn Phòng</option>
+              <option value="4">Bàn Phímm</option>
+              <option value="5">Chuột Gaming</option>
+              <option value="6">Ghế Gaming</option>
+            </select>
+            Theo Thời Gian Đặt
+            <select name="sorttime " id="">
+              <option value="1">Mới->Cũ</option>
+              <option value="2">Cũ->Mới</option>
+            </select>
+            <button class="btn-success">Tìm kiếm</button>
+          </div>
+          <hr />
+          <div class="list-employee">
+            <table class="table-employee" border="1px">
+              <tr>
+                <th>Mã Sản Phẩm</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Số Điện Thoại</th>
+                <th>Tỉnh/Thành phố</th>
+                <th>Quận/Huyện</th>
+                <th>Địa Chỉ</th>
+                <th>Loại Địa chỉ</th>
+                <th>Thời Gian Đặt</th>
+                <th>Sản Phẩm</th>
+                <th>Giá trị Đơn</th>
+              </tr>
+              <tr>
+                <td>DH18420231</td>
+                <td>Tăng Xuân Anh</td>
+                <td>0389607406</td>
+                <td>Hà Nội</td>
+                <td>Long Biên</td>
+                <td>
+                  Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội
+                </td>
+                <td>nha riêng</td>
+                <td>2/2/2013</td>
+                <td>rtx 4090</td>
+                <td>90000000tr</td>
+                <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+              </tr>
+            </table>
+          </div>
+          <hr />
+          <div class="pagination">
+            <a href="#">&lt;&lt;</a>
+            <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
+            ><a href="">5</a>
+            <a href="#">&gt;&gt;</a>
+          </div>
+        </div>
+        <div class="add-employee">
+          <div class="add-employee-title">
+            <h6>Thêm Sản Phẩm</h6>
+            <hr />
+          </div>
+          <div class="add-employee-form">
+            <div class="name-employee">
+              <span class="employee-text">Tên Sản Phẩm</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="birthday-employee">
+              <span class="employee-text">Mã Sản Phẩm</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="phone-employee">
+              <span class="employee-text">Bảo Hành</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="pass-employee">
+              <span class="employee-text">cpu</span>
+              <input type="password" class="employee-input" />
+            </div>
+            <div class="address-employee">
+              <span class="employee-text">main</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">Ram</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">ổ cứng</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">vga</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">psu</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">vỏ case</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">Màn Hình</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">Pin</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">Cân nặng</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">Màu Sắc</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">video ytb SP</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">ảnh review video</span>
+              <input type="file" class="employee-input input-img" />
+            </div>
+            <div class="hometown-employee">
+              <span class="employee-text">ảnh review SP</span>
+              <input type="file" class="employee-input input-img" />
+            </div>
+            <div class="job-employee">
+              <span class="employee-text">Danh Mục</span>
+              <select name="sortname " id="">
+                <option value="0">Pc Gaming</option>
+                <option value="1">Pc Đồ Hoạ/Văn Phòng</option>
+                <option value="2">Laptop Gaming</option>
+                <option value="3">Laptop Văn Phòng</option>
+                <option value="4">Bàn Phímm</option>
+                <option value="5">Chuột Gaming</option>
+                <option value="6">Ghế Gaming</option>
+                <option value="7">Gear</option>
+              </select>
+            </div>
+            <div class="add-employee-btn">
+              <button class="btn btn-success">Thêm</button>
+            </div>
+          </div>
+        </div>
+        <div class="container-employee">
+          <div class="title-menu">
+            <h6>Danh Sách Khách Hàng</h6>
+            <input type="search" placeholder="tìm kiếm Khách Hàng" />
+            Theo Tên
+            <select name="sortname " id="">
+              <option value="1">Từ a-z</option>
+              <option value="2">Từ z-a</option>
+            </select>
+            Theo Thời Gian vào
+            <select name="sorttime " id="">
+              <option value="1">Mới-&gt;Cũ</option>
+              <option value="2">Cũ-&gt;Mới</option>
+            </select>
+            Theo Ngày Sinh
+            <input type="text" />
+            <button class="btn-search-employee">Tìm Kiếm</button>
+          </div>
+          <hr />
+          <div class="list-employee">
+            <table class="table-employee" border="1px">
+              <tbody>
+                <tr>
+                  <th>Mã Số</th>
+                  <th>Họ và Tên</th>
+                  <th>Ngày Sinh</th>
+                  <th>Số Điện Thoại</th>
+                  <th>Mật Khẩu</th>
+                  <th>Địa Chỉ</th>
+                  <th>Email</th>
+                  <th>Giới Tính</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>KH01</td>
+                  <td>Tăng Xuân Anh</td>
+                  <td>04/12/1995</td>
+                  <td>0389607406</td>
+                  <td>
+                    <input type="password" />
+                    <button class="edit-pass">Đổi Mật Khẩu</button>
+                  </td>
+                  <td>
+                    Số 17 99/1/4 Phố đức giang thượng thanh long biên hà nội
+                  </td>
+                  <td>tãnguananh!@fgasd12.com</td>
+                  <td>nam</td>
+                  <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr />
+          <div class="pagination">
+            <a href="#">&lt;&lt;</a>
+            <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
+            ><a href="">5</a>
+            <a href="#">&gt;&gt;</a>
+          </div>
+        </div>
+        <div class="editpassword">
+          <h5>Đổi mật Khẩu</h5>
+          <hr />
+          <div class="container-edit">
+            <label for="currentpass">Mật Khẩu Hiện Tại</label>
+            <input type="password" name="currentpass" id="currentpass" />
+          </div>
+          <div class="container-edit">
+            <label for="newpass">Mật Khẩu Mới</label>
+            <input type="password" name="currentpass" id="newpass" />
+          </div>
+          <div class="container-edit">
+            <label for="renewpass">Nhập Lại Mật Khẩu Mới</label>
+            <input type="password" name="currentpass" id="renewpass" />
+          </div>
+          <button class="btn">Cập Nhật</button>
         </div>
       </div>
     </main>
