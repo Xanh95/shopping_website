@@ -93,3 +93,41 @@ $("#menu").click(function () {
     $("#main").css("grid-template-columns", "204px 1fr");
   }
 });
+// validate add employee
+$("#add-employee").validate({
+  rules: {
+    "employee-input-name": "required",
+    "employee-input-birthday": "required",
+    "employee-input-phone": "required",
+    "employee-input-pass": "required",
+    "employee-input-address": "required",
+    "employee-input-hometown": "required",
+  },
+  messages: {
+    "employee-input-name": "phải Nhập",
+    "employee-input-birthday": "phải Nhập",
+    "employee-input-phone": "phải Nhập",
+    "employee-input-pass": "phải Nhập",
+    "employee-input-address": "phải Nhập",
+    "employee-input-hometown": "phải Nhập",
+  },
+});
+// validate edit pass
+$("#editpassword").validate({
+  rules: {
+    currentpass: "required",
+    newpass: "required",
+    renewpass: {
+      required: true,
+      equalTo: newpass,
+    },
+  },
+  messages: {
+    currentpass: "phải Nhập",
+    newpass: "phải Nhập",
+    renewpass: {
+      required: "phải nhập",
+      equalTo: "chưa giống với mật khẩu mới",
+    },
+  },
+});

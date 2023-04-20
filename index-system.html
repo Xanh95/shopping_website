@@ -13,8 +13,8 @@
       crossorigin="anonymous"
     />
     <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
       crossorigin="anonymous"
     ></script>
     <script
@@ -23,10 +23,23 @@
       crossorigin="anonymous"
     ></script>
     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+      integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- my css js -->
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/products.css" />
@@ -291,56 +304,82 @@
             <a href="#">&gt;&gt;</a>
           </div>
         </div>
-        <div class="add-employee">
-          <div class="add-employee-title">
-            <h6>Thêm Nhân Sự</h6>
-            <hr />
+        <form action="" id="add-employee">
+          <div class="add-employee">
+            <div class="add-employee-title">
+              <h6>Thêm Nhân Sự</h6>
+              <hr />
+            </div>
+            <div class="add-employee-form">
+              <div class="name-employee">
+                <span class="employee-text">Họ và Tên</span>
+                <input
+                  type="text"
+                  class="employee-input"
+                  name="employee-input-name"
+                />
+              </div>
+              <div class="birthday-employee">
+                <span class="employee-text">Ngày Sinh</span>
+                <input
+                  type="text"
+                  class="employee-input"
+                  name="employee-input-birthday"
+                />
+              </div>
+              <div class="phone-employee">
+                <span class="employee-text">số điện Thoại</span>
+                <input
+                  type="text"
+                  class="employee-input"
+                  name="employee-input-phone"
+                />
+              </div>
+              <div class="pass-employee">
+                <span class="employee-text">Mật Khẩu</span>
+                <input
+                  type="password"
+                  class="employee-input"
+                  name="employee-input-pass"
+                />
+              </div>
+              <div class="address-employee">
+                <span class="employee-text">Địa Chỉ</span>
+                <input
+                  type="text"
+                  class="employee-input"
+                  name="employee-input-address"
+                />
+              </div>
+              <div class="hometown-employee">
+                <span class="employee-text">Quê Quán</span>
+                <input
+                  type="text"
+                  class="employee-input"
+                  name="employee-input-hometown"
+                />
+              </div>
+              <div class="job-employee">
+                <span class="employee-text">Chức Vụ</span>
+                <select name="Department" id="Department">
+                  <option value="0">Bán Hàng</option>
+                  <option value="1">Văn Phòng</option>
+                  <option value="2">Kỹ Thuật</option>
+                  <option value="2">Lãnh Đạo</option>
+                </select>
+                <select name="Role" id="Role">
+                  <option value="0">nhân viên</option>
+                  <option value="1">quản lý</option>
+                  <option value="2">giám đốc</option>
+                  <option value="2">Trưởng Phòng</option>
+                </select>
+              </div>
+              <div class="add-employee-btn">
+                <button class="btn btn-success">Thêm</button>
+              </div>
+            </div>
           </div>
-          <div class="add-employee-form">
-            <div class="name-employee">
-              <span class="employee-text">Họ và Tên</span>
-              <input type="text" class="employee-input" />
-            </div>
-            <div class="birthday-employee">
-              <span class="employee-text">Ngày Sinh</span>
-              <input type="text" class="employee-input" />
-            </div>
-            <div class="phone-employee">
-              <span class="employee-text">số điện Thoại</span>
-              <input type="text" class="employee-input" />
-            </div>
-            <div class="pass-employee">
-              <span class="employee-text">Mật Khẩu</span>
-              <input type="password" class="employee-input" />
-            </div>
-            <div class="address-employee">
-              <span class="employee-text">Địa Chỉ</span>
-              <input type="text" class="employee-input" />
-            </div>
-            <div class="hometown-employee">
-              <span class="employee-text">Quê Quán</span>
-              <input type="text" class="employee-input" />
-            </div>
-            <div class="job-employee">
-              <span class="employee-text">Chức Vụ</span>
-              <select name="Department" id="Department">
-                <option value="0">Bán Hàng</option>
-                <option value="1">Văn Phòng</option>
-                <option value="2">Kỹ Thuật</option>
-                <option value="2">Lãnh Đạo</option>
-              </select>
-              <select name="Role" id="Role">
-                <option value="0">nhân viên</option>
-                <option value="1">quản lý</option>
-                <option value="2">giám đốc</option>
-                <option value="2">Trưởng Phòng</option>
-              </select>
-            </div>
-            <div class="add-employee-btn">
-              <button class="btn btn-success">Thêm</button>
-            </div>
-          </div>
-        </div>
+        </form>
         <div class="add-department">
           <h6>Thêm Bộ Phận</h6>
           <span>Bộ Phận</span>
@@ -618,23 +657,25 @@
             <a href="#">&gt;&gt;</a>
           </div>
         </div>
-        <div class="editpassword">
-          <h5>Đổi mật Khẩu</h5>
-          <hr />
-          <div class="container-edit">
-            <label for="currentpass">Mật Khẩu Hiện Tại</label>
-            <input type="password" name="currentpass" id="currentpass" />
+        <form action="" id="editpassword">
+          <div class="editpassword">
+            <h5>Đổi mật Khẩu</h5>
+            <hr />
+            <div class="container-edit">
+              <label for="currentpass">Mật Khẩu Hiện Tại</label>
+              <input type="password" name="currentpass" id="currentpass" />
+            </div>
+            <div class="container-edit">
+              <label for="newpass">Mật Khẩu Mới</label>
+              <input type="password" name="newpass" id="newpass" />
+            </div>
+            <div class="container-edit">
+              <label for="renewpass">Nhập Lại Mật Khẩu Mới</label>
+              <input type="password" name="renewpass" id="renewpass" />
+            </div>
+            <button class="btn">Cập Nhật</button>
           </div>
-          <div class="container-edit">
-            <label for="newpass">Mật Khẩu Mới</label>
-            <input type="password" name="currentpass" id="newpass" />
-          </div>
-          <div class="container-edit">
-            <label for="renewpass">Nhập Lại Mật Khẩu Mới</label>
-            <input type="password" name="currentpass" id="renewpass" />
-          </div>
-          <button class="btn">Cập Nhật</button>
-        </div>
+        </form>
       </div>
     </main>
     <footer></footer>

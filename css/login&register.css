@@ -85,7 +85,7 @@
   }
   .img-btn {
     color: #fff !important;
-    top: 0px !important;
+    top: -22px !important;
     left: -319px !important;
     border-radius: 30px !important;
     border: 2px solid white !important;
@@ -105,8 +105,8 @@
     transform: translate3d(-559px, 0, 0) !important;
   }
   .cont.s-signup .img-btn {
-    -webkit-transform: translateY(109px) !important;
-    transform: translateY(109px) !important;
+    -webkit-transform: translateY(158px) !important;
+    transform: translateY(158px) !important;
   }
   .cont:before {
     background: linear-gradient(
@@ -118,6 +118,7 @@
     ) !important;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
   }
+
   .cont::after {
     background: linear-gradient(
       0deg,
@@ -170,7 +171,9 @@ body {
   background: -webkit-linear-gradient(left, #ffdf75, #c3ef24);
   font-family: "Nunito", sans-serif;
 }
-
+.error {
+  color: red;
+}
 input,
 button {
   border: none;
@@ -196,6 +199,7 @@ button {
   -webkit-transition: -webkit-transform 1.2s ease-in-out;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out;
+  overflow-y: auto;
   transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
 }
 
@@ -208,7 +212,7 @@ h2 {
 label {
   display: block;
   width: 260px;
-  margin: 10px auto 0;
+  margin: 0px auto;
   text-align: center;
 }
 

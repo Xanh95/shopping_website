@@ -1,57 +1,63 @@
 $("form").off("keyup keypress blur change");
-$(".slider-for").slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: ".slider-nav",
-});
+if ($(".slider-for").length) {
+  $(".slider-for").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: ".slider-nav",
+  });
+}
 
-$(".slider-nav").slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  asNavFor: ".slider-for",
-  dots: true,
-  centerMode: true,
-  focusOnSelect: true,
-});
-$(".products-seen").slick({
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true,
+if ($(".slider-nav").length) {
+  $(".slider-nav").slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: ".slider-for",
+    dots: true,
+    centerMode: true,
+    focusOnSelect: true,
+  });
+}
+if ($(".products-seen").length) {
+  $(".products-seen").slick({
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
       },
-    },
-    {
-      breakpoint: 840,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+      {
+        breakpoint: 840,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
       },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
-    },
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ],
-});
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ],
+  });
+}
 // validate comfirm cart
 $("#confirm-pay-cart").validate({
   rules: {
@@ -115,26 +121,28 @@ qtyIncrease.forEach((increaseButton) => {
     }
   });
 });
-const qtyInput = document.querySelector("#qty-input");
-const qtysub = document.querySelector(".sub-qty");
-const qtyadd = document.querySelector(".add-qty");
+if (document.querySelectorAll("#qty-input").length > 0) {
+  const qtyInput = document.querySelector("#qty-input");
+  const qtysub = document.querySelector(".sub-qty");
+  const qtyadd = document.querySelector(".add-qty");
 
-qtysub.addEventListener("click", () => {
-  let currentVal = parseInt(qtyInput.value);
-  if (!currentVal) {
-    currentVal = 0;
-  }
-  if (currentVal > 1) {
-    qtyInput.value = currentVal - 1;
-  }
-});
+  qtysub.addEventListener("click", () => {
+    let currentVal = parseInt(qtyInput.value);
+    if (!currentVal) {
+      currentVal = 0;
+    }
+    if (currentVal > 1) {
+      qtyInput.value = currentVal - 1;
+    }
+  });
 
-qtyadd.addEventListener("click", () => {
-  let currentVal = parseInt(qtyInput.value);
-  if (!currentVal) {
-    currentVal = 0;
-  }
-  if (currentVal < 99) {
-    qtyInput.value = currentVal + 1;
-  }
-});
+  qtyadd.addEventListener("click", () => {
+    let currentVal = parseInt(qtyInput.value);
+    if (!currentVal) {
+      currentVal = 0;
+    }
+    if (currentVal < 99) {
+      qtyInput.value = currentVal + 1;
+    }
+  });
+}

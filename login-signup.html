@@ -4,7 +4,21 @@
     <title>Đăng Nhập & Đăng Ký</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- my css -->
     <link rel="stylesheet" type="text/css" href="css/login&register.css" />
+    <script type="text/javascript" src="js/login&register.js" defer></script>
+    <!-- jquery validate -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+      integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap"
       rel="stylesheet"
@@ -13,18 +27,20 @@
   <body>
     <div class="cont box">
       <span class="border-line"></span>
-      <form action="" class="form-box">
+      <div action="" class="form-box">
         <div class="form sign-in">
           <h2>Đăng Nhập</h2>
-          <label>
-            <span>Địa chỉ Email</span>
-            <input type="email" name="email" />
-          </label>
-          <label>
-            <span>Mật Khẩu</span>
-            <input type="password" name="password" />
-          </label>
-          <button class="submit" type="button">Đăng Nhập</button>
+          <form action="" id="form-box">
+            <label>
+              <span>Địa chỉ Email</span>
+              <input type="email" name="email" />
+            </label>
+            <label>
+              <span>Mật Khẩu</span>
+              <input type="password" name="password" />
+            </label>
+            <button class="submit" type="submit">Đăng Nhập</button>
+          </form>
           <p class="forgot-pass">Quên Mật Khẩu ?</p>
 
           <div class="social-media">
@@ -59,31 +75,32 @@
           </div>
           <div class="form sign-up">
             <h2>Đăng Ký</h2>
-            <label>
-              <span>Tên Của Bạn</span>
-              <input type="text" />
-            </label>
-            <label>
-              <span>Số Điện Thoại</span>
-              <input type="text" />
-            </label>
-            <label>
-              <span>Địa Chỉ Email</span>
-              <input type="email" />
-            </label>
-            <label>
-              <span>Mật Khẩu</span>
-              <input type="password" />
-            </label>
-            <label>
-              <span>Nhập lại mật khẩu</span>
-              <input type="password" />
-            </label>
-            <button type="button" class="submit">Đăng ký ngay</button>
+            <form action="" id="box-register">
+              <label>
+                <span>Tên Của Bạn</span>
+                <input type="text" name="register-name" />
+              </label>
+              <label>
+                <span>Số Điện Thoại</span>
+                <input type="text" name="register-phone" />
+              </label>
+              <label>
+                <span>Địa Chỉ Email</span>
+                <input type="email" name="register-email" />
+              </label>
+              <label>
+                <span>Mật Khẩu</span>
+                <input type="password" name="register-pass" />
+              </label>
+              <label>
+                <span>Nhập lại mật khẩu</span>
+                <input type="password" name="register-repass" />
+              </label>
+              <button type="submit" class="submit">Đăng ký ngay</button>
+            </form>
           </div>
         </div>
-      </form>
+      </div>
     </div>
-    <script type="text/javascript" src="js/login&register.js"></script>
   </body>
 </html>
