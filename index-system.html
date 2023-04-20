@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/products.css" />
     <link rel="stylesheet" href="css/index-system.css" />
+    <script src="js/index-system.js" defer></script>
   </head>
   <body>
     <header>
@@ -44,7 +45,7 @@
           />
         </div>
         <div class="d-flex">
-          <div class="box-icon" href="#menu" role="button">
+          <div class="box-icon" href="#menu" role="button" id="menu">
             <img src="img/svg/menu.svg" alt="img/svg/menu.svg" />
           </div>
           <span class="span-header">Danh mục</span>
@@ -74,8 +75,14 @@
         </div>
       </nav>
     </header>
-    <main class="main">
-      <div class="sidebar">
+    <main class="main" id="main">
+      <div class="sidebar" id="sidebar">
+        <img
+          src="img/login-robot.png"
+          alt="img/login-robot.png"
+          class="checkin-menu"
+          id="robot"
+        />
         <div id="accordion">
           <div class="menu-item">
             <div class="item" id="headingOne">
@@ -100,9 +107,9 @@
             >
               <div class="menu-item-body">
                 <ul>
-                  <li><a href="#">Danh sách nhân sự</a></li>
-                  <li><a href="#">Thêm mới nhân sự</a></li>
-                  <li><a href="#">Thêm mới Bộ Phận</a></li>
+                  <li id="item-1"><a href="#">Danh sách nhân sự</a></li>
+                  <li id="item-2"><a href="#">Thêm mới nhân sự</a></li>
+                  <li id="item-3"><a href="#">Thêm mới Bộ Phận</a></li>
                 </ul>
               </div>
             </div>
@@ -129,7 +136,7 @@
             >
               <div class="menu-item-body">
                 <ul>
-                  <li><a href="#">Danh sách đơn hàng</a></li>
+                  <li id="item-4"><a href="#">Danh sách đơn hàng</a></li>
                 </ul>
               </div>
             </div>
@@ -156,8 +163,8 @@
             >
               <div class="menu-item-body">
                 <ul>
-                  <li><a href="#">Danh sách Sản Phẩm</a></li>
-                  <li><a href="#">Thêm Sản Phẩm</a></li>
+                  <li id="item-5"><a href="#">Danh sách Sản Phẩm</a></li>
+                  <li id="item-6"><a href="#">Thêm Sản Phẩm</a></li>
                 </ul>
               </div>
             </div>
@@ -184,7 +191,7 @@
             >
               <div class="menu-item-body">
                 <ul>
-                  <li><a href="#">Danh sách khách hàng</a></li>
+                  <li id="item-7"><a href="#">Danh sách khách hàng</a></li>
                 </ul>
               </div>
             </div>
@@ -211,10 +218,10 @@
             >
               <div class="menu-item-body">
                 <ul>
-                  <li>
+                  <li id="item-8">
                     <a href="#">Mô tả Sản Phẩm</a>
                   </li>
-                  <li>
+                  <li id="item-9">
                     <a href="#">Tin Tức</a>
                   </li>
                 </ul>

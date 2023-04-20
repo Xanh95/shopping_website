@@ -92,7 +92,7 @@ td {
   font-size: 11px;
 }
 .action-container {
-  margin: 0 10px;
+  margin: 0 auto;
 }
 .btn-search-employee {
   border: 2px solid #11c111;
@@ -207,4 +207,27 @@ select#Role {
 .container-edit label {
   display: inline-block;
   width: 200px;
+}
+.checkin-menu {
+  position: absolute;
+  width: 15px;
+  left: 57px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 1s;
+  z-index: 999;
+}
+.btn {
+  color: #ff6000;
+  background-color: white;
+  border: 1px solid #ff6000;
+  transition: 0.5s;
+}
+.btn:hover {
+  color: white;
+  background-color: #008f00;
+  border: none;
+}
+.btn:focus {
+  outline: none;
 }

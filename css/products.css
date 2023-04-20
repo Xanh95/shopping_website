@@ -19,14 +19,8 @@
   .show-activity {
     width: 84% !important;
   }
-  .container-content {
-    grid-template-columns: 100% !important;
-  }
 }
 @media (max-width: 768px) {
-  .container-content {
-    grid-template-columns: 100% !important;
-  }
   .img-slider {
     margin-left: 0px !important;
   }
@@ -273,6 +267,7 @@
   border: 1px solid #008f00 !important;
   color: #008f00 !important;
 }
+
 .btn-add-cart {
   width: calc(50% - 15px);
   height: 44px;
