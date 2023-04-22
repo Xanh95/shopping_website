@@ -178,6 +178,8 @@
                 <ul>
                   <li id="item-5"><a href="#">Danh sách Sản Phẩm</a></li>
                   <li id="item-6"><a href="#">Thêm Sản Phẩm</a></li>
+                  <li id="item-10"><a href="#">Danh sách Danh Mục</a></li>
+                  <li id="item-11"><a href="#">Thêm Danh Mục</a></li>
                 </ul>
               </div>
             </div>
@@ -584,11 +586,7 @@
               <span class="employee-text">Giá Sản Phẩm</span>
               <input type="text" class="employee-input" />
             </div>
-            <div class="hometown-employee">
-              <span class="employee-text">Thêm Danh mục</span>
-              <input type="text" class="employee-input input-img" />
-              <button type="submit" class="edit-pass">Thêm Danh Mục</button>
-            </div>
+
             <div class="job-employee">
               <span class="employee-text">Danh Mục</span>
               <select name="sortname " id="">
@@ -686,6 +684,63 @@
             <button class="btn">Cập Nhật</button>
           </div>
         </form>
+        <div class="container-employee">
+          <div class="title-menu">
+            <h6>Danh Sách Danh Mục Sản Phẩm</h6>
+            <input type="search" placeholder="tìm kiếm Danh mục" />
+            Theo Tên
+            <select name="sortname " id="">
+              <option value="1">Từ a-z</option>
+              <option value="2">Từ z-a</option>
+            </select>
+            Theo Thời Gian vào
+            <select name="sorttime " id="">
+              <option value="1">Mới->Cũ</option>
+              <option value="2">Cũ->Mới</option>
+            </select>
+
+            <button class="btn-search-employee">Tìm Kiếm</button>
+          </div>
+          <hr />
+          <div class="list-employee">
+            <table class="table-employee" border="1px">
+              <tr>
+                <th>STT</th>
+                <th>Danh mục</th>
+
+                <th></th>
+              </tr>
+              <tr>
+                <td>DM01</td>
+                <td>pc Gaming</td>
+
+                <td><a href="#">Sửa</a> <a href="#">Xoá</a></td>
+              </tr>
+            </table>
+          </div>
+          <hr />
+          <div class="pagination">
+            <a href="#">&lt;&lt;</a>
+            <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a
+            ><a href="">5</a>
+            <a href="#">&gt;&gt;</a>
+          </div>
+        </div>
+        <div class="add-employee">
+          <div class="add-employee-title">
+            <h6>Thêm Sản Phẩm</h6>
+            <hr />
+          </div>
+          <div class="add-employee-form">
+            <div class="hometown-employee">
+              <span class="employee-text">Thêm Danh mục</span>
+              <input type="text" class="employee-input" />
+            </div>
+            <div class="add-employee-btn">
+              <button type="submit" class="edit-pass">Thêm Danh Mục</button>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>

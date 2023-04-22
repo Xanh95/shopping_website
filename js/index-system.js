@@ -44,12 +44,12 @@ $("#headingfour").click(function () {
 $("#headingfive").click(function () {
   robot.css({
     opacity: 1,
-    transform: "translate(-8px, 106px)",
+    transform: "translate(-8px, 103px)",
   });
   if (!document.querySelectorAll("#headingOne").length > 0) {
     robot.css({
       opacity: 1,
-      transform: "translate(-8px, 80px)",
+      transform: "translate(-8px, 77px)",
     });
   }
 });
@@ -140,6 +140,30 @@ $("#item-9").click(function () {
     robot.css({
       opacity: 1,
       transform: "translate(-39px, 129px)",
+    });
+  }
+});
+$("#item-10").click(function () {
+  robot.css({
+    opacity: 1,
+    transform: "translate(-39px, 129px)",
+  });
+  if (!document.querySelectorAll("#headingOne").length > 0) {
+    robot.css({
+      opacity: 1,
+      transform: "translate(-39px, 103px)",
+    });
+  }
+});
+$("#item-11").click(function () {
+  robot.css({
+    opacity: 1,
+    transform: "translate(-39px, 152px)",
+  });
+  if (!document.querySelectorAll("#headingOne").length > 0) {
+    robot.css({
+      opacity: 1,
+      transform: "translate(-39px, 127px)",
     });
   }
 });
