@@ -215,3 +215,7 @@ $("#editpassword").validate({
     },
   },
 });
+// summernote
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
