@@ -522,11 +522,12 @@ li:hover {
   margin-left: 58px;
   transform: translate(-50%, -50%);
 }
-
+#editpassword {
+  position: relative;
+}
 .btn {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  left: 100px;
   transform: translate(-50%, -50%);
   border-radius: 4px;
   background: #008f00;
@@ -661,6 +662,7 @@ input.number-input {
   cursor: pointer;
 }
 .btn-change-number {
+  cursor: pointer;
   -moz-box-shadow: inset 0px 1px 0px 0px #fceaca;
   -webkit-box-shadow: inset 0px 1px 0px 0px #fceaca;
   box-shadow: inset 0px 1px 0px 0px #fceaca;

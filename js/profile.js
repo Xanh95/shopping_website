@@ -266,3 +266,36 @@ $("#recipient").validate({
     }
   }
 })();
+//  change number products
+const qtyDecrease = document.querySelectorAll(
+  ".btn-change-number.btn-decrease"
+);
+const qtyIncrease = document.querySelectorAll(
+  ".btn-change-number.btn-increase"
+);
+
+qtyDecrease.forEach((decreaseButton) => {
+  decreaseButton.addEventListener("click", () => {
+    const inputField = decreaseButton.nextElementSibling;
+    let currentVal = parseInt(inputField.value);
+    if (!currentVal) {
+      currentVal = 0;
+    }
+    if (currentVal > 1) {
+      inputField.value = currentVal - 1;
+    }
+  });
+});
+
+qtyIncrease.forEach((increaseButton) => {
+  increaseButton.addEventListener("click", () => {
+    const inputField = increaseButton.previousElementSibling;
+    let currentVal = parseInt(inputField.value);
+    if (!currentVal) {
+      currentVal = 0;
+    }
+    if (currentVal < 99) {
+      inputField.value = currentVal + 1;
+    }
+  });
+});
