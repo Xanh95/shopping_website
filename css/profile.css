@@ -871,3 +871,32 @@ ul.drop-menu li {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+/* css box contract */
+.contact-box-bottom {
+  position: fixed;
+  bottom: 54px;
+  right: 10px;
+  z-index: 10000;
+}
+.contact-box-wrapper {
+  display: flex;
+  align-items: center;
+  /* background: #fff; */
+  margin-bottom: 10px;
+  /* padding: 10px 20px; */
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 8%);
+}
+.contact-icon-box {
+  display: block;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 38px;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+}
+.contact-info {
+  padding-left: 10px;
+}
