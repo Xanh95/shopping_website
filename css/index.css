@@ -30,6 +30,9 @@
   #formSearchHeader {
     width: 200px !important;
   }
+  .f-links-group iframe {
+    display: none !important;
+  }
   .home-category {
     grid-column-gap: 10px !important;
   }

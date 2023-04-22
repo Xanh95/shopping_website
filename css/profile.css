@@ -8,17 +8,21 @@
   .gird {
     grid-template-columns: 255px 60% !important;
   }
+
   .drop-menu {
-    top: 22px;
+    top: 21px !important;
   }
 }
 
 @media (max-width: 992px) {
   .drop-menu {
-    display: none;
+    display: none !important;
   }
   #formSearchHeader {
     width: 200px !important;
+  }
+  .f-links-group iframe {
+    display: none !important;
   }
 
   .menu-list {
@@ -832,6 +836,7 @@ input#default {
 td {
   padding: 5px 9px;
   font-size: 14px;
+  min-width: 100px;
 }
 .btn-action-address:active {
   position: relative;
