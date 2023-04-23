@@ -76,6 +76,6 @@ class UserController extends Controller {
             $this->render('views/users/index.php', [
                 'users' => $users // $users
             ]);
-        require_once 'views/layouts/main.php';
+        require_once 'views/layouts/system.php';
     }
 }

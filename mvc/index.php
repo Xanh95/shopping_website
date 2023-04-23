@@ -1,38 +1,23 @@
 <?php
-//mvc/index.php
-// Code CRUD User theo MVC
-// - File index.php là file index gốc của ứng dụng MVC, tên file
-//luôn luôn là index.php, là file đầu tiên nhận request từ
-//user gửi lên -> mọi URL phải xuất phát từ file index này
-// - Một số chuẩn trong mô hình MVC hiện tại:
-// + Url bắt buộc phải truyền 2 tham số controller và action, trừ
-//trang chủ
-//VD: Url thêm mới user:
-// index.php?controller=user&action=create
-// VD Url cập nhật:
-// index.php?controller=user&action=update&id=3
-// + Nếu file chứa 1 class, thì bắt buộc tên file phải trùng
-//tên class đó
-//VD: UserController.php -> class UserController
-// + Tên file controller bắt buộc phải có chuỗi Controller sau
-//cùng
-// UserController.php, NewsController.php
-// Demo với chức năng thêm mới user:
-// index.php?controller=user&action=create
 
-// - Code gì trong file này ? phân tích url, gọi đúng controller
-//tương ứng xử lý
-// + KHởi tạo session chung cho toàn hệ thống
 session_start();
-// + Set múi giờ chung cho toàn hệ thống
+
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-//echo date('d-m-Y H:i:s');
+
+function UrlProcess()
+{
+    if (isset($_GET["url"])) {
+        return explode("/", filter_var(trim($_GET["url"], "/")));
+    }
+}
+$arr = UrlProcess();
+
 // + Phân tích url để lấy giá trị của controller và action
 // index.php?controller=user&action=create
-$controller = isset($_GET['controller']) ? $_GET['controller'] :
-    'home'; //user
-$action = isset($_GET['action']) ? $_GET['action'] : 'index';
-          // create
+$controller = isset($arr[0]) ? $arr[0] :
+    'administrator';
+$action = isset($arr[1]) ? $arr[1] : 'trangchu';
+// create
 //var_dump($controller); //user
 //var_dump($action); //create
 // + Biến đổi controller thành tên file controller tương ứng
@@ -58,7 +43,7 @@ $obj = new $controller(); // $obj = new UserController()
 // action trên url chính là tên phương thức tương ứng của class
 // index.php?controller=user&action=create
 if (!method_exists($obj, $action)) {
-    die("PHương thức $action ko tồn tại trong class $controller");
+    die("Phương thức $action ko tồn tại trong class $controller");
 }
 
 $obj->$action();
