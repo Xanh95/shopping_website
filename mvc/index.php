@@ -12,38 +12,41 @@ function UrlProcess()
 }
 $arr = UrlProcess();
 
+
 // + Phân tích url để lấy giá trị của controller và action
 // index.php?controller=user&action=create
-$controller = isset($arr[0]) ? $arr[0] :
-    'administrator';
-$action = isset($arr[1]) ? $arr[1] : 'trangchu';
-// create
-//var_dump($controller); //user
-//var_dump($action); //create
+
+$controller = !empty($arr) ? $arr[0] :
+    'ad';
+$action = isset($arr[1]) ? $arr[1] : 'test';
+// unset
+
+unset($arr[0]);
+unset($arr[1]);
+$variables = $arr ? array_values($arr) : [];
+// echo "<pre>";
+// print_r($variables);
+// echo "</pre>";
 // + Biến đổi controller thành tên file controller tương ứng
-// user -> UserController
-$controller = ucfirst($controller); //User
-$controller .= "Controller"; // UserController
-//var_dump($controller); //UserController
+
+$controller = ucfirst($controller);
+$controller .= "Controller";
+
 // index.php?controller=user&action=create
 // + Nhúng đường dẫn tới file controller tương ứng:
-// Trong MVC luôn luôn phải tư duy đứng từ file index gốc để
-//nhúng các file khác
+
 $controller_path = "controllers/$controller.php";
-//var_dump($controller_path); //controllers/UserController.php
+//var_dump($controller_path); //controllers/AdministratorController.php
 
 if (!file_exists($controller_path)) {
     die('Trang bạn tìm không tồn tại - 404');
 }
-require_once $controller_path;
-// + Do file controller chứa 1 class controller bên trong, nên
-//cần khởi tạo đối tượng từ class trên
-$obj = new $controller(); // $obj = new UserController()
-// + Dùng obj trên truy cập phương thức $action tương ứng
-// action trên url chính là tên phương thức tương ứng của class
-// index.php?controller=user&action=create
-if (!method_exists($obj, $action)) {
+require_once "controllers/$controller.php";
+
+
+if (!method_exists($controller, $action)) {
     die("Phương thức $action ko tồn tại trong class $controller");
 }
 
-$obj->$action();
+$obj = new $controller();
+call_user_func_array([$obj, $action], $variables);

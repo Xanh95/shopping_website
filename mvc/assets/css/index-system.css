@@ -92,7 +92,7 @@ td {
   font-size: 11px;
 }
 .action-container {
-  margin: 0 auto;
+  margin-left: 30px;
 }
 .btn-search-employee {
   border: 2px solid #11c111;
@@ -178,7 +178,7 @@ td {
 }
 .employee-text {
   color: #229118;
-  width: 100px;
+  width: 120px;
   display: inline-block;
   font-size: 13px;
 }
@@ -188,7 +188,7 @@ td {
 
 .add-employee-form {
   display: grid;
-  grid-template-columns: 312px 294px;
+  grid-template-columns: 338px 320px;
 }
 select#Role {
   width: 93px;
@@ -230,4 +230,32 @@ select#Role {
 }
 .btn:focus {
   outline: none;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: black;
+  z-index: 9999999;
+  color: #fff;
+  padding: 15px;
+}
+.box-account {
+  display: flex;
+}
+.username {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.menu-item-body a {
+  cursor: pointer;
+}
+.congratulate {
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

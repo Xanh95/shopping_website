@@ -59,18 +59,36 @@ $("#item-1").click(function () {
     transform: "translate(-39px, 27px)",
   });
 });
-$("#item-2").click(function () {
+// $("#item-2").click(function () {
+//   robot.css({
+//     opacity: 1,
+//     transform: "translate(-39px, 53px)",
+//   });
+// });
+//
+if ($("#add-employee").length > 0) {
+  $("#collapseOne").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 53px)",
   });
-});
-$("#item-3").click(function () {
+}
+//
+if ($("#add-department").length > 0) {
+  $("#collapseOne").addClass("show");
   robot.css({
     opacity: 1,
-    transform: "translate(-39px, 77px)",
+    transform: "translate(-39px, 75px)",
   });
-});
+}
+//
+if ($("#list-department").length > 0) {
+  $("#collapseOne").addClass("show");
+  robot.css({
+    opacity: 1,
+    transform: "translate(-39px, 100px)",
+  });
+}
 $("#item-4").click(function () {
   robot.css({
     opacity: 1,
@@ -167,6 +185,7 @@ $("#item-11").click(function () {
     });
   }
 });
+
 $("#menu").click(function () {
   var sidebar = $("#sidebar");
   if (sidebar.css("display") !== "none") {
@@ -184,8 +203,13 @@ $("#add-employee").validate({
     "employee-input-birthday": "required",
     "employee-input-phone": "required",
     "employee-input-pass": "required",
+    "employee-input-confirm_password": {
+      required: true,
+      equalTo: "employee-input-pass",
+    },
     "employee-input-address": "required",
     "employee-input-hometown": "required",
+    "employee-input-gender": "required",
   },
   messages: {
     "employee-input-name": "phải Nhập",
@@ -194,28 +218,36 @@ $("#add-employee").validate({
     "employee-input-pass": "phải Nhập",
     "employee-input-address": "phải Nhập",
     "employee-input-hometown": "phải Nhập",
+    "employee-input-confirm_password": {
+      required: "phải Nhập",
+      equalTo: "mật khẩu nhập lại không giống",
+    },
+    "employee-input-gender": "phải Chọn",
   },
 });
 // validate edit pass
-$("#editpassword").validate({
-  rules: {
-    currentpass: "required",
-    newpass: "required",
-    renewpass: {
-      required: true,
-      equalTo: newpass,
+if ($("#editpassword").length) {
+  $("#editpassword").validate({
+    rules: {
+      currentpass: "required",
+      newpass: "required",
+      renewpass: {
+        required: true,
+        equalTo: newpass,
+      },
     },
-  },
-  messages: {
-    currentpass: "phải Nhập",
-    newpass: "phải Nhập",
-    renewpass: {
-      required: "phải nhập",
-      equalTo: "chưa giống với mật khẩu mới",
+    messages: {
+      currentpass: "phải Nhập",
+      newpass: "phải Nhập",
+      renewpass: {
+        required: "phải nhập",
+        equalTo: "chưa giống với mật khẩu mới",
+      },
     },
-  },
-});
+  });
+}
+
 // summernote
-$(document).ready(function() {
-  $('#summernote').summernote();
+$(document).ready(function () {
+  $("#summernote").summernote();
 });
