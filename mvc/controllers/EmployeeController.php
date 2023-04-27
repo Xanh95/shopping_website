@@ -130,7 +130,7 @@ class EmployeeController extends Controller
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
             $_SESSION['error'] = 'ID bộ phận không hợp lệ';
-            header('Location: ../../employee/index');
+            header('Location: ../employee/index');
             exit();
         }
 
@@ -243,7 +243,7 @@ class EmployeeController extends Controller
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
             $_SESSION['error'] = 'ID nhân sự không hợp lệ';
-            header('Location: ../../employee/index');
+            header('Location: ../employee/index');
             exit();
         }
 

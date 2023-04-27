@@ -60,7 +60,7 @@ class DepartmentController extends Controller
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
             $_SESSION['error'] = 'ID bộ phận không hợp lệ';
-            header('Location: ../../department/index');
+            header('Location: ../department/index');
             exit();
         }
 
@@ -107,7 +107,7 @@ class DepartmentController extends Controller
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
             $_SESSION['error'] = 'ID bộ phận không hợp lệ';
-            header('Location: ../../department/index');
+            header('Location: ../department/index');
             exit();
         }
 
