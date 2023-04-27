@@ -2,11 +2,13 @@
 //controllers/UserController.php
 // Nhúng file đi từ file index gốc
 require_once 'controllers/Controller.php';
+require_once 'models/User.php';
 
 
 class AdministratorController extends Controller
 {
-    //index.php?controller=user&action=create
+    //index.php?controller=administrator&action=congratulate
+
     public function congratulate()
     {
 

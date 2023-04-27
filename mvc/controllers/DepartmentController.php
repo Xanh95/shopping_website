@@ -19,8 +19,8 @@ class DepartmentController extends Controller
                 $is_insert = $department_model->insertDepartment($department);
 
                 if ($is_insert) {
-                    $_SESSION['success'] = 'Thêm mới thành công';
-                    header('Location: ../administrator/congratulate');
+                    $_SESSION['success'] = 'Thêm mới bộ phận ' . $department . ' thành công';
+                    header('Location: ../department/index');
                     exit();
                 }
                 $this->error = 'Thêm mới thất bại';
@@ -57,11 +57,12 @@ class DepartmentController extends Controller
         $department_id = $id;
         $department_model = new Department();
         $department = $department_model->getById($department_id);
-        echo "<pre>";
-        print_r($_POST);
-        echo $department_id;
 
-        echo "</pre>";
+        if (empty($department)) {
+            $_SESSION['error'] = 'bộ phận không tồn tại';
+            header('Location: ../../department/index');
+            exit();
+        }
         if (isset($_POST['updatedepartment'])) {
             $department_new_name = $_POST['department_name'];
             if (empty($department_new_name)) {
@@ -71,11 +72,11 @@ class DepartmentController extends Controller
                 $department_model->department_name = $department_new_name;
                 $is_update = $department_model->update($department_id);
                 if ($is_update) {
-                    $_SESSION['success'] = 'Update thành công';
+                    $_SESSION['success'] = 'Sửa' . $department['department'] . ' thành công';
                 } else {
-                    $_SESSION['error'] = 'Update thất bại';
+                    $_SESSION['error'] = 'Sửa' . $department['department'] . 'thất bại';
                 }
-                header('Location: ../../administrator/congratulate');
+                header('Location: ../../department/index');
                 exit();
             }
         }

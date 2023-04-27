@@ -184,11 +184,12 @@ td {
 }
 .add-employee-form div {
   margin-top: 10px;
+  display: flex;
 }
 
 .add-employee-form {
   display: grid;
-  grid-template-columns: 338px 320px;
+  grid-template-columns: 338px 546px;
 }
 select#Role {
   width: 93px;

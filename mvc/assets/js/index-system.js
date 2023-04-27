@@ -59,12 +59,13 @@ $("#item-1").click(function () {
     transform: "translate(-39px, 27px)",
   });
 });
-// $("#item-2").click(function () {
-//   robot.css({
-//     opacity: 1,
-//     transform: "translate(-39px, 53px)",
-//   });
-// });
+if ($("#list-employee").length > 0) {
+  $("#collapseOne").addClass("show");
+  robot.css({
+    opacity: 1,
+    transform: "translate(-39px, 27px)",
+  });
+}
 //
 if ($("#add-employee").length > 0) {
   $("#collapseOne").addClass("show");
@@ -199,30 +200,58 @@ $("#menu").click(function () {
 // validate add employee
 $("#add-employee").validate({
   rules: {
-    "employee-input-name": "required",
-    "employee-input-birthday": "required",
-    "employee-input-phone": "required",
-    "employee-input-pass": "required",
-    "employee-input-confirm_password": {
+    employee_input_name: "required",
+    employee_input_birthday: {
       required: true,
-      equalTo: "employee-input-pass",
+      date: true,
+      dateFormat: "dd/mm/yyyy",
     },
-    "employee-input-address": "required",
-    "employee-input-hometown": "required",
-    "employee-input-gender": "required",
+    employee_input_phone: {
+      required: true,
+      minlength: 9,
+    },
+    employee_input_pass: {
+      required: true,
+      minlength: 8,
+    },
+    employee_input_confirm_password: {
+      required: true,
+      equalTo: "#employee_input_pass",
+    },
+    employee_input_address: "required",
+    employee_input_hometown: "required",
+    employee_input_gender: "required",
+    employee_input_email: {
+      required: true,
+      email: true,
+    },
   },
   messages: {
-    "employee-input-name": "phải Nhập",
-    "employee-input-birthday": "phải Nhập",
-    "employee-input-phone": "phải Nhập",
-    "employee-input-pass": "phải Nhập",
-    "employee-input-address": "phải Nhập",
-    "employee-input-hometown": "phải Nhập",
-    "employee-input-confirm_password": {
+    employee_input_name: "phải Nhập",
+    employee_input_birthday: {
+      required: "Phải nhập ngày sinh",
+      date: "Phải nhập đúng định dạng ngày tháng năm",
+      dateFormat: "Phải nhập đúng định dạng ngày tháng năm",
+    },
+    employee_input_phone: {
+      required: "phải Nhập",
+      minlength: "ít nhất 9 chữ số",
+    },
+    employee_input_pass: {
+      required: "phải Nhập",
+      minlength: "mật khẩu ít nhất 8 ký tự",
+    },
+    employee_input_address: "phải Nhập",
+    employee_input_hometown: "phải Nhập",
+    employee_input_confirm_password: {
       required: "phải Nhập",
       equalTo: "mật khẩu nhập lại không giống",
     },
-    "employee-input-gender": "phải Chọn",
+    employee_input_gender: "phải Chọn",
+    employee_input_email: {
+      required: "phải Nhập",
+      email: "phải là dạng email",
+    },
   },
 });
 // validate edit pass
@@ -230,7 +259,10 @@ if ($("#editpassword").length) {
   $("#editpassword").validate({
     rules: {
       currentpass: "required",
-      newpass: "required",
+      newpass: {
+        required: true,
+        minlength: 8,
+      },
       renewpass: {
         required: true,
         equalTo: newpass,
@@ -238,7 +270,10 @@ if ($("#editpassword").length) {
     },
     messages: {
       currentpass: "phải Nhập",
-      newpass: "phải Nhập",
+      newpass: {
+        required: "phải Nhập",
+        minlength: "mật khẩu ít nhất 8 ký tự",
+      },
       renewpass: {
         required: "phải nhập",
         equalTo: "chưa giống với mật khẩu mới",

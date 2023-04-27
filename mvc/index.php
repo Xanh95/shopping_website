@@ -15,6 +15,8 @@ $arr = UrlProcess();
 
 // + Phân tích url để lấy giá trị của controller và action
 // index.php?controller=user&action=create
+$_SESSION['controller'] = $arr[0];
+$_SESSION['action'] = $arr[1];
 
 $controller = !empty($arr) ? $arr[0] :
     'ad';
@@ -24,9 +26,7 @@ $action = isset($arr[1]) ? $arr[1] : 'test';
 unset($arr[0]);
 unset($arr[1]);
 $variables = $arr ? array_values($arr) : [];
-// echo "<pre>";
-// print_r($variables);
-// echo "</pre>";
+
 // + Biến đổi controller thành tên file controller tương ứng
 
 $controller = ucfirst($controller);

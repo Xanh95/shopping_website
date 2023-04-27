@@ -32,7 +32,7 @@ class Department extends Model
     public function getAll()
     {
         //B1:
-        $sql_select_all = "SELECT * FROM department";
+        $sql_select_all = "SELECT * FROM department ORDER BY id ASC";
         //B2:
         $obj_select_all = $this->connection->prepare($sql_select_all);
         //B3:

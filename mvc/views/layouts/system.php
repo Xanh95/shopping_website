@@ -64,7 +64,28 @@
                     <img src="assets/img/svg/profile.svg" alt="assets/img/svg/profile.svg" title="notify" />
                 </div>
 
-                <span class="username">Tăng Xuân Anh(nhân viên) <a href="#">Đổi mật khẩu</a></span>
+                <span class="username">
+                    <?php 
+                    // echo $_SESSION['user'];
+                    //                     $role = '';
+                    //                     switch ($_SESSION['role']) {
+                    //                         case 1:
+                    //                             $role = "Giám Đốc";
+                    //                             break;
+
+                    //                         case 2:
+                    //                             $role = "Trưởng Phòng";
+                    //                             break;
+                    //                         case 3:
+                    //                             $role = "Quản Lý";
+                    //                             break;
+                    //                         case 4:
+                    //                             $role = "Nhân Viên";
+                    //                             break;
+                    //                     };
+                    //                     echo " ($role)"; 
+                                        ?>
+                    <a href="#">Đổi mật khẩu</a></span>
                 <a href="#">Logout</a>
             </div>
         </nav>
@@ -87,7 +108,7 @@
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="menu-item-body">
                             <ul>
-                                <li id="item-1"><a>Danh sách nhân sự</a></li>
+                                <li id="item-1"><a href="employee/index">Danh sách nhân sự</a></li>
                                 <li id="item-2"><a href="employee/create">Thêm mới nhân sự</a></li>
                                 <li id="item-3"><a href="department/create">Thêm mới Bộ Phận</a></li>
                                 <li id="item-12"><a href="department/index">Danh Sách Bộ Phận</a></li>
