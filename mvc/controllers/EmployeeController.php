@@ -8,6 +8,11 @@ class EmployeeController extends Controller
     //index.php?controller=employee&action=create
     public function create()
     {
+        if ($_SESSION['role'] > 3) {
+            $_SESSION['error'] = 'bạn chưa đủ quyền vào chức năng này';
+            header('Location: ../administrator/congratulate');
+            exit();
+        }
         // - Controller xử lý submit form:
 
         if (isset($_POST['addemployee'])) {
@@ -54,6 +59,8 @@ class EmployeeController extends Controller
                 $this->error = 'định dạng email chưa đúng';
             } elseif (empty($gender)) {
                 $this->error = 'phải chọn giới tính';
+            } elseif (($_SESSION['role']  >= $role)) {
+                $this->error = 'Bạn không đủ quyền hạn để thêm vị trí này';
             }
 
             if (empty($this->error)) {
@@ -82,20 +89,41 @@ class EmployeeController extends Controller
             $this->render('views/employee/create.php', ['departments' => $departments]);
         require_once 'views/layouts/system.php';
     }
-    public function index()
+    public function index($curent_page = 1)
     {
+        if ($_SESSION['role'] > 3) {
+            $_SESSION['error'] = 'bạn chưa đủ quyền vào chức năng này';
+            header('Location: ../administrator/congratulate');
+            exit();
+        }
+
+
+
+        $page = $curent_page;
+        $page = ($page - 1) * 5;
+
 
         // -controller gọi models để lấy dữ liệu các bộ phận
 
         $employee_model = new Employee();
-        $employees = $employee_model->getAll();
+        // lấy tổng số bản ghi
+        $count_total = $employee_model->countTotal();
+
+        $total_page = ceil($count_total / 5);
+
+        $employees = $employee_model->getAll($page);
         // - Controller gọi View
         $this->page_title = 'Trang Danh Sách Bộ Phận';
         $this->content =
-            $this->render('views/employee/index.php', ['employees' => $employees]);
+            $this->render('views/employee/index.php', [
+                'employees' => $employees,
+                'total_page' => $total_page,
+                'page' => $curent_page,
+                'count_total' => $count_total
+            ]);
         require_once 'views/layouts/system.php';
     }
-    public function update($id)
+    public function update($id = "")
     {
 
         // -controller gọi models để lấy dữ liệu bộ phận
@@ -107,8 +135,14 @@ class EmployeeController extends Controller
         }
 
         $employee_id = $id;
+        // -controller gọi models để lấy dữ liệu employee
         $employee_model = new Employee();
         $employee = $employee_model->getById($employee_id);
+        if ($_SESSION['role'] > $employee['role']) {
+            $_SESSION['error'] = 'Bạn không có quyền sửa người này';
+            header('Location: ../../administrator/congratulate');
+            exit();
+        }
         if (empty($employee)) {
             $_SESSION['error'] = 'Nhân sự không tồn tại';
             header('Location: ../../employee/index');
@@ -158,6 +192,8 @@ class EmployeeController extends Controller
                 $this->error = 'định dạng email chưa đúng';
             } elseif (empty($gender)) {
                 $this->error = 'phải chọn giới tính';
+            } elseif (($_SESSION['role']  >= $role)) {
+                $this->error = 'Bạn không đủ quyền hạn để thêm vị trí này';
             }
 
             if (empty($this->error)) {
@@ -189,9 +225,7 @@ class EmployeeController extends Controller
         // -controller gọi models để lấy dữ liệu các bộ phận
         $department_model = new Department();
         $departments = $department_model->getAll();
-        // -controller gọi models để lấy dữ liệu employee
-        $employee = new Employee();
-        $employee = $employee->getById($employee_id);
+
 
         // -controller goi view
         $this->page_title = 'Trang Thêm Nhân Sự';
@@ -202,8 +236,9 @@ class EmployeeController extends Controller
             ]);
         require_once 'views/layouts/system.php';
     }
-    public function delete($id)
+    public function delete($id = "")
     {
+
         // -controller gọi models để lấy dữ liệu bộ phận
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
@@ -214,6 +249,12 @@ class EmployeeController extends Controller
 
         $employee_id = $id;
         $employee_model = new Employee();
+        $employee = $employee_model->getById($employee_id);
+        if ($_SESSION['role'] > $employee['role']) {
+            $_SESSION['error'] = 'Bạn không có quyền xoá người này';
+            header('Location: ../../administrator/congratulate');
+            exit();
+        }
         $is_delete = $employee_model->delete($employee_id);
 
         if ($is_delete) {
@@ -222,6 +263,17 @@ class EmployeeController extends Controller
             $_SESSION['error'] = 'Xóa thất bại';
         }
         header('Location: ../../employee/index');
+        exit();
+    }
+    public function logout()
+    {
+
+        //        session_destroy();
+        $_SESSION = [];
+        session_destroy();
+        //        unset($_SESSION['user']);
+        $_SESSION['success'] = 'Logout thành công';
+        header('Location: ../login/login');
         exit();
     }
 }

@@ -27,6 +27,7 @@ unset($arr[0]);
 unset($arr[1]);
 $variables = $arr ? array_values($arr) : [];
 
+
 // + Biến đổi controller thành tên file controller tương ứng
 
 $controller = ucfirst($controller);

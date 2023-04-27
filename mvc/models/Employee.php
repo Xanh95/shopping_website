@@ -13,6 +13,7 @@ class Employee extends Model
     public $gender;
     public $department;
     public $role;
+
     public function insertEmployee($name, $birthday, $phone, $password, $address, $hometown, $email, $gender, $department, $role)
     {
         // B1: Viết truy vấn dạng tham số:
@@ -44,19 +45,23 @@ class Employee extends Model
             }
         }
     }
-    public function getAll()
+    public function getAll($page)
     {
-        //B1:
-        $sql_select_all = "SELECT * FROM user WHERE role < 6 ORDER BY created_at DESC";
-        //B2:
+
+        $sql_select_all = "SELECT * FROM user WHERE role > :role ORDER BY created_at DESC LIMIT $page,5";
         $obj_select_all = $this->connection->prepare($sql_select_all);
-        //B3:
-        //B4:
-        $obj_select_all->execute();
-        //B5:
+
+        $selects = [
+            ':role' => $_SESSION['role'],
+        ];
+
+        $obj_select_all->execute($selects);
         $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $employees;
     }
+
+
+
     public function getById($id)
     {
         $sql_select_one = "SELECT * FROM user WHERE id = :id";
@@ -104,5 +109,16 @@ class Employee extends Model
 
 
         return $is_delete;
+    }
+    // đếm tổng số employee hiển thị
+    public function countTotal()
+    {
+        $sql_select_all = "SELECT COUNT(*) FROM user WHERE role > :role";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $selects = [
+            ':role' => $_SESSION['role']
+        ];
+        $obj_select_all->execute($selects);
+        return $obj_select_all->fetchColumn();
     }
 }

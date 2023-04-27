@@ -65,28 +65,28 @@
                 </div>
 
                 <span class="username">
-                    <?php 
-                    // echo $_SESSION['user'];
-                    //                     $role = '';
-                    //                     switch ($_SESSION['role']) {
-                    //                         case 1:
-                    //                             $role = "Giám Đốc";
-                    //                             break;
+                    <?php
+                    echo $_SESSION['user'];
+                    $role = '';
+                    switch ($_SESSION['role']) {
+                        case 0:
+                            $role = "Giám Đốc";
+                            break;
 
-                    //                         case 2:
-                    //                             $role = "Trưởng Phòng";
-                    //                             break;
-                    //                         case 3:
-                    //                             $role = "Quản Lý";
-                    //                             break;
-                    //                         case 4:
-                    //                             $role = "Nhân Viên";
-                    //                             break;
-                    //                     };
-                    //                     echo " ($role)"; 
-                                        ?>
+                        case 2:
+                            $role = "Trưởng Phòng";
+                            break;
+                        case 3:
+                            $role = "Quản Lý";
+                            break;
+                        case 4:
+                            $role = "Nhân Viên";
+                            break;
+                    };
+                    echo " ($role)";
+                    ?>
                     <a href="#">Đổi mật khẩu</a></span>
-                <a href="#">Logout</a>
+                <a href="./employee/logout">Logout</a>
             </div>
         </nav>
     </header>
@@ -95,6 +95,8 @@
         <div class="sidebar" id="sidebar">
             <img src="assets/img/login-robot.png" alt="assets/img/login-robot.png" class="checkin-menu" id="robot" />
             <div id="accordion">
+
+                <?php if ($_SESSION['role'] < 4) : ?>
                 <div class="menu-item">
                     <div class="item" id="headingOne">
                         <h5 class="mb-0">
@@ -116,6 +118,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
                 <div class="menu-item">
                     <div class="item" id="headingTwo">
                         <h5 class="mb-0">

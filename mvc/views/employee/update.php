@@ -32,6 +32,7 @@ switch ($employee['role']) {
         break;
 }
 ?>
+
 <div class="add-employee">
     <div class="add-employee-title">
         <h6>Sửa Nhân Sự <?php echo $employee['name'] ?></h6>

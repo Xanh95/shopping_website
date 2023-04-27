@@ -1,5 +1,7 @@
 <!--views/employee/create.php-->
+<?php
 
+?>
 <div class="add-employee">
     <div class="add-employee-title">
         <h6>Thêm Nhân Sự</h6>
@@ -55,10 +57,25 @@
                     <?php endforeach; ?>
                 </select>
                 <select id="Role" name="employee_role">
-                    <option value="4">Nhân Viên</option>
-                    <option value="3">Quản Lý</option>
-                    <option value="2">Trưởng Phòng</option>
-                    <option value="1">Giám Đốc</option>
+                    <?php
+                    $roles = [
+                        1 => 'Giám Đốc',
+                        2 => 'Trưởng Phòng',
+                        3 => 'Quản Lý',
+                        4 => 'Nhân Viên'
+                    ];
+
+                    foreach ($roles as $key => $value) {
+                        if ($_SESSION['role'] < $key ) {
+                            echo '<option value="' . $key . '"';
+
+                            echo '>' . $value . '</option>';
+                        }
+                    }
+                    ?>
+
+
+
                 </select>
             </div>
             <div class="add-employee-btn">

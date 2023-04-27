@@ -7,6 +7,11 @@ class DepartmentController extends Controller
     //index.php?controller=department&action=create
     public function create()
     {
+        if ($_SESSION['role'] > 1) {
+            $_SESSION['error'] = 'bạn chưa đủ quyền vào chức năng này';
+            header('Location: ../administrator/congratulate');
+            exit();
+        }
         if (isset($_POST['createdepartment'])) {
             $department = $_POST['department'];
             if (empty($department)) {
@@ -44,8 +49,13 @@ class DepartmentController extends Controller
             $this->render('views/department/index.php', ['departments' => $departments]);
         require_once 'views/layouts/system.php';
     }
-    public function update($id)
+    public function update($id = "")
     {
+        if ($_SESSION['role'] > 1) {
+            $_SESSION['error'] = 'bạn chưa đủ quyền vào chức năng này';
+            header('Location: ../../administrator/congratulate');
+            exit();
+        }
         // -controller gọi models để lấy dữ liệu bộ phận
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
@@ -86,8 +96,13 @@ class DepartmentController extends Controller
             $this->render('views/department/update.php', ['department' => $department]);
         require_once 'views/layouts/system.php';
     }
-    public function delete($id)
+    public function delete($id = "")
     {
+        if ($_SESSION['role'] > 1) {
+            $_SESSION['error'] = 'bạn chưa đủ quyền vào chức năng này';
+            header('Location: ../../administrator/congratulate');
+            exit();
+        }
         // -controller gọi models để lấy dữ liệu bộ phận
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {

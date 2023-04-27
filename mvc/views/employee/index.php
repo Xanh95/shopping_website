@@ -1,4 +1,5 @@
 <!--views/employee/index.php-->
+
 <div class="container-employee" id="list-employee">
     <div class="title-menu">
         <h6>Danh Sách nhân sự</h6>
@@ -70,8 +71,14 @@
     </div>
     <hr>
     <div class="pagination">
-        <a href="#">&lt;&lt;</a>
-        <a href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a>
-        <a href="#">&gt;&gt;</a>
+        <?php if ($count_total > 5) : ?>
+            <a href="./employee/index/<?php echo ($page - 1) < 0 ? 1 : ($page - 1) ?>">&lt;&lt;</a>
+            <?php for ($i = 1; $i <= $total_page; ++$i) : ?>
+
+                <a href="./employee/index/<?php echo $i; ?>" style="color: <?php echo ($page == $i) ? '#ff6000' : '#007bff' ?>;"><?php echo $i; ?></a>
+            <?php endfor; ?>
+
+            <a href="./employee/index/<?php echo ($page + 1) > $total_page ? $total_page : ($page + 1) ?>">&gt;&gt;</a>
+        <?php endif ?>
     </div>
 </div>

@@ -48,6 +48,10 @@ class LoginController extends Controller
                         //tạo session user để xác định user nào đang login
                         $_SESSION['user'] = $employee['name'];
                         $_SESSION['role'] = $employee['role'];
+                        $_SESSION['id'] = $employee['id'];
+                        if ($employee['role'] == 1) {
+                            $_SESSION['role'] = 0;
+                        }
                         header("Location: ../administrator/congratulate");
                         exit();
                     } else {
