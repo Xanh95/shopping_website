@@ -100,17 +100,17 @@ class EmployeeController extends Controller
 
 
         $page = $curent_page;
-        $page = ($page - 1) * 5;
+        $page = ($page - 1) * 20;
 
 
-        // -controller gọi models để lấy dữ liệu các bộ phận
+        // -controller gọi models để lấy dữ liệu 
 
         $employee_model = new Employee();
         // lấy tổng số bản ghi
         $count_total = $employee_model->countTotal();
 
-        $total_page = ceil($count_total / 5);
-
+        $total_page = ceil($count_total / 20);
+        // lấy danh sách nhân sự
         $employees = $employee_model->getAll($page);
         // - Controller gọi View
         $this->page_title = 'Trang Danh Sách Bộ Phận';

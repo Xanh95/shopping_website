@@ -48,7 +48,7 @@ class Employee extends Model
     public function getAll($page)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role ORDER BY created_at DESC LIMIT $page,5";
+        $sql_select_all = "SELECT * FROM user WHERE role > :role ORDER BY created_at DESC LIMIT $page,20";
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
         $selects = [
@@ -58,6 +58,62 @@ class Employee extends Model
         $obj_select_all->execute($selects);
         $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $employees;
+    }
+    public function search($name, $sortname, $sorttime, $birthday)
+    {
+
+        $sql_select_all = "SELECT * FROM user WHERE role > :role";
+
+        if (!empty($name) && !empty($birthday)) {
+            $sql_select_all .= " AND (name LIKE '%$name%' OR birthday LIKE '%$birthday%')";
+        } else if (!empty($name)) {
+            $sql_select_all .= " AND name LIKE '%$name%'";
+        } else if (!empty($birthday)) {
+            $sql_select_all .= " AND birthday LIKE '%$birthday%'";
+        }
+
+        if (!empty($sortname) && !empty($sorttime)) {
+            $sql_select_all .= " ORDER BY created_at $sorttime, name $sortname";
+        } else if (!empty($sortname)) {
+            $sql_select_all .= " ORDER BY name $sortname";
+        } else if (!empty($sorttime)) {
+            $sql_select_all .= " ORDER BY created_at $sorttime";
+        }
+
+
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+
+        $selects = [
+            ':role' => $_SESSION['role'],
+        ];
+        $obj_select_all->execute($selects);
+        $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $employees;
+    }
+    public function searchName($name)
+    {
+
+        $sql_select_all = "SELECT * FROM user WHERE role > :role AND name LIKE '%$name%'";
+
+
+
+
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+
+        $selects = [
+            ':role' => $_SESSION['role'],
+
+        ];
+        $obj_select_all->execute($selects);
+        $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+
+        $list_name = [];
+
+        foreach ($employees as $item) {
+            $list_name[] = $item["name"];
+        }
+
+        return json_encode($list_name);
     }
 
 

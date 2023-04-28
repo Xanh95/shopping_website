@@ -3,23 +3,25 @@
 <div class="container-employee" id="list-employee">
     <div class="title-menu">
         <h6>Danh Sách nhân sự</h6>
-        <input type="search" placeholder="tìm kiếm nhân sự">
-        Theo Tên
-        <select name="sortname " id="">
-            <option value="1">Từ a-z</option>
-            <option value="2">Từ z-a</option>
-        </select>
+        <input type="search" placeholder="tìm kiếm nhân sự" id="employee-name">
         Theo Thời Gian vào
-        <select name="sorttime " id="">
+        <select name="sorttime " id="employee-sorttime">
+            <option value="">Thời Gian</option>
             <option value="1">Mới-&gt;Cũ</option>
             <option value="2">Cũ-&gt;Mới</option>
         </select>
+        Theo Tên
+        <select name="sortname " id="employee-sortname">
+            <option value="">Tên</option>
+            <option value="1">Từ a-z</option>
+            <option value="2">Từ z-a</option>
+        </select>
         Theo Ngày Sinh
-        <input type="text">
-        <button class="btn-search-employee">Tìm Kiếm</button>
+        <input type="text" id="employee-birthday">
+        <button class="btn-search-employee" id="search-employee">Tìm Kiếm</button>
     </div>
     <hr>
-    <div class="list-employee">
+    <div class="list-employee" id="list-search-employee">
         <table class="table-employee" border="1px">
             <tbody>
                 <tr>
@@ -71,14 +73,14 @@
     </div>
     <hr>
     <div class="pagination">
-        <?php if ($count_total > 5) : ?>
-            <a href="./employee/index/<?php echo ($page - 1) < 0 ? 1 : ($page - 1) ?>">&lt;&lt;</a>
+        <?php if ($count_total > 20) : ?>
+            <a href="./employee/index/<?php echo ($page - 1) <= 0 ? 1 : ($page - 1) ?>">&lt;&lt;</a>
             <?php for ($i = 1; $i <= $total_page; ++$i) : ?>
 
                 <a href="./employee/index/<?php echo $i; ?>" style="color: <?php echo ($page == $i) ? '#ff6000' : '#007bff' ?>;"><?php echo $i; ?></a>
             <?php endfor; ?>
 
-            <a href="./employee/index/<?php echo ($page + 1) > $total_page ? $total_page : ($page + 1) ?>">&gt;&gt;</a>
+            <a href="./employee/index/<?php echo ($page + 1) >= $total_page ? $total_page : ($page + 1) ?>">&gt;&gt;</a>
         <?php endif ?>
     </div>
 </div>

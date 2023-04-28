@@ -15,12 +15,19 @@ $arr = UrlProcess();
 
 // + Phân tích url để lấy giá trị của controller và action
 // index.php?controller=user&action=create
-$_SESSION['controller'] = $arr[0];
-$_SESSION['action'] = $arr[1];
-
 $controller = !empty($arr) ? $arr[0] :
-    'ad';
-$action = isset($arr[1]) ? $arr[1] : 'test';
+    'administrator';
+$action = isset($arr[1]) ? $arr[1] : 'congratulate';
+if (isset($arr[0])) {
+    $_SESSION['controller'] = $arr[0];
+}
+if (isset($arr[1])) {
+    $_SESSION['action'] = $arr[1];
+}
+
+
+
+
 // unset
 
 unset($arr[0]);
