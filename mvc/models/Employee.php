@@ -108,13 +108,40 @@ class Employee extends Model
         $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
 
         $list_name = [];
-
+        // lấy ra mảng chỉ có tên
         foreach ($employees as $item) {
             $list_name[] = $item["name"];
         }
-
+        // lọc tên trùng
+        $list_name = array_unique($list_name);
         return json_encode($list_name);
     }
+    // public function searchBirthDay($birthday)
+    // {
+
+    //     $sql_select_all = "SELECT * FROM user WHERE role > :role AND birthday LIKE '%$birthday%'";
+
+
+
+
+    //     $obj_select_all = $this->connection->prepare($sql_select_all);
+
+    //     $selects = [
+    //         ':role' => $_SESSION['role'],
+
+    //     ];
+    //     $obj_select_all->execute($selects);
+    //     $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+
+    //     $list_birthday = [];
+    //     // lấy ra mảng chỉ có birthday
+    //     foreach ($employees as $item) {
+    //         $list_birthday[] = $item["birthday"];
+    //     }
+    //     // lọc tên trùng
+    //     $list_birthday = array_unique($list_birthday);
+    //     return json_encode($list_birthday);
+    // }
 
 
 

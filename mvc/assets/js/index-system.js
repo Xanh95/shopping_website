@@ -308,14 +308,13 @@ $("#search-employee").click(function () {
     },
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (employee) {
-      console.log(employee);
       $("#list-search-employee").html(employee);
     },
   };
   // Gọi ajax với jQuery
   $.ajax(obj_ajax);
 });
-
+// search autocomplete name
 $("#employee-name").keyup(function () {
   let name = $("#employee-name").val();
 
@@ -332,6 +331,7 @@ $("#employee-name").keyup(function () {
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (employee) {
       list_name = JSON.parse(employee);
+
       $(function () {
         var availableTags = list_name;
         function split(val) {
@@ -384,4 +384,3 @@ $("#employee-name").keyup(function () {
   // Gọi ajax với jQuery
   $.ajax(obj_ajax);
 });
-//

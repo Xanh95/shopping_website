@@ -49,4 +49,19 @@ class AjaxController extends Controller
 
         return json_encode($employees);
     }
+    // public function searchAutoBirthDay()
+    // {
+
+    //     $birthday = $_POST['birthday'];
+
+
+
+    //     // -controller gọi models để lấy dữ liệu các bộ phận
+    //     $employee_model = new Employee();
+    //     $employees = $employee_model->searchBirthDay($birthday);
+
+    //     print_r($employees);
+
+    //     return json_encode($employees);
+    // }
 }
