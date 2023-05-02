@@ -254,12 +254,17 @@ class PostController extends Controller
             exit();
         }
 
-        $posts_id = $id;
+        $post_id = $id;
 
         $posts_model = new Post();
-        $is_delete = $posts_model->delete($posts_id);
+        $post = $posts_model->getById($post_id);
+        $post_avatar = $post['avatar_sale'];
+
+        $is_delete = $posts_model->delete($post_id);
 
         if ($is_delete) {
+            //xóa file cũ, thêm @ vào trước hàm unlink để tránh báo lỗi khi xóa file ko tồn tại
+            @unlink("./assets/img/post/$post_avatar");
             $_SESSION['success'] = 'Xóa thành công';
         } else {
             $_SESSION['error'] = 'Xóa thất bại';

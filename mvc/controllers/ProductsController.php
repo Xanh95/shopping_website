@@ -466,8 +466,7 @@ class ProductsController extends Controller
                     foreach ($name_imgs_product as $value) {
                         @unlink("./assets/img/$dir_upload/$value");
                     }
-                    $Imgproducts_model = new Imgproducts();
-                    $is_delete = $Imgproducts_model->delete($products_id);
+                    $Imgproducts_model->delete($products_id);
                     for ($i = 0; $i < count($imgs['name']); $i++) {
                         $img = array(
                             'name' => $imgs['name'][$i],
@@ -536,7 +535,6 @@ class ProductsController extends Controller
     }
     public function delete($id = "")
     {
-
         // -controller gọi models để lấy dữ liệu bộ phận
         //check validate nếu id không tồn tại thì báo lỗi
         if (!isset($id) || !is_numeric($id)) {
@@ -544,14 +542,26 @@ class ProductsController extends Controller
             header('Location: ../department/index');
             exit();
         }
-
         $products_id = $id;
+        // -controller gọi models để lấy ảnh review sản phẩm
         $Imgproducts_model = new Imgproducts();
-        $is_delete = $Imgproducts_model->delete($products_id);
+        $imgs_product = $Imgproducts_model->getAll($products_id);
+        $name_imgs_product = array();
+        foreach ($imgs_product as $value) {
+            $name_imgs_product[] = $value['img'];
+        }
         $Products_model = new Products();
+        $product = $Products_model->getById($products_id);
         $is_delete = $Products_model->delete($products_id);
-
         if ($is_delete) {
+            //xóa file cũ, thêm @ vào trước hàm unlink để tránh báo lỗi khi xóa file ko tồn tại
+            $img_video = $product['img_video'];
+            @unlink("./assets/img/products/$img_video");
+            $avatar_products = $product['avatar_products'];
+            @unlink("./assets/img/products/$avatar_products");
+            foreach ($name_imgs_product as $value) {
+                @unlink("./assets/img/products/$value");
+            }
             $_SESSION['success'] = 'Xóa thành công';
         } else {
             $_SESSION['error'] = 'Xóa thất bại';
