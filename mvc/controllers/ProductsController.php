@@ -6,6 +6,24 @@ require_once 'models/Imgproducts.php';
 
 class ProductsController extends Controller
 {
+    public function __construct()
+    {
+
+        $controller = isset($_SESSION['controller']) ? $_SESSION['controller'] : 'category';
+        $action = isset($_SESSION['action']) ? $_SESSION['action'] : 'index';
+        if (isset($_SESSION['controller'])) {
+            unset($_SESSION['controller']);
+        }
+        if (isset($_SESSION['action'])) {
+            unset($_SESSION['action']);
+        }
+
+        if (!isset($_SESSION['user']) && $controller != 'check' && $action != 'login') {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
+        }
+    }
     //index.php?controller=products&action=create
     public function create()
     {
@@ -196,7 +214,7 @@ class ProductsController extends Controller
                         }
                     }
                     $_SESSION['success'] = 'Thêm mới Sản Phẩm ' . $name . ' thành công';
-                    header('Location: ../administrator/congratulate');
+                    header('Location: ../products/index');
                     exit();
                 }
                 $this->error = 'Thêm mới thất bại';
@@ -233,6 +251,9 @@ class ProductsController extends Controller
             $page = $total_page;
         }
         $page = ($page - 1) * $limit;
+        if ($page < 0) {
+            $page = 0;
+        }
         // lấy danh sách Sản Phẩm
         $products = $products_model->getAll($page, $limit);
         // -controller gọi models để lấy dữ liệu danh mục

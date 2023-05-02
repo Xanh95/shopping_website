@@ -59,17 +59,17 @@ class Products extends Model
         $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
-    public function search($name, $sortname, $sorttime, $birthday)
+    public function search($name, $sortname, $sorttime, $category)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role";
+        $sql_select_all = "SELECT * FROM products WHERE ";
 
-        if (!empty($name) && !empty($birthday)) {
-            $sql_select_all .= " AND (name LIKE '%$name%' OR birthday LIKE '%$birthday%')";
+        if (!empty($name) && !empty($category)) {
+            $sql_select_all .= "  (name LIKE '%$name%' AND category_id = $category)";
         } else if (!empty($name)) {
-            $sql_select_all .= " AND name LIKE '%$name%'";
-        } else if (!empty($birthday)) {
-            $sql_select_all .= " AND birthday LIKE '%$birthday%'";
+            $sql_select_all .= "  name LIKE '%$name%'";
+        } else if (!empty($category)) {
+            $sql_select_all .= "  category_id = $category";
         }
 
         if (!empty($sortname) && !empty($sorttime)) {
@@ -83,65 +83,58 @@ class Products extends Model
 
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
-        $selects = [
-            ':role' => $_SESSION['role'],
-        ];
-        $obj_select_all->execute($selects);
-        $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
-        return $employees;
+
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
     }
     public function searchName($name)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role AND name LIKE '%$name%'";
+        $sql_select_all = "SELECT * FROM products WHERE name LIKE '%$name%'";
 
 
 
 
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
-        $selects = [
-            ':role' => $_SESSION['role'],
 
-        ];
-        $obj_select_all->execute($selects);
-        $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
 
         $list_name = [];
         // lấy ra mảng chỉ có tên
-        foreach ($employees as $item) {
+        foreach ($products as $item) {
             $list_name[] = $item["name"];
         }
+
+
+
         // lọc tên trùng
-        $list_name = array_unique($list_name);
+        // $list_name = array_unique($list_name);
         return json_encode($list_name);
     }
-    // public function searchBirthDay($birthday)
-    // {
+    public function searchCategory($category)
+    {
 
-    //     $sql_select_all = "SELECT * FROM user WHERE role > :role AND birthday LIKE '%$birthday%'";
-
-
+        $sql_select_all = "SELECT * FROM list_products WHERE  listproducts LIKE '%$category%'";
 
 
-    //     $obj_select_all = $this->connection->prepare($sql_select_all);
 
-    //     $selects = [
-    //         ':role' => $_SESSION['role'],
 
-    //     ];
-    //     $obj_select_all->execute($selects);
-    //     $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        $obj_select_all = $this->connection->prepare($sql_select_all);
 
-    //     $list_birthday = [];
-    //     // lấy ra mảng chỉ có birthday
-    //     foreach ($employees as $item) {
-    //         $list_birthday[] = $item["birthday"];
-    //     }
-    //     // lọc tên trùng
-    //     $list_birthday = array_unique($list_birthday);
-    //     return json_encode($list_birthday);
-    // }
+
+        $obj_select_all->execute();
+        $listproducts = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+
+        $list_products = [];
+        // lấy ra mảng chỉ có birthday
+        foreach ($listproducts as $item) {
+            $list_products[] = $item["listproducts"];
+        }
+        return json_encode($list_products);
+    }
 
 
 

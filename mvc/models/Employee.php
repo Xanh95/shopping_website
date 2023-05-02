@@ -65,7 +65,7 @@ class Employee extends Model
         $sql_select_all = "SELECT * FROM user WHERE role > :role";
 
         if (!empty($name) && !empty($birthday)) {
-            $sql_select_all .= " AND (name LIKE '%$name%' OR birthday LIKE '%$birthday%')";
+            $sql_select_all .= " AND (name LIKE '%$name%' AND birthday LIKE '%$birthday%')";
         } else if (!empty($name)) {
             $sql_select_all .= " AND name LIKE '%$name%'";
         } else if (!empty($birthday)) {
@@ -116,32 +116,32 @@ class Employee extends Model
         $list_name = array_unique($list_name);
         return json_encode($list_name);
     }
-    // public function searchBirthDay($birthday)
-    // {
+    public function searchBirthDay($birthday)
+    {
 
-    //     $sql_select_all = "SELECT * FROM user WHERE role > :role AND birthday LIKE '%$birthday%'";
-
-
+        $sql_select_all = "SELECT * FROM user WHERE role > :role AND birthday LIKE '%$birthday%'";
 
 
-    //     $obj_select_all = $this->connection->prepare($sql_select_all);
 
-    //     $selects = [
-    //         ':role' => $_SESSION['role'],
 
-    //     ];
-    //     $obj_select_all->execute($selects);
-    //     $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        $obj_select_all = $this->connection->prepare($sql_select_all);
 
-    //     $list_birthday = [];
-    //     // lấy ra mảng chỉ có birthday
-    //     foreach ($employees as $item) {
-    //         $list_birthday[] = $item["birthday"];
-    //     }
-    //     // lọc tên trùng
-    //     $list_birthday = array_unique($list_birthday);
-    //     return json_encode($list_birthday);
-    // }
+        $selects = [
+            ':role' => $_SESSION['role'],
+
+        ];
+        $obj_select_all->execute($selects);
+        $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+
+        $list_birthday = [];
+        // lấy ra mảng chỉ có birthday
+        foreach ($employees as $item) {
+            $list_birthday[] = $item["birthday"];
+        }
+        // lọc tên trùng
+        $list_birthday = array_unique($list_birthday);
+        return json_encode($list_birthday);
+    }
 
 
 

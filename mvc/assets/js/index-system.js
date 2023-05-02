@@ -146,7 +146,9 @@ $("#item-7").click(function () {
     });
   }
 });
-$("#item-8").click(function () {
+//
+if ($("#sale").length > 0) {
+  $("#collapsefive").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 133px)",
@@ -157,8 +159,11 @@ $("#item-8").click(function () {
       transform: "translate(-39px, 106px)",
     });
   }
-});
-$("#item-9").click(function () {
+}
+
+//
+if ($("#list-sale").length > 0) {
+  $("#collapsefive").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 157px)",
@@ -169,7 +174,8 @@ $("#item-9").click(function () {
       transform: "translate(-39px, 129px)",
     });
   }
-});
+}
+
 //
 
 if ($("#list-products").length > 0) {
@@ -367,6 +373,35 @@ $("#search-employee").click(function () {
   // Gọi ajax với jQuery
   $.ajax(obj_ajax);
 });
+// ajax search products
+$("#search-product").click(function () {
+  let name = $("#product-name").val();
+  let sortname = $("#product-sortname").val();
+  let sorttime = $("#product-sorttime").val();
+  let category = $("#product-category").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchProducts",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name: name,
+      sortname: sortname,
+      sorttime: sorttime,
+      category: category,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (products) {
+      console.log(products);
+      $("#list-search-products").html(products);
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
 // search autocomplete name
 $("#employee-name").keyup(function () {
   let name = $("#employee-name").val();
@@ -384,7 +419,7 @@ $("#employee-name").keyup(function () {
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (employee) {
       list_name = JSON.parse(employee);
-      console.log(list_name);
+
       $(function () {
         var availableTags = list_name;
         function split(val) {
@@ -395,6 +430,216 @@ $("#employee-name").keyup(function () {
         }
 
         $("#employee-name")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// tìm kiếm birthday
+$("#employee-birthday").keyup(function () {
+  let birthday = $("#employee-birthday").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoBirthDay",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      birthday: birthday,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (employee) {
+      list_name = JSON.parse(employee);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#employee-birthday")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// tìm kiếm tên sản phẩm
+$("#product-name").keyup(function () {
+  let name_product = $("#product-name").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoNameProduct",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name_product: name_product,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (products) {
+      list_name = JSON.parse(products);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#product-name")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// tìm kiếm tên danh mục sản phẩm
+$("#product-category").keyup(function () {
+  let category = $("#product-category").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoCategory",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      category: category,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (category) {
+      list_name = JSON.parse(category);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#product-category")
           // don't navigate away from the field on tab when selecting an item
           .on("keydown", function (event) {
             if (
@@ -462,11 +707,13 @@ $("#price_products").on("keyup change", function () {
   $("#price_text").html(price);
 });
 $(document).ready(function () {
-  var price = $("#price_products").val();
-  if (price !== "") {
-    price = parseInt(price.replace(/,/g, ""));
-    price = price.toLocaleString("vi-VN") + " VNĐ";
-    $("#price_text").html(price);
+  if ($("#price_products").length > 0) {
+    var price = $("#price_products").val();
+    if (price !== "") {
+      price = parseInt(price.replace(/,/g, ""));
+      price = price.toLocaleString("vi-VN") + " VNĐ";
+      $("#price_text").html(price);
+    }
   }
 });
 // validate create products
@@ -496,4 +743,19 @@ $("#go_page").on("input", function () {
 $("#go_page_employee").on("input", function () {
   var goPageInput = $(this).val();
   $("#go_link_employee").attr("href", "./employee/index/" + goPageInput);
+});
+// validate post sale
+$("#sale").validate({
+  rules: {
+    title: {
+      required: true,
+      maxlength: 75,
+    },
+  },
+  messages: {
+    title: {
+      required: "phải nhập tiêu đề",
+      maxlength: "nhiều nhất 75 ký tự",
+    },
+  },
 });

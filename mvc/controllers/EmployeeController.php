@@ -5,6 +5,24 @@ require_once 'models/Department.php';
 
 class EmployeeController extends Controller
 {
+    public function __construct()
+    {
+
+        $controller = isset($_SESSION['controller']) ? $_SESSION['controller'] : 'category';
+        $action = isset($_SESSION['action']) ? $_SESSION['action'] : 'index';
+        if (isset($_SESSION['controller'])) {
+            unset($_SESSION['controller']);
+        }
+        if (isset($_SESSION['action'])) {
+            unset($_SESSION['action']);
+        }
+
+        if (!isset($_SESSION['user']) && $controller != 'check' && $action != 'login') {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
+        }
+    }
     //index.php?controller=employee&action=create
     public function create()
     {
@@ -112,6 +130,9 @@ class EmployeeController extends Controller
 
 
         $page = ($page - 1) * $limit;
+        if ($page < 0) {
+            $page = 0;
+        }
         // lấy danh sách nhân sự
         $employees = $employee_model->getAll($page, $limit);
         // - Controller gọi View

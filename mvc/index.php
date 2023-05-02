@@ -47,12 +47,16 @@ $controller_path = "controllers/$controller.php";
 //var_dump($controller_path); //controllers/AdministratorController.php
 
 if (!file_exists($controller_path)) {
+    // header('Location: ../check/login');
+    // exit();
     die('Trang bạn tìm không tồn tại - 404');
 }
 require_once "controllers/$controller.php";
 
 
 if (!method_exists($controller, $action)) {
+    // header('Location: ../../check/login');
+    // exit();
     die("Phương thức $action ko tồn tại trong class $controller");
 }
 

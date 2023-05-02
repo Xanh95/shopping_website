@@ -190,10 +190,10 @@
                         <div class="menu-item-body">
                             <ul>
                                 <li id="item-8">
-                                    <a>Mô tả Sản Phẩm</a>
+                                    <a href="post/create">Thêm khuyến mãi</a>
                                 </li>
                                 <li id="item-9">
-                                    <a>Tin Tức</a>
+                                    <a href="post/index">Danh sách khuyến mãi</a>
                                 </li>
                             </ul>
                         </div>
