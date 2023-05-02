@@ -102,7 +102,9 @@ $("#item-4").click(function () {
     });
   }
 });
-$("#item-5").click(function () {
+//
+if ($("#list-product").length > 0) {
+  $("#collapseThree").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 80px)",
@@ -113,8 +115,12 @@ $("#item-5").click(function () {
       transform: "translate(-39px, 53px)",
     });
   }
-});
-$("#item-6").click(function () {
+}
+
+//
+//
+if ($("#createproducts").length > 0) {
+  $("#collapseThree").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 104px)",
@@ -125,7 +131,9 @@ $("#item-6").click(function () {
       transform: "translate(-39px, 77px)",
     });
   }
-});
+}
+
+//
 $("#item-7").click(function () {
   robot.css({
     opacity: 1,
@@ -162,7 +170,10 @@ $("#item-9").click(function () {
     });
   }
 });
-$("#item-10").click(function () {
+//
+
+if ($("#list-products").length > 0) {
+  $("#collapseThree").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 129px)",
@@ -173,8 +184,10 @@ $("#item-10").click(function () {
       transform: "translate(-39px, 103px)",
     });
   }
-});
-$("#item-11").click(function () {
+}
+//
+if ($("#add-listproducts").length > 0) {
+  $("#collapseThree").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 152px)",
@@ -185,8 +198,9 @@ $("#item-11").click(function () {
       transform: "translate(-39px, 127px)",
     });
   }
-});
+}
 
+//
 $("#menu").click(function () {
   var sidebar = $("#sidebar");
   if (sidebar.css("display") !== "none") {
@@ -198,13 +212,50 @@ $("#menu").click(function () {
   }
 });
 // validate add employee
+// Define custom date format validation rule
+$.validator.addMethod(
+  "dateFormat",
+  function (value, element, params) {
+    // Check if value matches "dd/mm/yyyy" format using regular expression
+    if (!/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/.test(value)) {
+      return false;
+    }
+
+    // Split date string into day, month, and year
+    var dateParts = value.split("/");
+    var day = parseInt(dateParts[0], 10);
+    var month = parseInt(dateParts[1], 10);
+    var year = parseInt(dateParts[2], 10);
+
+    // Check if month is valid
+    if (month < 1 || month > 12) {
+      return false;
+    }
+
+    // Check if day is valid
+    if (day < 1 || day > 31) {
+      return false;
+    }
+
+    // Check if day is valid for this month and year
+    var daysInMonth = new Date(year, month, 0).getDate();
+    if (day > daysInMonth) {
+      return false;
+    }
+
+    // Date is valid
+    return true;
+  },
+  "Phải nhập đúng định dạng ngày tháng năm (dd/mm/yyyy)"
+);
+
+// validate add employee
 $("#add-employee").validate({
   rules: {
     employee_input_name: "required",
     employee_input_birthday: {
       required: true,
-      date: true,
-      dateFormat: "dd/mm/yyyy",
+      dateFormat: true, // use custom dateFormat rule
     },
     employee_input_phone: {
       required: true,
@@ -227,33 +278,33 @@ $("#add-employee").validate({
     },
   },
   messages: {
-    employee_input_name: "phải Nhập",
+    employee_input_name: "Phải nhập tên",
     employee_input_birthday: {
       required: "Phải nhập ngày sinh",
-      date: "Phải nhập đúng định dạng ngày tháng năm",
-      dateFormat: "Phải nhập đúng định dạng ngày tháng năm",
+      dateFormat: "Phải nhập đúng định dạng ngày tháng năm (dd/mm/yyyy)",
     },
     employee_input_phone: {
-      required: "phải Nhập",
-      minlength: "ít nhất 9 chữ số",
+      required: "Phải nhập số điện thoại",
+      minlength: "Số điện thoại phải có ít nhất 9 chữ số",
     },
     employee_input_pass: {
-      required: "phải Nhập",
-      minlength: "mật khẩu ít nhất 8 ký tự",
+      required: "Phải nhập mật khẩu",
+      minlength: "Mật khẩu phải có ít nhất 8 ký tự",
     },
-    employee_input_address: "phải Nhập",
-    employee_input_hometown: "phải Nhập",
+    employee_input_address: "Phải nhập địa chỉ",
+    employee_input_hometown: "Phải nhập quê quán",
     employee_input_confirm_password: {
-      required: "phải Nhập",
-      equalTo: "mật khẩu nhập lại không giống",
+      required: "Phải nhập lại mật khẩu",
+      equalTo: "Mật khẩu nhập lại không giống",
     },
-    employee_input_gender: "phải Chọn",
+    employee_input_gender: "Phải chọn giới tính",
     employee_input_email: {
-      required: "phải Nhập",
-      email: "phải là dạng email",
+      required: "Phải nhập email",
+      email: "Phải nhập đúng định dạng email",
     },
   },
 });
+
 // validate edit pass
 if ($("#editpassword").length) {
   $("#editpassword").validate({
@@ -284,7 +335,9 @@ if ($("#editpassword").length) {
 
 // summernote
 $(document).ready(function () {
-  $("#summernote").summernote();
+  $(".summernote").summernote({
+    height: 550,
+  });
 });
 // ajax search employee
 $("#search-employee").click(function () {
@@ -331,7 +384,7 @@ $("#employee-name").keyup(function () {
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (employee) {
       list_name = JSON.parse(employee);
-
+      console.log(list_name);
       $(function () {
         var availableTags = list_name;
         function split(val) {
@@ -383,4 +436,64 @@ $("#employee-name").keyup(function () {
   };
   // Gọi ajax với jQuery
   $.ajax(obj_ajax);
+});
+// validate
+$("#add-department").validate({
+  rules: {
+    department: "required",
+  },
+  messages: {
+    department: " phải nhập tên bộ phận",
+  },
+});
+$("#add-listproducts").validate({
+  rules: {
+    department: "required",
+  },
+  messages: {
+    department: " phải nhập tên bộ phận",
+  },
+});
+// show price VND
+$("#price_products").on("keyup change", function () {
+  var price = $("#price_products").val();
+  price = parseInt(price.replace(/,/g, ""));
+  price = price.toLocaleString("vi-VN") + " VNĐ";
+  $("#price_text").html(price);
+});
+$(document).ready(function () {
+  var price = $("#price_products").val();
+  if (price !== "") {
+    price = parseInt(price.replace(/,/g, ""));
+    price = price.toLocaleString("vi-VN") + " VNĐ";
+    $("#price_text").html(price);
+  }
+});
+// validate create products
+$("#createproducts").validate({
+  rules: {
+    products_name: "required",
+    products_guarantee: "required",
+    price: {
+      required: true,
+      number: true,
+    },
+  },
+  messages: {
+    products_name: "Phải nhập",
+    products_guarantee: "Phải nhập",
+    price: {
+      required: "Phải nhập",
+      number: "Phải là số",
+    },
+  },
+});
+// phân trang đến trang muốn
+$("#go_page").on("input", function () {
+  var goPageInput = $(this).val();
+  $("#go_link").attr("href", "./products/index/" + goPageInput);
+});
+$("#go_page_employee").on("input", function () {
+  var goPageInput = $(this).val();
+  $("#go_link_employee").attr("href", "./employee/index/" + goPageInput);
 });

@@ -38,7 +38,7 @@ switch ($employee['role']) {
         <h6>Sửa Nhân Sự <?php echo $employee['name'] ?></h6>
         <hr>
     </div>
-    <form action="" method="post" id="add-employee">
+    <form action="" method="post" id="list-employee">
         <div class="add-employee-form">
             <div class="name-employee">
                 <span class="employee-text">Họ và Tên</span>

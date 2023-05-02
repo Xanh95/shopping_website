@@ -46,7 +46,7 @@ class Department extends Model
     {
         $obj_update = $this->connection->prepare("UPDATE department SET `department` = :department
            WHERE id = $id");
-        var_dump($this->department_name);
+
         $update = [
             ':department' => $this->department_name
         ];

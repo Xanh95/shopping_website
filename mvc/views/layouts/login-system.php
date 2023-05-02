@@ -32,18 +32,7 @@
         <h3>Đăng Nhập</h3>
         <!-- Hiển thị các lỗi, session lỗi, session thành công tại file
 layout-->
-        <h3 style="color: red"><?php echo $this->error .  " ";
-                                    if (isset($_SESSION['error'])) {
-                                        echo $_SESSION['error'];
-                                        unset($_SESSION['error']);
-                                    } ?></h3>
-        <h3 style="color: green"><?php
-                                        if (isset($_SESSION['success'])) {
-                                            echo $_SESSION['success'];
-                                            unset($_SESSION['success']);
-                                        }
 
-                                        ?></h3>
         <label for="username">Email</label>
         <input type="text" placeholder="Email" id="username" name="email" />
 
@@ -53,6 +42,18 @@ layout-->
 
         <button type="submit" name="login-system">Đăng Nhập</button>
     </form>
+    <h3 style="color: red" class="notification "><?php echo $this->error .  " ";
+                                    if (isset($_SESSION['error'])) {
+                                        echo $_SESSION['error'];
+                                        unset($_SESSION['error']);
+                                    } ?></h3>
+    <h3 style="color: green"><?php
+                                if (isset($_SESSION['success'])) {
+                                    echo $_SESSION['success'];
+                                    unset($_SESSION['success']);
+                                }
+
+                                ?></h3>
 </body>
 
 </html>

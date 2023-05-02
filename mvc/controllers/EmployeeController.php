@@ -28,14 +28,14 @@ class EmployeeController extends Controller
             $department = $_POST['employee_department'];
             $role = $_POST['employee_role'];
 
-            $birthday_timestamp = strtotime($birthday);
+
             if (empty($name)) {
                 $this->error = 'phải nhập họ tên';
             } elseif (strlen($name) < 3) {
                 $this->error = 'tên phải dài hơn 3 ký tự';
             } elseif (empty($birthday)) {
                 $this->error = 'phải nhập ngày sinh';
-            } elseif (!$birthday_timestamp || !preg_match('/\d{2}\/\d{2}\/\d{4}/', $birthday)) {
+            } elseif (!preg_match('/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/', $birthday)) {
                 $this->error = 'Ngày sinh không đúng định dạng ngày/tháng/năm dd/mm/yyyy.';
             } elseif (empty($phone)) {
                 $this->error = 'phải nhập số điện thoại';
@@ -97,21 +97,23 @@ class EmployeeController extends Controller
             exit();
         }
 
-
-
-        $page = $curent_page;
-        $page = ($page - 1) * 20;
-
-
         // -controller gọi models để lấy dữ liệu 
-
+        $page = $curent_page;
+        $limit = 15;
         $employee_model = new Employee();
         // lấy tổng số bản ghi
         $count_total = $employee_model->countTotal();
+        $total_page = ceil($count_total / $limit);
+        if ($page < 1) {
+            $page = 1;
+        } elseif ($page > $total_page) {
+            $page = $total_page;
+        }
 
-        $total_page = ceil($count_total / 20);
+
+        $page = ($page - 1) * $limit;
         // lấy danh sách nhân sự
-        $employees = $employee_model->getAll($page);
+        $employees = $employee_model->getAll($page, $limit);
         // - Controller gọi View
         $this->page_title = 'Trang Danh Sách Bộ Phận';
         $this->content =
@@ -119,7 +121,8 @@ class EmployeeController extends Controller
                 'employees' => $employees,
                 'total_page' => $total_page,
                 'page' => $curent_page,
-                'count_total' => $count_total
+                'count_total' => $count_total,
+                'limit' => $limit
             ]);
         require_once 'views/layouts/system.php';
     }
@@ -170,7 +173,7 @@ class EmployeeController extends Controller
                 $this->error = 'tên phải dài hơn 3 ký tự';
             } elseif (empty($birthday)) {
                 $this->error = 'phải nhập ngày sinh';
-            } elseif (!$birthday_timestamp || !preg_match('/\d{2}\/\d{2}\/\d{4}/', $birthday)) {
+            } elseif (!$birthday_timestamp || !preg_match('/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/', $birthday)) {
                 $this->error = 'Ngày sinh không đúng định dạng ngày/tháng/năm dd/mm/yyyy.';
             } elseif (empty($phone)) {
                 $this->error = 'phải nhập số điện thoại';
@@ -263,17 +266,6 @@ class EmployeeController extends Controller
             $_SESSION['error'] = 'Xóa thất bại';
         }
         header('Location: ../../employee/index');
-        exit();
-    }
-    public function logout()
-    {
-
-        //        session_destroy();
-        $_SESSION = [];
-        session_destroy();
-        //        unset($_SESSION['user']);
-        $_SESSION['success'] = 'Logout thành công';
-        header('Location: ../login/login');
         exit();
     }
 }

@@ -45,10 +45,10 @@ class Employee extends Model
             }
         }
     }
-    public function getAll($page)
+    public function getAll($page, $limit)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role ORDER BY created_at DESC LIMIT $page,20";
+        $sql_select_all = "SELECT * FROM user WHERE role > :role ORDER BY created_at DESC LIMIT $page,$limit";
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
         $selects = [
@@ -184,6 +184,7 @@ class Employee extends Model
             }
         }
     }
+
     public function delete($id)
     {
         $obj_delete = $this->connection

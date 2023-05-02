@@ -11,18 +11,24 @@ class Controller
     public $error; //Lưu lỗi
     public $content; //Nội dung động của từng chức năng
 
-    // public function __construct()
-    // {
+    public function __construct()
+    {
 
-    //     $controller = isset($_SESSION['controller']) ? $_SESSION['controller'] : 'category';
-    //     $action = isset($_SESSION['action']) ? $_SESSION['action'] : 'index';
+        $controller = isset($_SESSION['controller']) ? $_SESSION['controller'] : 'category';
+        $action = isset($_SESSION['action']) ? $_SESSION['action'] : 'index';
+        if (isset($_SESSION['controller'])) {
+            unset($_SESSION['controller']);
+        }
+        if (isset($_SESSION['action'])) {
+            unset($_SESSION['action']);
+        }
 
-    //     if (!isset($_SESSION['user']) && $controller != 'login' && $action != 'login') {
-    //         $_SESSION['error'] = 'Bạn cần đăng nhập';
-    //         header('Location: ../login/login');
-    //         exit();
-    //     }
-    // }
+        if (!isset($_SESSION['user']) && $controller != 'check' && $action != 'login') {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
+        }
+    }
     // Đọc nội dung từ đường dẫn $file_path, có cơ chế truyền
     //mảng biến $variables vào 1 cách tường minh
     public function render($file_path, $variables = [])

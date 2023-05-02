@@ -18,6 +18,7 @@ header {
 .main {
   display: grid;
   grid-template-columns: 204px 1fr;
+  margin-bottom: 56px;
 }
 .sidebar {
   overflow: hidden;
@@ -179,12 +180,14 @@ td {
 .employee-text {
   color: #229118;
   width: 120px;
-  display: inline-block;
+  display: flex;
   font-size: 13px;
+  align-items: center;
 }
 .add-employee-form div {
   margin-top: 10px;
   display: flex;
+  align-items: center;
 }
 
 .add-employee-form {
@@ -259,4 +262,28 @@ footer {
   top: 19%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.createproducts {
+  margin-bottom: 100px;
+}
+.details,
+.short_details {
+  width: 90%;
+  margin-bottom: 10px;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+}
+.job-employee select {
+  height: 32px;
+}
+span.price_text {
+  color: red;
+  font-weight: bold;
+}
+.imgs_product {
+  display: grid;
+  grid-template-columns: repeat(8, 100px);
+  grid-gap: 10px;
 }

@@ -146,6 +146,7 @@
 .slider-nav img {
   height: 100px;
   object-fit: cover;
+  width: 100%;
 }
 .slider-for {
   cursor: pointer;
@@ -433,4 +434,12 @@ input[type="radio"] {
   line-height: 2.5;
   height: 40px;
   margin-right: 20px;
+}
+.nav-first {
+  position: relative;
+}
+.nav-first svg {
+  position: absolute;
+  top: calc(50% - 11px);
+  left: calc(50% - 15px);
 }

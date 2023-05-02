@@ -89,8 +89,8 @@
                     };
                     echo " ($role)";
                     ?>
-                    <a href="#">Đổi mật khẩu</a></span>
-                <a href="./employee/logout">Logout</a>
+                    <a href="./administrator/editpass">Đổi mật khẩu</a></span>
+                <a href="./administrator/logout">Logout</a>
             </div>
         </nav>
     </header>
@@ -152,10 +152,10 @@
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="menu-item-body">
                             <ul>
-                                <li id="item-5"><a>Danh sách Sản Phẩm</a></li>
-                                <li id="item-6"><a>Thêm Sản Phẩm</a></li>
-                                <li id="item-10"><a>Danh sách Danh Mục</a></li>
-                                <li id="item-11"><a>Thêm Danh Mục</a></li>
+                                <li id="item-5"><a href="products/index">Danh sách Sản Phẩm</a></li>
+                                <li id="item-6"><a href="products/create">Thêm Sản Phẩm</a></li>
+                                <li id="item-10"><a href="listproducts/index">Danh sách Danh Mục</a></li>
+                                <li id="item-11"><a href="listproducts/create">Thêm Danh Mục</a></li>
                             </ul>
                         </div>
                     </div>

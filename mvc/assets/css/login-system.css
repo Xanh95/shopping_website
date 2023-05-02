@@ -123,3 +123,6 @@ button {
 .error {
   color: red;
 }
+.notification {
+  text-align: center;
+}
