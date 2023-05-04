@@ -76,7 +76,8 @@ class Department extends Model
     public function delete($id)
     {
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM department WHERE id = $id");
+            ->prepare("DELETE FROM department WHERE id = :id");
+        $obj_delete->bindValue(':id', $id, PDO::PARAM_INT);
         $is_delete = $obj_delete->execute();
 
 

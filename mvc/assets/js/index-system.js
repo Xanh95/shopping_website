@@ -310,6 +310,48 @@ $("#add-employee").validate({
     },
   },
 });
+// validate update employee
+$("#list-employee").validate({
+  rules: {
+    employee_input_name: "required",
+    employee_input_birthday: {
+      required: true,
+      dateFormat: true, // use custom dateFormat rule
+    },
+    employee_input_phone: {
+      required: true,
+      minlength: 9,
+    },
+
+    employee_input_address: "required",
+    employee_input_hometown: "required",
+    employee_input_gender: "required",
+    employee_input_email: {
+      required: true,
+      email: true,
+    },
+  },
+  messages: {
+    employee_input_name: "Phải nhập tên",
+    employee_input_birthday: {
+      required: "Phải nhập ngày sinh",
+      dateFormat: "Phải nhập đúng định dạng ngày tháng năm (dd/mm/yyyy)",
+    },
+    employee_input_phone: {
+      required: "Phải nhập số điện thoại",
+      minlength: "Số điện thoại phải có ít nhất 9 chữ số",
+    },
+
+    employee_input_address: "Phải nhập địa chỉ",
+    employee_input_hometown: "Phải nhập quê quán",
+
+    employee_input_gender: "Phải chọn giới tính",
+    employee_input_email: {
+      required: "Phải nhập email",
+      email: "Phải nhập đúng định dạng email",
+    },
+  },
+});
 
 // validate edit pass
 if ($("#editpassword").length) {
@@ -395,8 +437,33 @@ $("#search-product").click(function () {
     },
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (products) {
-      console.log(products);
       $("#list-search-products").html(products);
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// ajax search sale
+$("#search-sale").click(function () {
+  let title = $("#sale-name").val();
+  let sortname = $("#sale-sortname").val();
+  let sorttime = $("#sale-sorttime").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchSales",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      title: title,
+      sortname: sortname,
+      sorttime: sorttime,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (sales) {
+      $("#list-search-sales").html(sales);
     },
   };
   // Gọi ajax với jQuery
@@ -430,6 +497,76 @@ $("#employee-name").keyup(function () {
         }
 
         $("#employee-name")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete title
+$("#sale-name").keyup(function () {
+  let name = $("#sale-name").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoTitle",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name: name,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (post) {
+      list_name = JSON.parse(post);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#sale-name")
           // don't navigate away from the field on tab when selecting an item
           .on("keydown", function (event) {
             if (
@@ -744,6 +881,11 @@ $("#go_page_employee").on("input", function () {
   var goPageInput = $(this).val();
   $("#go_link_employee").attr("href", "./employee/index/" + goPageInput);
 });
+$("#go_page_sale").on("input", function () {
+  var goPageInput = $(this).val();
+  $("#go_link_sale").attr("href", "./post/index/" + goPageInput);
+});
+
 // validate post sale
 $("#sale").validate({
   rules: {

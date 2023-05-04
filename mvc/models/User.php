@@ -23,9 +23,10 @@ class User extends Model
     }
     public function editPass($id)
     {
-        $obj_edit = $this->connection->prepare("UPDATE user SET `password` = :nepassword WHERE id = $id");
+        $obj_edit = $this->connection->prepare("UPDATE user SET `password` = :nepassword WHERE id = :id");
         $edit = [
             ':nepassword' => $this->password,
+            ':id' => $id,
         ];
         $obj_edit->execute($edit);
         return $obj_edit;

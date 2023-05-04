@@ -1,7 +1,5 @@
 <!--views/employee/create.php-->
-<?php
 
-?>
 <div class="add-employee">
     <div class="add-employee-title">
         <h6>Thêm Nhân Sự</h6>
@@ -52,8 +50,8 @@
                 <span class="employee-text">Chức Vụ</span>
                 <select id="department" name="employee_department">
                     <?php foreach ($departments as $values) : ?>
-                    <option value="<?php echo $values['department'] ?>">
-                        <?php echo $values['department']; ?></option>
+                        <option value="<?php echo $values['department'] ?>">
+                            <?php echo $values['department']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <select id="Role" name="employee_role">
@@ -66,7 +64,7 @@
                     ];
 
                     foreach ($roles as $key => $value) {
-                        if ($_SESSION['role'] < $key ) {
+                        if ($_SESSION['role'] < $key) {
                             echo '<option value="' . $key . '"';
 
                             echo '>' . $value . '</option>';

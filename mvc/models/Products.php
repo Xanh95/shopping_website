@@ -50,30 +50,75 @@ class Products extends Model
     public function getAll($page, $limit)
     {
 
-        $sql_select_all = "SELECT * FROM products  ORDER BY created_at DESC LIMIT $page,$limit";
+        $sql_select_all = "SELECT * FROM products  ORDER BY created_at DESC LIMIT :page,:limit";
         $obj_select_all = $this->connection->prepare($sql_select_all);
-
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
 
 
         $obj_select_all->execute();
         $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
+    public function getAllProducts($page, $limit, $id_product)
+    {
+
+        $sql_select_all = "SELECT * FROM products WHERE category_id = $id_product ORDER BY created_at DESC LIMIT :page,:limit";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+
+
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
+    public function getAllPcWork($page, $limit)
+    {
+
+        $sql_select_all = "SELECT * FROM products WHERE category_id = 2 ORDER BY created_at DESC LIMIT :page,:limit";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+
+
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
+    public function getAllLaptopGaming($page, $limit)
+    {
+
+        $sql_select_all = "SELECT * FROM products WHERE category_id = 6 ORDER BY created_at DESC LIMIT :page,:limit";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+
+
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
+
     public function search($name, $sortname, $sorttime, $category)
     {
 
-        $sql_select_all = "SELECT * FROM products WHERE ";
-
+        $sql_select_all = "SELECT * FROM products  ";
+        $selects = array();
         if (!empty($name) && !empty($category)) {
-            $sql_select_all .= "  (name LIKE '%$name%' AND category_id = $category)";
+            $sql_select_all .= " WHERE (name LIKE :name AND category_id = :category)";
+            $selects[':name'] = "%$name%";
+            $selects[':category'] = $category;
         } else if (!empty($name)) {
-            $sql_select_all .= "  name LIKE '%$name%'";
+            $sql_select_all .= " WHERE name LIKE :name";
+            $selects[':name'] = "%$name%";
         } else if (!empty($category)) {
-            $sql_select_all .= "  category_id = $category";
+            $sql_select_all .= " WHERE category_id = :category";
+            $selects[':category'] = $category;
         }
 
         if (!empty($sortname) && !empty($sorttime)) {
-            $sql_select_all .= " ORDER BY created_at $sorttime, name $sortname";
+            $sql_select_all .= " ORDER BY  name $sortname, created_at $sorttime";
         } else if (!empty($sortname)) {
             $sql_select_all .= " ORDER BY name $sortname";
         } else if (!empty($sorttime)) {
@@ -84,22 +129,24 @@ class Products extends Model
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
 
-        $obj_select_all->execute();
+        $obj_select_all->execute($selects);
         $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
     public function searchName($name)
     {
 
-        $sql_select_all = "SELECT * FROM products WHERE name LIKE '%$name%'";
-
+        $sql_select_all = "SELECT * FROM products WHERE name LIKE :name";
+        $selects = [
+            ':name' => "%$name%",
+        ];
 
 
 
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
 
-        $obj_select_all->execute();
+        $obj_select_all->execute($selects);
         $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
 
         $list_name = [];
@@ -114,27 +161,7 @@ class Products extends Model
         // $list_name = array_unique($list_name);
         return json_encode($list_name);
     }
-    public function searchCategory($category)
-    {
 
-        $sql_select_all = "SELECT * FROM list_products WHERE  listproducts LIKE '%$category%'";
-
-
-
-
-        $obj_select_all = $this->connection->prepare($sql_select_all);
-
-
-        $obj_select_all->execute();
-        $listproducts = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
-
-        $list_products = [];
-        // lấy ra mảng chỉ có birthday
-        foreach ($listproducts as $item) {
-            $list_products[] = $item["listproducts"];
-        }
-        return json_encode($list_products);
-    }
 
 
 
@@ -180,16 +207,23 @@ class Products extends Model
     public function delete($id)
     {
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM products WHERE id = $id");
+            ->prepare("DELETE FROM products WHERE id = :id");
+        $obj_delete->bindValue(':id', $id, PDO::PARAM_INT);
         $is_delete = $obj_delete->execute();
-
-
         return $is_delete;
     }
     // đếm tổng số employee hiển thị
     public function countTotal()
     {
         $sql_select_all = "SELECT COUNT(*) FROM products ";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+
+        $obj_select_all->execute();
+        return $obj_select_all->fetchColumn();
+    }
+    public function countTotalProducts($id_product)
+    {
+        $sql_select_all = "SELECT COUNT(*) FROM products WHERE category_id = $id_product";
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
         $obj_select_all->execute();

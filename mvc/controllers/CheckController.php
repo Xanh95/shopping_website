@@ -12,7 +12,7 @@ class CheckController extends Controller
     {
 
         //nếu user đã đăng nhập r thì ko cho truy cập lại trang login, mà chuenr hướng tới backend
-        if (isset($_SESSION['user'])) {
+        if (isset($_SESSION['user']) && ($_SESSION['role'] <= 4)) {
             header('Location: ../administrator/congratulate');
             exit();
         }
@@ -43,7 +43,7 @@ class CheckController extends Controller
                     //khẩu đc mã hóa bằng hàm password_hash
 
                     $is_same_password = password_verify($password, $employee['password']);
-                    if ($is_same_password) {
+                    if ($is_same_password && ($employee['role'] <= 4)) {
                         $_SESSION['success'] = 'Đăng nhập thành công';
                         //tạo session user để xác định user nào đang login
                         $_SESSION['user'] = $employee['name'];

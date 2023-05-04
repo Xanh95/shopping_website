@@ -20,6 +20,10 @@ class ListproductsController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
+        } elseif (!($_SESSION['role'] <= 4)) {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
         }
     }
     //index.php?controller=Listproduct&action=create
@@ -116,6 +120,9 @@ class ListproductsController extends Controller
     }
     public function delete($id = "")
     {
+        $_SESSION['error'] = ' chức năng này chưa xây dựng xong';
+        header('Location: ../../administrator/congratulate');
+        exit();
         if ($_SESSION['role'] > 1) {
             $_SESSION['error'] = 'bạn chưa đủ quyền vào chức năng này';
             header('Location: ../../administrator/congratulate');

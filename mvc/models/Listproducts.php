@@ -45,10 +45,11 @@ class Listproducts extends Model
     public function update($id)
     {
         $obj_update = $this->connection->prepare("UPDATE list_products SET `listproducts` = :listproducts
-           WHERE id = $id");
+           WHERE id = :id");
         var_dump($this->listproducts_name);
         $update = [
-            ':listproducts' => $this->listproducts_name
+            ':listproducts' => $this->listproducts_name,
+            ':id' => $id,
         ];
 
         try {
@@ -76,10 +77,33 @@ class Listproducts extends Model
     public function delete($id)
     {
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM list_products WHERE id = $id");
+            ->prepare("DELETE FROM list_products WHERE id = :id");
+        $obj_delete->bindValue(':id', $id, PDO::PARAM_INT);
         $is_delete = $obj_delete->execute();
 
 
         return $is_delete;
+    }
+    public function searchCategory($category)
+    {
+
+        $sql_select_all = "SELECT * FROM list_products WHERE  listproducts LIKE :category";
+        $selects = [':category' => "%$category%",];
+
+
+
+
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+
+
+        $obj_select_all->execute($selects);
+        $listproducts = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+
+        $list_products = [];
+        // lấy ra mảng chỉ có birthday
+        foreach ($listproducts as $item) {
+            $list_products[] = $item["listproducts"];
+        }
+        return json_encode($list_products);
     }
 }

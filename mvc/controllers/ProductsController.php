@@ -22,12 +22,16 @@ class ProductsController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
+        } elseif (!($_SESSION['role'] <= 4)) {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
         }
     }
     //index.php?controller=products&action=create
     public function create()
     {
-
+        $post = "";
         if (isset($_POST['create_products'])) {
             $name = $_POST['products_name'];
             $status = $_POST['products_status'];
@@ -37,13 +41,21 @@ class ProductsController extends Controller
             $category_id = $_POST['category_id'];
             $short_details = $_POST['products_short_details'];
             $products_details = $_POST['products_details'];
+            $post = $_POST;
             if (empty($name)) {
                 $this->error = 'Phải nhập tên sản phẩm';
             } elseif (empty($guarantee)) {
                 $this->error = 'Phải nhập kiểu bảo hành';
             } elseif (empty($price)) {
                 $this->error = 'Phải nhập giá của sản phẩm';
-            };
+            } elseif (empty($short_details)) {
+                $this->error = 'Phải nhập mô tả ngắn gọn';
+            }
+            if (!empty($video)) {
+                if (strpos($video, 'watch?v=')) {
+                    $video = str_replace('watch?v=', 'embed/', $video);
+                }
+            }
             $avatar = $_FILES['avatar_products']; //mảng 1 chiều
             $avatar_name = "";
             // + B5: Validate:
@@ -218,6 +230,8 @@ class ProductsController extends Controller
                     exit();
                 }
                 $this->error = 'Thêm mới thất bại';
+                @unlink("./assets/img/products/$avatar_name");
+                @unlink("./assets/img/products/$img_video_name");
             }
         }
         // -controller gọi models để lấy dữ liệu danh mục
@@ -227,7 +241,8 @@ class ProductsController extends Controller
         $this->page_title = 'Trang Thêm Sản Phẩm';
         $this->content =
             $this->render('views/products/create.php', [
-                'listproducts' => $listproducts
+                'listproducts' => $listproducts,
+                'post' => $post,
             ]);
         require_once 'views/layouts/system.php';
     }
@@ -323,6 +338,11 @@ class ProductsController extends Controller
             } elseif (empty($price)) {
                 $this->error = 'Phải nhập giá của sản phẩm';
             };
+            if (!empty($video)) {
+                if (strpos($video, 'watch?v=')) {
+                    $video = str_replace('watch?v=', 'embed/', $video);
+                }
+            }
             $avatar = $_FILES['avatar_products']; //mảng 1 chiều
             $avatar_name = $product['avatar_products'];
             // + B5: Validate:

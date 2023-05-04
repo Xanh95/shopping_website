@@ -21,6 +21,10 @@ class EmployeeController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
+        } elseif (!($_SESSION['role'] <= 4)) {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
         }
     }
     //index.php?controller=employee&action=create
@@ -200,12 +204,6 @@ class EmployeeController extends Controller
                 $this->error = 'phải nhập số điện thoại';
             } elseif (strlen($phone) < 9) {
                 $this->error = 'phải nhập số điện thoại ít nhất 9 số';
-            } elseif (empty($password)) {
-                $this->error = 'phải nhập mật khẩu';
-            } elseif (empty($confirm_password)) {
-                $this->error = 'phải nhập lại mật khẩu';
-            } elseif ($password !== $confirm_password) {
-                $this->error = 'mật khẩu không giống nhau';
             } elseif (empty($address)) {
                 $this->error = 'phải nhập địa chỉ';
             } elseif (empty($hometown)) {
@@ -219,16 +217,32 @@ class EmployeeController extends Controller
             } elseif (($_SESSION['role']  >= $role)) {
                 $this->error = 'Bạn không đủ quyền hạn để thêm vị trí này';
             }
+            if (!empty($password) || !empty($confirm_password)) {
+                if (strlen($password) < 8) {
+                    $this->error = 'mật khẩu mới ít nhất 8 ký tự';
+                } elseif (empty($confirm_password)) {
+                    $this->error = 'phải nhập lại mật khẩu';
+                } elseif ($password !== $confirm_password) {
+                    $this->error = 'mật khẩu không giống nhau';
+                }
+            }
 
             if (empty($this->error)) {
+                $is_updatepass = true;
+                if (!empty($password)) {
+                    $password = password_hash($password, PASSWORD_BCRYPT);
+                    $employee_model->password = $password;
+                    $employee_model = new Employee();
+                    $is_updatepass = $employee_model->updatePass($employee_id);
+                }
                 // Mã hóa mật khẩu trc khi lưu, thuật toán bcrypt
-                $password = password_hash($password, PASSWORD_BCRYPT);
+
                 // Controller gọi Model để nhờ Model truy vấn CSDL
                 $employee_model = new Employee();
                 $employee_model->name = $name;
                 $employee_model->birthday = $birthday;
                 $employee_model->phone = $phone;
-                $employee_model->password = $password;
+
                 $employee_model->address = $address;
                 $employee_model->hometown = $hometown;
                 $employee_model->email = $email;
@@ -238,7 +252,7 @@ class EmployeeController extends Controller
                 $is_update = $employee_model->update($employee_id);
 
 
-                if ($is_update) {
+                if ($is_update && $is_updatepass) {
                     $_SESSION['success'] = "Sửa " . $employee['name'] . " thành công";
                     header('Location: ../../employee/index');
                     exit();

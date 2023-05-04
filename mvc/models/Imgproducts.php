@@ -167,7 +167,8 @@ class Imgproducts extends Model
     public function delete($product_id)
     {
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM img_products WHERE product_id = $product_id");
+            ->prepare("DELETE FROM img_products WHERE product_id = :product_id");
+        $obj_delete->bindValue(':product_id', $product_id, PDO::PARAM_INT);
         $is_delete = $obj_delete->execute();
 
 

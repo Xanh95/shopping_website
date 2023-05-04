@@ -83,7 +83,7 @@
   top: 105px;
   left: 69px;
   right: 0;
-  height: 319px;
+  height: 288px;
   width: 196px;
 }
 .user-activity ul {
@@ -99,6 +99,9 @@
   color: black;
   padding: 5px;
   border-radius: 13px;
+}
+.card-product-a + .card-product-a {
+  margin-bottom: 10px;
 }
 
 .user-activity ul li a:hover {
@@ -138,8 +141,8 @@
 }
 
 .slider-for img {
-  width: 412px;
-  height: 235px;
+  /* width: 412px;
+  height: 235px; */
   object-fit: cover;
 }
 
@@ -156,7 +159,9 @@
 }
 
 /* css info product */
-
+.chitiet table {
+  width: 90% !important;
+}
 .info-product {
   margin-top: 20px;
   display: grid;

@@ -47,45 +47,48 @@ class Employee extends Model
     }
     public function getAll($page, $limit)
     {
-
-        $sql_select_all = "SELECT * FROM user WHERE role > :role ORDER BY created_at DESC LIMIT $page,$limit";
+        $sql_select_all = "SELECT * FROM user WHERE role > :role AND role <= 4 ORDER BY created_at DESC LIMIT :page, :limit";
         $obj_select_all = $this->connection->prepare($sql_select_all);
-
-        $selects = [
-            ':role' => $_SESSION['role'],
-        ];
-
-        $obj_select_all->execute($selects);
+        $obj_select_all->bindValue(':role', $_SESSION['role'], PDO::PARAM_INT);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $obj_select_all->execute();
         $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $employees;
     }
+
     public function search($name, $sortname, $sorttime, $birthday)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role";
-
+        $sql_select_all = "SELECT * FROM user WHERE role > :role AND role <= 4";
+        $selects = [
+            ':role' => $_SESSION['role'],
+        ];
         if (!empty($name) && !empty($birthday)) {
-            $sql_select_all .= " AND (name LIKE '%$name%' AND birthday LIKE '%$birthday%')";
+            $sql_select_all .= " AND (name LIKE :name AND birthday LIKE :birthday)";
+            $selects[':name'] = "%$name%";
+            $selects[':birthday'] = "%$birthday%";
         } else if (!empty($name)) {
-            $sql_select_all .= " AND name LIKE '%$name%'";
+            $sql_select_all .= " AND name LIKE :name";
+            $selects[':name'] = "%$name%";
         } else if (!empty($birthday)) {
-            $sql_select_all .= " AND birthday LIKE '%$birthday%'";
+            $sql_select_all .= " AND birthday LIKE :birthday";
+            $selects[':birthday'] = "%$birthday%";
         }
 
         if (!empty($sortname) && !empty($sorttime)) {
             $sql_select_all .= " ORDER BY created_at $sorttime, name $sortname";
         } else if (!empty($sortname)) {
+
             $sql_select_all .= " ORDER BY name $sortname";
         } else if (!empty($sorttime)) {
             $sql_select_all .= " ORDER BY created_at $sorttime";
         }
-
+        echo empty($sortname);
 
         $obj_select_all = $this->connection->prepare($sql_select_all);
 
-        $selects = [
-            ':role' => $_SESSION['role'],
-        ];
+
         $obj_select_all->execute($selects);
         $employees = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $employees;
@@ -93,7 +96,7 @@ class Employee extends Model
     public function searchName($name)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role AND name LIKE '%$name%'";
+        $sql_select_all = "SELECT * FROM user WHERE role > :role AND role <= 4 AND name LIKE :name";
 
 
 
@@ -102,6 +105,7 @@ class Employee extends Model
 
         $selects = [
             ':role' => $_SESSION['role'],
+            ':name' => "%$name%",
 
         ];
         $obj_select_all->execute($selects);
@@ -119,7 +123,7 @@ class Employee extends Model
     public function searchBirthDay($birthday)
     {
 
-        $sql_select_all = "SELECT * FROM user WHERE role > :role AND birthday LIKE '%$birthday%'";
+        $sql_select_all = "SELECT * FROM user WHERE role > :role AND role <= 4 AND birthday LIKE :birthday";
 
 
 
@@ -128,6 +132,7 @@ class Employee extends Model
 
         $selects = [
             ':role' => $_SESSION['role'],
+            ':birthday' => "%$birthday%",
 
         ];
         $obj_select_all->execute($selects);
@@ -147,7 +152,7 @@ class Employee extends Model
 
     public function getById($id)
     {
-        $sql_select_one = "SELECT * FROM user WHERE id = :id";
+        $sql_select_one = "SELECT * FROM user WHERE id = :id AND role < 4";
         $obj_select_one = $this->connection
             ->prepare($sql_select_one);
         $selects = [
@@ -160,7 +165,7 @@ class Employee extends Model
     }
     public function update($id)
     {
-        $obj_update = $this->connection->prepare("UPDATE user SET `name` = :name,`birthday` = :birthday, `phone` = :phone, `password` = :password, `address` = :address, `hometown` = :hometown, `email` = :email, `gender` = :gender, `department` = :department, `role` = :role WHERE id = $id");
+        $obj_update = $this->connection->prepare("UPDATE user SET `name` = :name,`birthday` = :birthday, `phone` = :phone, `password` = :password, `address` = :address, `hometown` = :hometown, `email` = :email, `gender` = :gender, `department` = :department, `role` = :role WHERE id = :id AND role <= 4");
 
         $update = [
             ':name' => $this->name,
@@ -173,6 +178,7 @@ class Employee extends Model
             ':gender' => $this->gender,
             ':department' => $this->department,
             ':role' => $this->role,
+            ':id' => $id,
         ];
 
         try {
@@ -184,20 +190,34 @@ class Employee extends Model
             }
         }
     }
+    public function updatePass($id)
+    {
+        $obj_update = $this->connection->prepare("UPDATE user SET `password` = :password WHERE id = :id AND role <= 4");
+
+        $update = [
+
+            ':password' => $this->password,
+
+            ':id' => $id,
+        ];
+
+        $obj_update->execute($update);
+        return $obj_update;
+    }
 
     public function delete($id)
     {
-        $obj_delete = $this->connection
-            ->prepare("DELETE FROM user WHERE id = $id");
-        $is_delete = $obj_delete->execute();
+        $sql_delete = "DELETE FROM user WHERE id = :id AND role <= 4";
+        $obj_delete = $this->connection->prepare($sql_delete);
+        $obj_delete->bindValue(':id', $id, PDO::PARAM_INT);
+        $is_deleted = $obj_delete->execute();
 
-
-        return $is_delete;
+        return $is_deleted;
     }
     // đếm tổng số employee hiển thị
     public function countTotal()
     {
-        $sql_select_all = "SELECT COUNT(*) FROM user WHERE role > :role";
+        $sql_select_all = "SELECT COUNT(*) FROM user WHERE role > :role AND role <= 4";
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $selects = [
             ':role' => $_SESSION['role']

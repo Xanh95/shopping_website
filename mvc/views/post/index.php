@@ -59,7 +59,7 @@
                     <a href="./post/index/1">1</a>
                     <a href="./post/index/2">2</a>
                     <a href="./post/index/3">3</a>
-                    <input type="text" style="width: 30px;" value="<?php echo $page ?>" id="go_page"> <a href="./post/index/" id="go_link">Go</a>
+                    <input type="text" style="width: 30px;" value="<?php echo $page ?>" id="go_page_sale"> <a href="./post/index/" id="go_link_sale">Go</a>
                     <a href="./post/index/<?php echo $total_page - 2 ?>"><?php echo $total_page - 2 ?></a>
                     <a href="./post/index/<?php echo $total_page - 1 ?>"><?php echo $total_page - 1 ?></a>
                     <a href="./post/index/<?php echo $total_page ?>"><?php echo $total_page ?></a>

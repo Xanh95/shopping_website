@@ -20,6 +20,10 @@ class DepartmentController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
+        } elseif (!($_SESSION['role'] <= 4)) {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
         }
     }
     //index.php?controller=department&action=create

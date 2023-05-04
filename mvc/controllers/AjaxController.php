@@ -3,6 +3,7 @@ require_once 'controllers/Controller.php';
 require_once 'models/Employee.php';
 require_once 'models/Products.php';
 require_once 'models/Listproducts.php';
+require_once 'models/Post.php';
 
 class AjaxController extends Controller
 {
@@ -22,6 +23,10 @@ class AjaxController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
+        } elseif (!($_SESSION['role'] <= 4)) {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
         }
     }
     public function searchEmployee()
@@ -37,12 +42,16 @@ class AjaxController extends Controller
             $sorttime = "DESC";
         } elseif ($sorttime == 2) {
             $sorttime = "ASC";
+        } else {
+            $sorttime = "";
         }
         if ($sortname == 2) {
 
             $sortname = "DESC";
         } elseif ($sortname == 1) {
             $sortname = "ASC";
+        } else {
+            $sortname = "";
         }
 
 
@@ -78,12 +87,16 @@ class AjaxController extends Controller
             $sorttime = "DESC";
         } elseif ($sorttime == 2) {
             $sorttime = "ASC";
+        } else {
+            $sorttime = "";
         }
         if ($sortname == 2) {
 
             $sortname = "DESC";
         } elseif ($sortname == 1) {
             $sortname = "ASC";
+        } else {
+            $sortname = "";
         }
 
 
@@ -93,6 +106,45 @@ class AjaxController extends Controller
 
         //view
         $this->content =  $this->render('views/products/search.php', ['products' => $products, 'listproducts' => $listproducts]);
+        require_once 'views/layouts/result.php';
+    }
+    public function searchSales()
+    {
+
+        $name = $_POST['title'];
+        $name = strval($name);
+        $sortname = $_POST['sortname'];
+        $sorttime = $_POST['sorttime'];
+
+
+
+
+
+
+        if ($sorttime == 1) {
+
+            $sorttime = "DESC";
+        } elseif ($sorttime == 2) {
+            $sorttime = "ASC";
+        } else {
+            $sorttime = "";
+        }
+        if ($sortname == 2) {
+
+            $sortname = "DESC";
+        } elseif ($sortname == 1) {
+            $sortname = "ASC";
+        } else {
+            $sortname = "";
+        }
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $posts_model = new Post();
+        $posts = $posts_model->search($name, $sortname, $sorttime);
+
+        //view
+        $this->content =  $this->render('views/post/search.php', ['posts' => $posts]);
         require_once 'views/layouts/result.php';
     }
     public function searchAutoName()
@@ -109,6 +161,21 @@ class AjaxController extends Controller
         print_r($employees);
 
         return json_encode($employees);
+    }
+    public function searchAutoTitle()
+    {
+
+        $name = $_POST['name'];
+
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $post_model = new Post();
+        $posts = $post_model->searchTitle($name);
+
+        print_r($posts);
+
+        return json_encode($posts);
     }
     public function searchAutoNameProduct()
     {
@@ -150,7 +217,7 @@ class AjaxController extends Controller
 
 
         // -controller gọi models để lấy dữ liệu các bộ phận
-        $categorys_model = new Products();
+        $categorys_model = new Listproducts();
         $categorys = $categorys_model->searchCategory($category);
 
         print_r($categorys);

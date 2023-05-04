@@ -20,12 +20,17 @@ class PostController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
+        } elseif (!($_SESSION['role'] <= 4)) {
+            $_SESSION['error'] = 'Bạn cần đăng nhập';
+            header('Location: ../check/login');
+            exit();
         }
     }
     public function create()
     {
-
+        $post = '';
         if (isset($_POST['create_sale'])) {
+            $post = $_POST;
             $title = $_POST['title'];
             $sale = $_POST['sale'];
             $avatar = $_FILES['avatar_sale'];
@@ -90,16 +95,17 @@ class PostController extends Controller
                 $is_insert = $Post_model->insertPost($title, $sale, $avatar_name);
                 if ($is_insert) {
                     $_SESSION['success'] = 'Thêm mới bài viết ' . $title . ' thành công';
-                    header('Location: ../administrator/congratulate');
+                    header('Location: ../post/index');
                     exit();
                 }
+                @unlink("./assets/img/post/$avatar_name");
                 $this->error = 'Thêm mới thất bại';
             }
         }
         // - Controller gọi View
         $this->page_title = 'Trang Thêm Khuyến Mãi';
         $this->content =
-            $this->render('views/post/create.php');
+            $this->render('views/post/create.php', ['post' => $post]);
         require_once 'views/layouts/system.php';
     }
     public function index($curent_page = 1)

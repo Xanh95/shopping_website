@@ -75,7 +75,7 @@ btn_success.click(function (event) {
       <p class="toast-msg">Thêm Vào Giỏ Hàng Thành Công</p>
     </div>
     <div class="toast-close">
-      <img src="img/svg/close.svg" alt="img/svg/close.svg">
+      <img src="assets/img/svg/close.svg" alt="assets/img/svg/close.svg">
     </div>
   </div>`;
 

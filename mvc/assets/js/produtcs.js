@@ -146,3 +146,15 @@ if (document.querySelectorAll("#qty-input").length > 0) {
     }
   });
 }
+$(document).ready(function () {
+  if ($("#action").length > 0) {
+    let category = $("#action").val();
+    let page = "go_page_" + category;
+    let link = "go_link_" + category;
+
+    $(`#${page}`).on("input", function () {
+      var goPageInput = $(this).val();
+      $(`#${link}`).attr("href", `./home/${category}/` + goPageInput);
+    });
+  }
+});
