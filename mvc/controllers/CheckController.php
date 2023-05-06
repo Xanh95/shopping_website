@@ -32,7 +32,7 @@ class CheckController extends Controller
 
             $employee_model = new User();
             if (empty($this->error)) {
-                $employee = $employee_model->getUser($email);
+                $employee = $employee_model->getEmployee($email);
                 if (empty($employee)) {
                     $this->error = 'Email ko tồn tại';
                 } else {

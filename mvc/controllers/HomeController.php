@@ -7,6 +7,7 @@ require_once 'models/Home.php';
 require_once 'models/Products.php';
 require_once 'models/Imgproducts.php';
 require_once 'models/Post.php';
+require_once 'models/User.php';
 
 
 
@@ -434,5 +435,112 @@ class HomeController extends Controller
 
             ]);
         require_once 'views/layouts/products.php';
+    }
+    public function login_register()
+    {
+        //nếu user đã đăng nhập r thì ko cho truy cập lại trang login, mà chuenr hướng tới backend
+        if (isset($_SESSION['user'])) {
+            header('Location: ../profile/info');
+            exit();
+        }
+        if (isset($_POST['register'])) {
+            $name = $_POST['register-name'];
+            $phone = $_POST['register-phone'];
+            $email = $_POST['register-email'];
+            $password = $_POST['register-pass'];
+            $repassword = $_POST['register-repass'];
+            $role = 5;
+            if (empty($name)) {
+                $this->error = 'Không được để trống tên của bạn';
+            } elseif (empty($phone)) {
+                $this->error = 'Không được để trống số điện thoại của bạn';
+            } elseif (empty($email)) {
+                $this->error = 'Không được để trống email của bạn';
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $this->error = 'định dạng email chưa đúng';
+            } elseif (empty($password)) {
+                $this->error = 'Không được để trống mật khẩu';
+            } elseif (strlen($password) < 8) {
+                $this->error = 'mật khẩu ít nhất 8 ký tự';
+            } elseif (empty($repassword)) {
+                $this->error = 'chưa nhập lại mật khẩu';
+            } elseif ($password != $repassword) {
+                $this->error = 'mật khẩu nhập lại chưa giống';
+            }
+            if (empty($this->error)) {
+                $password = password_hash($password, PASSWORD_BCRYPT);
+                $User_model = new User();
+                $is_register = $User_model->regiser($name, $phone, $email, $password, $role);
+                if ($is_register) {
+                    $_SESSION['success'] = 'Đăng ký tài khoản  thành công';
+                } else {
+                    $this->error = ' thất bại';
+                }
+            }
+        }
+
+
+        if (isset($_POST['login'])) {
+            //            die;
+            $email = $_POST['email'];
+            //do password đang lưu trong CSDL sử dụng cơ chế mã hóa nên cần phải thêm
+            //            hàm  cho password
+            $password = $_POST['password'];
+            //validate
+            if (empty($email) || empty($password)) {
+                $this->error = 'Email hoặc password không được để trống';
+            } elseif (strlen($password) < 8) {
+                $this->error = 'Mật khẩu không ít hơn 8 ký tự';
+            }
+
+            $user_model = new User();
+            if (empty($this->error)) {
+                $user = $user_model->getUser($email);
+                if (empty($user)) {
+                    $this->error = 'Email ko tồn tại';
+                } else {
+                    // + Dùng hàm sau để kiểm tra xem mật
+                    //khẩu mã hóa có đúng với mật khẩu từ
+                    //form gửi lên hay ko
+                    // Hàm này chỉ có tác dụng với các mật
+                    //khẩu đc mã hóa bằng hàm password_hash
+
+                    $is_same_password = password_verify($password, $user['password']);
+                    if ($is_same_password) {
+                        $_SESSION['success'] = 'Đăng nhập thành công';
+                        //tạo session user để xác định user nào đang login
+                        $_SESSION['user'] = $user['name'];
+                        $_SESSION['role'] = $user['role'];
+                        $_SESSION['id'] = $user['id'];
+                        $_SESSION['email'] = $user['email'];
+                        $_SESSION['password'] = $user['password'];
+
+                        if ($user['role'] == 1) {
+                            $_SESSION['role'] = 0;
+                        }
+                        header("Location: ../profile/info");
+                        exit();
+                    } else {
+                        $this->error = 'Sai tài khoản hoặc mật khẩu';
+                    }
+                }
+            }
+        }
+
+
+        $this->page_title = 'Trang Đăng Ký & Đăng Nhập';
+        require_once 'views/layouts/login.php';
+    }
+    public function logout()
+    {
+
+        //        session_destroy();
+        $_SESSION = [];
+        session_destroy();
+        //        unset($_SESSION['user']);
+
+
+        header('Location: ../home/login_register');
+        exit();
     }
 }

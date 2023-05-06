@@ -21,10 +21,9 @@
   #formSearchHeader {
     width: 200px !important;
   }
-  .f-links-group iframe {
-    display: none !important;
+  .f-links {
+    grid-template-columns: 50% 50% !important;
   }
-
   .menu-list {
     padding-top: 0 !important ;
   }
@@ -99,6 +98,9 @@
   .menu-activity-text,
   .name {
     display: inline;
+  }
+  .f-links {
+    grid-template-columns: 100% !important;
   }
   .user-activity {
     height: 350px !important;
@@ -829,9 +831,11 @@ input#default {
 .address-list hr:nth-of-type(2) {
   top: 53px;
   position: relative;
+  margin-bottom: 67px;
 }
 .info-address {
-  margin-top: 63px;
+  margin-top: 10px;
+  border: 1px solid;
 }
 td {
   padding: 5px 9px;
@@ -850,6 +854,12 @@ td {
   background-color: green;
   border: 1px solid #efefef;
   border-radius: 15px;
+  text-decoration: none;
+  padding: 5px;
+}
+.btn-action-address:hover {
+  color: white;
+  text-decoration: none;
 }
 .have-menu {
   position: relative;

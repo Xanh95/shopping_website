@@ -84,7 +84,7 @@ class Employee extends Model
         } else if (!empty($sorttime)) {
             $sql_select_all .= " ORDER BY created_at $sorttime";
         }
-        echo empty($sortname);
+        
 
         $obj_select_all = $this->connection->prepare($sql_select_all);
 

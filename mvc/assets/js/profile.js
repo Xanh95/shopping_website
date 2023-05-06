@@ -172,22 +172,14 @@ $(".number-input").each(function () {
 // validate update-info-user
 $("#update-info-user").validate({
   rules: {
-    "input-name": "required",
-    "input-phone": "required",
-    "input-address": "required",
-    "input-email": {
-      required: true,
-      email: true,
+    "input-phone": {
+      minlength: 9,
     },
     gender: "required",
   },
   messages: {
-    "input-name": "Vui lòng nhập tên",
-    "input-phone": "Vui lòng nhập số điện thoại",
-    "input-address": "Vui lòng nhập địa chỉ",
-    "input-email": {
-      required: "Vui lòng nhập địa chỉ email",
-      email: "Vui lòng nhập địa chỉ email hợp lệ",
+    "input-phone": {
+      minlength: "ít nhất 9 ký tự",
     },
     gender: "Vui lòng chọn giới tính",
   },
@@ -196,15 +188,21 @@ $("#update-info-user").validate({
 $("#editpassword").validate({
   rules: {
     "input-currentpass": "required",
-    "input-newpass": "required",
+    "input-newpass": {
+      required: true,
+      minlength: 8,
+    },
     "input-renewpass": {
       required: true,
-      equalTo: "#input-currentpass",
+      equalTo: "#input-newpass",
     },
   },
   messages: {
     "input-currentpass": "Phải nhập",
-    "input-newpass": "Phải nhập",
+    "input-newpass": {
+      required: "Phải nhập mật khẩu",
+      minlength: "mật khẩu ít nhất 8 ký tự",
+    },
     "input-renewpass": {
       required: "Phải nhập",
       equalTo: "Không giống mật với Mật khẩu mới",
@@ -212,24 +210,24 @@ $("#editpassword").validate({
   },
 });
 // validate recipient
-$("#recipient").validate({
-  rules: {
-    "input-namerecipient": "required",
-    "input-phonerecipient": "required",
-    "input-cityrecipient": "required",
-    "input-districtrecipient": "required",
-    "input-addressrecipient": "required",
-    "address-type": "required",
-  },
-  messages: {
-    "input-namerecipient": "phải nhập",
-    "input-phonerecipient": "phải nhập",
-    "input-cityrecipient": "phải nhập",
-    "input-districtrecipient": "phải nhập",
-    "input-addressrecipient": "phải nhập",
-    "address-type": "phải nhập",
-  },
-});
+// $("#recipient").validate({
+//   rules: {
+//     "input-namerecipient": "required",
+//     "input-phonerecipient": "required",
+//     "input-cityrecipient": "required",
+//     "input-districtrecipient": "required",
+//     "input-addressrecipient": "required",
+//     "address-type": "required",
+//   },
+//   messages: {
+//     "input-namerecipient": "phải nhập",
+//     "input-phonerecipient": "phải nhập",
+//     "input-cityrecipient": "phải nhập",
+//     "input-districtrecipient": "phải nhập",
+//     "input-addressrecipient": "phải nhập",
+//     "address-type": "phải nhập",
+//   },
+// });
 // js input
 (function () {
   // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
@@ -298,4 +296,10 @@ qtyIncrease.forEach((increaseButton) => {
       inputField.value = currentVal + 1;
     }
   });
+});
+$("input.input__field--isao").change(function () {
+  $(this).next().find("span").css("top", 0);
+});
+$('input.input__field--isao[value!=""]').each(function () {
+  $(this).next().find("span").css("top", 0);
 });
