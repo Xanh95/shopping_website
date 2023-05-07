@@ -4,6 +4,8 @@ require_once 'models/Employee.php';
 require_once 'models/Products.php';
 require_once 'models/Listproducts.php';
 require_once 'models/Post.php';
+require_once 'models/Oder.php';
+require_once 'models/User.php';
 
 class AjaxController extends Controller
 {
@@ -63,6 +65,24 @@ class AjaxController extends Controller
         $this->content =  $this->render('views/employee/search.php', ['employees' => $employees]);
         require_once 'views/layouts/result.php';
     }
+    public function searchUser()
+    {
+
+        $name = $_POST['name'];
+
+        $birthday = $_POST['birthday'];
+
+
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $user_model = new User();
+        $users = $user_model->search($name, $birthday);
+
+        //view
+        $this->content =  $this->render('views/users/search.php', ['users' => $users]);
+        require_once 'views/layouts/result.php';
+    }
     public function searchProducts()
     {
 
@@ -106,6 +126,21 @@ class AjaxController extends Controller
 
         //view
         $this->content =  $this->render('views/products/search.php', ['products' => $products, 'listproducts' => $listproducts]);
+        require_once 'views/layouts/result.php';
+    }
+    public function searchOders()
+    {
+
+        $code_oder = $_POST['code_oder'];
+
+        $name = $_POST['user_name'];
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $oder_model = new Oder();
+        $orders = $oder_model->search($name, $code_oder);
+
+        //view
+        $this->content =  $this->render('views/oder/search.php', ['orders' => $orders]);
         require_once 'views/layouts/result.php';
     }
     public function searchSales()
@@ -162,6 +197,51 @@ class AjaxController extends Controller
 
         return json_encode($employees);
     }
+    public function searchAutoUserName()
+    {
+
+        $name = $_POST['name'];
+
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $user_model = new User();
+        $users = $user_model->searchUserName($name);
+
+        print_r($users);
+
+        return json_encode($users);
+    }
+    public function searchAutoCode()
+    {
+
+        $code = $_POST['code'];
+
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $oder_model = new Oder();
+        $oders = $oder_model->searchCode($code);
+
+        print_r($oders);
+
+        return json_encode($oders);
+    }
+    public function searchAutoOderUserName()
+    {
+
+        $user_name = $_POST['name'];
+
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $oder_model = new Oder();
+        $oders = $oder_model->searchOderUserName($user_name);
+
+        print_r($oders);
+
+        return json_encode($oders);
+    }
     public function searchAutoTitle()
     {
 
@@ -177,23 +257,7 @@ class AjaxController extends Controller
 
         return json_encode($posts);
     }
-    public function searchAutoNameProduct()
-    {
 
-        $name = $_POST['name_product'];
-
-
-
-
-        // -controller gọi models để lấy dữ liệu các bộ phận
-        $products_model = new Products();
-        $products = $products_model->searchName($name);
-        print_r($products);
-
-
-
-        return json_encode($products);
-    }
     public function searchAutoBirthDay()
     {
 
@@ -209,6 +273,21 @@ class AjaxController extends Controller
 
         return json_encode($employees);
     }
+    public function searchAutoUserBirthDay()
+    {
+
+        $birthday = $_POST['birthday'];
+
+
+
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $user_model = new User();
+        $users = $user_model->searchUserBirthDay($birthday);
+
+        print_r($users);
+
+        return json_encode($users);
+    }
     public function searchAutoCategory()
     {
 
@@ -223,5 +302,13 @@ class AjaxController extends Controller
         print_r($categorys);
 
         return json_encode($categorys);
+    }
+    public function findIDOder()
+    {
+        $code = $_POST['code'];
+        $oder_model = new Oder();
+        $oder = $oder_model->findIDOder($code);
+
+        echo $oder['id'];
     }
 }

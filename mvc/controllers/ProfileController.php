@@ -3,6 +3,7 @@
 // Nhúng file đi từ file index gốc
 require_once 'controllers/Controller.php';
 require_once 'models/User.php';
+require_once 'models/Oder.php';
 
 
 class ProfileController extends Controller
@@ -49,7 +50,7 @@ class ProfileController extends Controller
             if (isset($_POST['gender'])) {
                 $gender = $_POST['gender'];
             }
-            $new_birthday = $d_birthday . "/" . $m_birthday . "/" . $y_birthday;
+            $new_birthday = "$d_birthday" . "/" . $m_birthday . "/" . $y_birthday;
             if (empty($d_birthday)) {
                 $this->error = 'Chưa nhập Ngày Sinh';
             } elseif (empty($m_birthday)) {
@@ -298,5 +299,52 @@ class ProfileController extends Controller
         }
         header('Location: ../../profile/address');
         exit();
+    }
+    public function myOder()
+    {
+        $oder_model = new Oder();
+        $oder = $oder_model->findMyOder();
+
+        $this->page_title = 'Đơn hàng của tôi';
+        $this->content = $this->render('views/users/my_oder.php', ['orders' => $oder]);
+        require_once 'views/layouts/profile.php';
+    }
+    public function detailOder($id = '')
+    {
+        if (!isset($id) || !is_numeric($id)) {
+            $_SESSION['error'] = 'ID đơn hàng không hợp lệ';
+            header('Location: ../home/index');
+            exit();
+        }
+        $oder_id = $id;
+        $oder_model = new Oder();
+        $oder = $oder_model->getMyOderById($oder_id);
+        $status = $oder['status'];
+        $code_oder = $oder['code_oder'];
+        $code_oder = $oder['code_oder'];
+        $oder_detail = $oder_model->getOderByCode($code_oder);
+        $this->page_title = 'Chi Tiết của tôi';
+        $this->content = $this->render('views/users/myoderdetail.php', [
+            'order' => $oder,
+            'order_detail' => $oder_detail,
+            'status' => $status,
+            'code_oder' => $code_oder
+        ]);
+        require_once 'views/layouts/profile.php';
+    }
+    public function deleteMyOder($id)
+    {
+        if (!isset($id) || !is_numeric($id)) {
+            $_SESSION['error'] = 'ID  đơn hàng không hợp lệ';
+            header('Location: ../../oder/index');
+            exit();
+        }
+        $oder_model = new Oder();
+        $is_delete = $oder_model->deleteMyOder($id);
+        if ($is_delete) {
+            $_SESSION['success'] = "Huỷ đơn hàng thành công. Tiếp tục đặt hàng";
+            header("Location: ../../home/index");
+            exit();
+        }
     }
 }

@@ -94,7 +94,7 @@ class User extends Model
     }
     public function upDateInfo($id)
     {
-        $sql_update = "UPDATE user SET `name`= :name,`birthday`= :birthday,`phone` =:phone, `gender` =:gender WHERE id = $id";
+        $sql_update = "UPDATE user SET `name`= :name,`birthday`= :birthday,`phone` =:phone, `gender` =:gender WHERE id = $id AND role > 4";
         $obj_update = $this->connection->prepare($sql_update);
         $update = [
             ':name' => $this->name,
@@ -174,5 +174,120 @@ class User extends Model
         $obj_delete->bindValue(':id', $id, PDO::PARAM_INT);
         $is_delete = $obj_delete->execute();
         return $is_delete;
+    }
+    public function countTotal()
+    {
+        $sql_select_all = "SELECT COUNT(*) FROM user ";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+
+        $obj_select_all->execute();
+        return $obj_select_all->fetchColumn();
+    }
+    public function getAll($page, $limit)
+    {
+
+        $sql_select_all = "SELECT * FROM user WHERE role > 4  ORDER BY created_at DESC LIMIT :page,:limit";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+
+
+        $obj_select_all->execute();
+        $users = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+    public function getById($id)
+    {
+        $sql_select_one = "SELECT * FROM user WHERE id = :id AND role > 4";
+        $obj_select_one = $this->connection
+            ->prepare($sql_select_one);
+        $selects = [
+            ':id' => $id
+        ];
+
+        $obj_select_one->execute($selects);
+        $user = $obj_select_one->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+    public function delete($id)
+    {
+        $sql_delete = "DELETE FROM user WHERE id = :id AND role > 4";
+        $obj_delete = $this->connection->prepare($sql_delete);
+        $obj_delete->bindValue(':id', $id, PDO::PARAM_INT);
+        $is_deleted = $obj_delete->execute();
+
+        return $is_deleted;
+    }
+    public function search($name, $birthday)
+    {
+
+        $sql_select_all = "SELECT * FROM user WHERE role > 4";
+
+        if (!empty($name) && !empty($birthday)) {
+            $sql_select_all .= " AND (name LIKE :name AND birthday LIKE :birthday)";
+            $selects[':name'] = "%$name%";
+            $selects[':birthday'] = "%$birthday%";
+        } else if (!empty($name)) {
+            $sql_select_all .= " AND name LIKE :name";
+            $selects[':name'] = "%$name%";
+        } else if (!empty($birthday)) {
+            $sql_select_all .= " AND birthday LIKE :birthday";
+            $selects[':birthday'] = "%$birthday%";
+        }
+
+
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        if (!empty($name) || !empty($birthday)) {
+            $obj_select_all->execute($selects);
+        } else {
+            $obj_select_all->execute();
+        }
+        $users = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+    public function searchUserName($name)
+    {
+        $sql_select_all = "SELECT * FROM user WHERE  role > 4 AND name LIKE :name";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $selects = [
+            ':name' => "%$name%",
+        ];
+        $obj_select_all->execute($selects);
+        $users = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        $list_name = [];
+        // lấy ra mảng chỉ có tên
+        foreach ($users as $item) {
+            $list_name[] = $item["name"];
+        }
+        // lọc tên trùng
+        $list_name = array_unique($list_name);
+        return json_encode($list_name);
+    }
+    public function searchUserBirthDay($birthday)
+    {
+
+        $sql_select_all = "SELECT * FROM user WHERE  role > 4 AND birthday LIKE :birthday";
+
+
+
+
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+
+        $selects = [
+          
+            ':birthday' => "%$birthday%",
+
+        ];
+        $obj_select_all->execute($selects);
+        $users = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+
+        $list_birthday = [];
+        // lấy ra mảng chỉ có birthday
+        foreach ($users as $item) {
+            $list_birthday[] = $item["birthday"];
+        }
+        // lọc tên trùng
+        $list_birthday = array_unique($list_birthday);
+        return json_encode($list_birthday);
     }
 }

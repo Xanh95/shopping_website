@@ -42,8 +42,16 @@
                             </a>
                         </div>
                         <div class="box-btn">
-                            <button class="add-to-cart"> Mua Ngay</button>
-                            <button class="add-to-cart-nopopup"> Thêm Giỏ Hàng</button>
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_price"
+                                value="<?php echo $values['price'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_name"
+                                value="<?php echo $values['name'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_avatar_products"
+                                value="<?php echo $values['avatar_products'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_quantity" value="1">
+                            <button class="add-to-cart" data-id_product="<?php echo $values['id'] ?>"> Mua Ngay</button>
+                            <button class="add-to-cart-nopopup" data-id_product="<?php echo $values['id'] ?>"> Thêm Giỏ
+                                Hàng</button>
                         </div>
 
                         <div class="card-product-title">
@@ -108,8 +116,16 @@
                             </a>
                         </div>
                         <div class="box-btn">
-                            <button class="add-to-cart"> Mua Ngay</button>
-                            <button class="add-to-cart-nopopup"> Thêm Giỏ Hàng</button>
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_price"
+                                value="<?php echo $values['price'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_name"
+                                value="<?php echo $values['name'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_avatar_products"
+                                value="<?php echo $values['avatar_products'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_quantity" value="1">
+                            <button class="add-to-cart" data-id_product="<?php echo $values['id'] ?>"> Mua Ngay</button>
+                            <button class="add-to-cart-nopopup" data-id_product="<?php echo $values['id'] ?>"> Thêm Giỏ
+                                Hàng</button>
                         </div>
 
                         <div class="card-product-title">
@@ -173,8 +189,16 @@
                             </a>
                         </div>
                         <div class="box-btn">
-                            <button class="add-to-cart"> Mua Ngay</button>
-                            <button class="add-to-cart-nopopup"> Thêm Giỏ Hàng</button>
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_price"
+                                value="<?php echo $values['price'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_name"
+                                value="<?php echo $values['name'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_avatar_products"
+                                value="<?php echo $values['avatar_products'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_quantity" value="1">
+                            <button class="add-to-cart" data-id_product="<?php echo $values['id'] ?>"> Mua Ngay</button>
+                            <button class="add-to-cart-nopopup" data-id_product="<?php echo $values['id'] ?>"> Thêm Giỏ
+                                Hàng</button>
                         </div>
 
                         <div class="card-product-title">
@@ -237,8 +261,17 @@
                             </a>
                         </div>
                         <div class="box-btn">
-                            <button class="add-to-cart"> Mua Ngay</button>
-                            <button class="add-to-cart-nopopup"> Thêm Giỏ Hàng</button>
+
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_price"
+                                value="<?php echo $values['price'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_name"
+                                value="<?php echo $values['name'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_avatar_products"
+                                value="<?php echo $values['avatar_products'] ?>">
+                            <input type="hidden" id="products_<?php echo $values['id'] ?>_quantity" value="1">
+                            <button class="add-to-cart" data-id_product="<?php echo $values['id'] ?>"> Mua Ngay</button>
+                            <button class="add-to-cart-nopopup" data-id_product="<?php echo $values['id'] ?>"> Thêm Giỏ
+                                Hàng</button>
                         </div>
 
                         <div class="card-product-title">

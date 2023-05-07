@@ -33,7 +33,7 @@
                 <tr>
                     <td></td>
                     <td style="color: red;"><i class="fas <?php echo $values['address_type'] == 1 ? "fa-house-user" : "fa-building" ?>"></i>
-                        <span>Cơ Quan</span>
+                        <span><?php echo $values['address_type'] == 1 ? "Nhà riêng" : "Cơ Quan" ?></span>
                     </td>
                     <td></td>
                 </tr>

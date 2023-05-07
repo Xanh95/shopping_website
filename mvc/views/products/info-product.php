@@ -65,7 +65,7 @@
                     <div class="quantity">
                         Số lượng
                         <div class="quantity-wrap">
-                            <input type="text" name="quantity" class="qty-input" size="2" id="qty-input" />
+                            <input type="text" name="quantity" class="qty-input" size="2" id="products_<?php echo $product['id'] ?>_quantity" />
                             <div class="qty-action">
                                 <span title="Thêm" class="add-qty">+</span>
                                 <span title="Bớt" class="sub-qty">-</span>
@@ -84,10 +84,14 @@
             </div>
         </div>
         <div class="add-cart-buttons">
-            <button type="button" data-loading-text="Đang tải..." class="btn-add-cart btn-add-cart-2">
+            <input type="hidden" id="products_<?php echo $product['id'] ?>_price" value="<?php echo $product['price'] ?>">
+            <input type="hidden" id="products_<?php echo $product['id'] ?>_name" value="<?php echo $product['name'] ?>">
+            <input type="hidden" id="products_<?php echo $product['id'] ?>_avatar_products" value="<?php echo $product['avatar_products'] ?>">
+
+            <button type="button" class="btn-add-cart btn-add-cart-2" id="add-to-cart-nopopup" data-id_product="<?php echo $product['id'] ?>">
                 <i class="fas fa-cart-arrow-down"></i> Thêm vào giỏ
             </button>
-            <button type="button" data-loading-text="Đang tải..." class="btn-add-cart">
+            <button type="button" class="btn-add-cart" id="muahang" data-id_product="<?php echo $product['id'] ?>">
                 + Mua hàng
             </button>
         </div>

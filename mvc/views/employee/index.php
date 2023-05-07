@@ -37,16 +37,16 @@
                     <th></th>
                 </tr>
                 <?php foreach ($employees as $values) : ?>
-                    <tr>
-                        <td><?php echo $values['id'] ?></td>
-                        <td><?php echo $values['name'] ?></td>
-                        <td><?php echo $values['birthday'] ?></td>
-                        <td><?php echo $values['phone'] ?></td>
-                        <td><?php echo $values['gender'] == 1 ? 'Nam' : 'Nữ'  ?></td>
-                        <td><?php echo $values['address'] ?></td>
-                        <td><?php echo $values['hometown'] ?></td>
-                        <td><?php echo $values['department'] ?></td>
-                        <td><?php
+                <tr>
+                    <td><?php echo $values['id'] ?></td>
+                    <td><?php echo $values['name'] ?></td>
+                    <td><?php echo $values['birthday'] ?></td>
+                    <td><?php echo $values['phone'] ?></td>
+                    <td><?php echo $values['gender'] == 1 ? 'Nam' : 'Nữ'  ?></td>
+                    <td><?php echo $values['address'] ?></td>
+                    <td><?php echo $values['hometown'] ?></td>
+                    <td><?php echo $values['department'] ?></td>
+                    <td><?php
                             $role = '';
                             switch ($values['role']) {
                                 case 1:
@@ -64,37 +64,41 @@
                                     break;
                             };
                             echo $role; ?></td>
-                        <td><a href="employee/update/<?php echo $values['id']; ?>">Sửa</a> <a href="employee/delete/<?php echo $values['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa nhận sự này')">Xoá</a></td>
-                    </tr>
+                    <td><a href="employee/update/<?php echo $values['id']; ?>">Sửa</a> <a
+                            href="employee/delete/<?php echo $values['id']; ?>"
+                            onclick="return confirm('Bạn có chắc chắn muốn xóa nhận sự này')">Xoá</a></td>
+                </tr>
                 <?php endforeach; ?>
 
             </tbody>
         </table>
-    </div>
-    <hr>
+        <hr>
 
-    <div class="pagination">
-        <?php if ($count_total > $limit) : ?>
+        <div class="pagination">
+            <?php if ($count_total > $limit) : ?>
             <a href="./employee/index/<?php echo ($page - 1) <= 0 ? 1 : ($page - 1)
-                                        ?>">&lt;&lt;</a>
+                                            ?>">&lt;&lt;</a>
             <?php if ($total_page > 10) : ?>
-                <a href="./employee/index/1">1</a>
-                <a href="./employee/index/2">2</a>
-                <a href="./employee/index/3">3</a>
-                <input type="text" style="width: 30px;" value="<?php echo $page ?>" id="go_page_employee"> <a href="./employee/index/" id="go_link_employee">Go</a>
-                <a href="./employee/index/<?php echo $total_page - 2 ?>"><?php echo $total_page - 2 ?></a>
-                <a href="./employee/index/<?php echo $total_page - 1 ?>"><?php echo $total_page - 1 ?></a>
-                <a href="./employee/index/<?php echo $total_page ?>"><?php echo $total_page ?></a>
+            <a href="./employee/index/1">1</a>
+            <a href="./employee/index/2">2</a>
+            <a href="./employee/index/3">3</a>
+            <input type="text" style="width: 30px;" value="<?php echo $page ?>" id="go_page_employee"> <a
+                href="./employee/index/" id="go_link_employee">Go</a>
+            <a href="./employee/index/<?php echo $total_page - 2 ?>"><?php echo $total_page - 2 ?></a>
+            <a href="./employee/index/<?php echo $total_page - 1 ?>"><?php echo $total_page - 1 ?></a>
+            <a href="./employee/index/<?php echo $total_page ?>"><?php echo $total_page ?></a>
             <?php else : ?>
-                <?php for ($i = 1; $i <= $total_page; ++$i) : ?>
-                    <a href="./employee/index/<?php echo $i; ?>" style="color: <?php echo ($page == $i) ? '#ff6000' : '#007bff' ?>;"><?php echo $i; ?></a>
-                <?php endfor; ?>
+            <?php for ($i = 1; $i <= $total_page; ++$i) : ?>
+            <a href="./employee/index/<?php echo $i; ?>"
+                style="color: <?php echo ($page == $i) ? '#ff6000' : '#007bff' ?>;"><?php echo $i; ?></a>
+            <?php endfor; ?>
             <?php endif ?>
 
 
             <a href="./employee/index/<?php echo ($page + 1) >= $total_page ? $total_page : ($page + 1)
-                                        ?>">&gt;&gt;</a>
-        <?php endif
-        ?>
+                                            ?>">&gt;&gt;</a>
+            <?php endif
+            ?>
+        </div>
     </div>
 </div>

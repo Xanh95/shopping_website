@@ -26,6 +26,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jqueryui -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
     <!-- my css and js -->
     <script src="assets/js/index.js" defer></script>
@@ -71,13 +74,13 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank">
+                                    <a href="home/confirmCart" target="_blank">
                                         <img src="assets/img/svg/cart-icon.svg" alt="img/svg/cart-icon.svg" title="giỏ hàng" />
                                         <span class="text-item-dropdow">Giỏ Hàng </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="home/confirmPay">
                                         <img src="assets/img/svg/napviatm.svg" alt="img/svg/napviatm.svg" title="thanh toán ATM" />
                                         <span class="text-item-dropdow">Thanh toán ATM</span>
                                     </a>
@@ -116,21 +119,29 @@
                 </div>
                 <div class="box-seach">
                     <form action="" class="form-search" id="formSearchHeader">
-                        <input type="search" placeholder="Tìm kiếm" class="has-submit" />
+                        <input type="search" placeholder="Tìm kiếm" class="has-submit" id="ipt_search_name_product_nav" />
                         <button type="reset" class="search-cancel"></button>
-                        <button type="submit" class="btn-search"></button>
+                        <button type="submit" class="btn-search" id="btn_search_name_product_nav"></button>
                     </form>
                 </div>
                 <div class="d-flex">
                     <div class="box-notify">
                         <div class="box-icon-cart">
                             <img src="assets/img/svg/cart-icon-gray.svg" alt="img/svg/cart-icon-gray.svg" title="Giỏ hàng" />
-                            <span class="notify-number">9+</span>
+                            <div id="notify-box-cart">
+                                <?php if (isset($_SESSION['total_quantity']) && ($_SESSION['total_quantity']) > 0) : ?>
+                                    <span class="notify-number"><?php echo $_SESSION['total_quantity'] ?></span>
+                                <?php endif ?>
+                            </div>
+
                         </div>
                     </div>
                     <div class="box-account">
-                        <div class="box-icon">
-                            <img src="assets/img/svg/profile.svg" alt="img/svg/profile.svg" title="notify" />
+                        <div class="box-icon <?php echo isset($_SESSION['email']) ? "logged" : "" ?>">
+                            <a href="profile/info">
+
+                                <img src="assets/img/svg/profile.svg" alt="img/svg/profile.svg" title="profile" />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -141,77 +152,8 @@
         <div id="toast-cart"></div>
 
         <div class="popup-cart">
-            <div class="box-cart">
-                <div class="container">
-                    <div class="cart-header">
-                        <h6 class="number-cart-title">Bạn đang có 6 sản phẩm</h6>
-                        <img src="assets/img/svg/close.svg" class="close" alt="img/svg/close.svg" title="Đóng" />
-                    </div>
-                    <div class="container-content">
-                        <div class="products-cart">
-                            <div class="product-cart">
-                                <div class="product-cart-img">
-                                    <img class="img-fluid" src="assets/img/pc/Glacier-I1660-Super-WH-228x228.jpg" alt="" />
-                                </div>
-                                <div class="product-cart-text">
-                                    <a href="#">Bàn Phím Cơ E-DRA EK387FL - Polar Night - Red Switch</a>
-                                    <div class="product-cart-price">19.363.000 vnđ</div>
-                                </div>
-                                <div class="product-cart-action">
-                                    <div class="cart-p-qty">
-                                        <span class="qty-decrease">-</span>
-                                        <input type="tel" class="qty-input" /><span class="qty-increase">+</span>
-                                    </div>
-                                    <div class="cart-p-remove">
-                                        <img src="assets/img/svg/Trash.svg" alt="img/svg/Trash.svg" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-cart">
-                                <div class="product-cart-img">
-                                    <img class="img-fluid" src="assets/img/pc/Glacier-I1660-Super-WH-228x228.jpg" alt="" />
-                                </div>
-                                <div class="product-cart-text">
-                                    <a href="#">Bàn Phím Cơ E-DRA EK387FL - Polar Night - Red Switch</a>
-                                    <div class="product-cart-price">19.363.000 vnđ</div>
-                                </div>
-                                <div class="product-cart-action">
-                                    <div class="cart-p-qty">
-                                        <span class="qty-decrease">-</span>
-                                        <input type="tel" class="qty-input" /><span class="qty-increase">+</span>
-                                    </div>
-                                    <div class="cart-p-remove">
-                                        <img src="assets/img/svg/Trash.svg" alt="img/svg/Trash.svg" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="total-pay">
-                            <div class="container">
-                                <h6>Thông tin giỏ hàng</h6>
-                                <div class="products-count">
-                                    <span class="products-count-text">Số lượng sản phẩm :</span>
-                                    <span class="products-count-number">20</span>
-                                </div>
-                                <div class="total-cart">
-                                    <span class="total-cart-text">Tổng chi phí :</span>
-                                    <span class="total-cart-number">64.782.000 vnđ</span>
-                                </div>
-                                <div style="
-                      font-size: 14px;
-                      color: rgb(78, 78, 84);
-                      font-weight: normal;
-                      justify-content: flex-end;
-                    ">
-                                    Đã bao gồm VAT (nếu có)
-                                </div>
-                                <button href="#" class="btn-cart-confirm">Thanh toán</button>
-                                <a href="#" class="btn-cart-dell">Xoá Giỏ Hàng</a>
-                                <a href="#" class="btn-cart-more">Xem Sản Phẩm Khác</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="box-cart" id="pop-box-cart">
+
             </div>
         </div>
         <div class="container-products">

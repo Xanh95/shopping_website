@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2023 at 01:53 AM
+-- Generation Time: May 08, 2023 at 12:11 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -554,6 +554,85 @@ INSERT INTO `list_products` (`id`, `listproducts`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `oder`
+--
+
+CREATE TABLE `oder` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `phone` varchar(11) NOT NULL,
+  `city` varchar(11) NOT NULL,
+  `district` varchar(11) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `note` text NOT NULL,
+  `method_pay` tinyint(3) NOT NULL,
+  `status` tinyint(3) NOT NULL,
+  `code_oder` varchar(150) NOT NULL,
+  `total_pay` int(11) NOT NULL,
+  `user_id` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `oder`
+--
+
+INSERT INTO `oder` (`id`, `name`, `created_at`, `updated_at`, `phone`, `city`, `district`, `address`, `note`, `method_pay`, `status`, `code_oder`, `total_pay`, `user_id`) VALUES
+(10, 'Tang xuan anh', '2023-05-07 16:48:52', '2023-05-07 20:49:23', '0389607406', 'ha noi', 'long bien', '142635146235', 'zxc', 2, 1, 'ĐH1683478120', 63580000, ''),
+(11, 'Tăng Xuân Anh', '2023-05-07 16:49:21', '2023-05-07 16:49:21', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478151', 71860000, '0'),
+(12, 'Tăng Xuân Anh', '2023-05-07 16:49:31', '2023-05-07 16:49:31', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 1, 1, 'ĐH1683478165', 71860000, '0'),
+(13, 'hồng thất công', '2023-05-07 16:49:40', '2023-05-07 16:49:40', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478174', 71860000, '0'),
+(14, 'Tăng Xuân Anh', '2023-05-07 16:49:50', '2023-05-07 16:49:50', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478183', 149820000, '0'),
+(15, 'hồng thất công', '2023-05-07 16:49:59', '2023-05-07 16:49:59', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478193', 149820000, '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oder_detail`
+--
+
+CREATE TABLE `oder_detail` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `code_oder` varchar(100) NOT NULL,
+  `name_product` varchar(250) NOT NULL,
+  `price` int(11) NOT NULL,
+  `avatar` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `oder_detail`
+--
+
+INSERT INTO `oder_detail` (`id`, `product_id`, `quantity`, `code_oder`, `name_product`, `price`, `avatar`) VALUES
+(36, 232, 1, 'ĐH1683478120', 'Sentinel - 03', 46390000, '1683165813-sentinel-03-500x500.jpg'),
+(37, 86, 1, 'ĐH1683478120', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 16GB / GTX 1660s / 500GB / 550W', 17190000, '1683086384-renda-ADVANCED-I5-11400F-GTX1650super-500x500.jpg'),
+(38, 85, 1, 'ĐH1683478151', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(39, 84, 1, 'ĐH1683478151', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(40, 125, 1, 'ĐH1683478151', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
+(41, 126, 1, 'ĐH1683478151', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(42, 85, 1, 'ĐH1683478165', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(43, 84, 1, 'ĐH1683478165', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(44, 125, 1, 'ĐH1683478165', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
+(45, 126, 1, 'ĐH1683478165', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(46, 85, 1, 'ĐH1683478174', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(47, 84, 1, 'ĐH1683478174', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(48, 125, 1, 'ĐH1683478174', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
+(49, 126, 1, 'ĐH1683478174', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(50, 85, 1, 'ĐH1683478183', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(51, 84, 5, 'ĐH1683478183', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(52, 125, 1, 'ĐH1683478183', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
+(53, 126, 1, 'ĐH1683478183', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(54, 85, 1, 'ĐH1683478193', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(55, 84, 7, 'ĐH1683478193', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(56, 125, 1, 'ĐH1683478193', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
+(57, 126, 1, 'ĐH1683478193', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `post`
 --
 
@@ -894,7 +973,37 @@ INSERT INTO `user` (`id`, `name`, `birthday`, `phone`, `password`, `address`, `h
 (18, 'thieu lam 123', '03/31/1991', '0332602406', '$2y$10$qZqu89zMFzymJRQUSmznQO2mHu5oOU0vYmlDB1.HCbD8JfSEJKeD6', 'thượng thanh long biên hà nội', 'phú thọ', '123qwe@gmail.com', '1', 'Lãnh Đạo', 3, '2023-04-28 16:17:37', '2023-04-29 05:57:42'),
 (19, 'tu duy', '03/31/1995', '0382236207', '$2y$10$xZoxgUp79JCifzXnuUzMK.yeJP5/6egUsuCDpidfzmS0bkTnkBffW', 'thượng thanh long biên hà nội', 'phú thọ', 'ta123ngxuan23nh1995@gmail.com', '1', 'Văn Phòng', 4, '2023-04-29 12:46:23', '2023-04-29 19:46:23'),
 (21, 'du dua', '03/12/1995', '0381239607406', '', 'thượng thanh long biên hà nội', 'phú thọ 1', '123qw23123easd@gmail.com', '2', 'Lãnh Đạo', 1, '2023-04-29 12:51:50', '2023-05-04 07:43:56'),
-(22, 'long', '31/12/1995', '0389607412307', '$2y$10$cqecvLD8o9Tgw.4NpArDC.1CMycr/m2QW2rGyFpmDDM0zreW9Gr.e', 'thượng thanh long biên hà nội', 'phú thọ', 'xuasdna21n3hvolam2@gmail.com', '2', 'Lãnh Đạo', 5, '2023-05-01 13:40:30', '2023-05-04 07:07:20');
+(22, 'long', '31/12/1995', '0389607412307', '$2y$10$cqecvLD8o9Tgw.4NpArDC.1CMycr/m2QW2rGyFpmDDM0zreW9Gr.e', 'thượng thanh long biên hà nội', 'phú thọ', 'xuasdna21n3hvolam2@gmail.com', '2', 'Lãnh Đạo', 5, '2023-05-01 13:40:30', '2023-05-04 07:07:20'),
+(24, 'Tăng Xuân Anh', '04/12/1995', '0389607801', '$2y$10$mLPzOU0rPgI4N4ZP2Xynwu7kjjUyt7S1ueQkXQ3FuJ6zXxr.jHhq6', '', '', '123@gmail.com', '1', '', 5, '2023-05-05 23:25:32', '2023-05-08 03:20:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_address`
+--
+
+CREATE TABLE `user_address` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `phone` varchar(11) NOT NULL,
+  `city` varchar(11) NOT NULL,
+  `district` varchar(11) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `address_type` tinyint(3) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_address`
+--
+
+INSERT INTO `user_address` (`id`, `name`, `phone`, `city`, `district`, `address`, `address_type`, `created_at`, `updated_at`, `user_id`) VALUES
+(2, 'Tăng Xuân Anh', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 1, '2023-05-06 06:35:12', '2023-05-06 10:35:55', 24),
+(3, 'Tăng Xuân Anh', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 2, '2023-05-06 06:37:26', '2023-05-06 06:38:53', 24),
+(4, 'hồng thất công', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 1, '2023-05-06 10:15:35', '2023-05-06 10:15:35', 24),
+(5, 'hồng thất công', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 2, '2023-05-06 10:15:52', '2023-05-06 10:15:52', 24);
 
 --
 -- Indexes for dumped tables
@@ -921,6 +1030,20 @@ ALTER TABLE `list_products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `oder`
+--
+ALTER TABLE `oder`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `code_oder` (`code_oder`);
+
+--
+-- Indexes for table `oder_detail`
+--
+ALTER TABLE `oder_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `code_oder` (`code_oder`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
@@ -940,6 +1063,13 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `phone` (`phone`) USING BTREE,
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `user_address`
+--
+ALTER TABLE `user_address`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -964,6 +1094,18 @@ ALTER TABLE `list_products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `oder`
+--
+ALTER TABLE `oder`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `oder_detail`
+--
+ALTER TABLE `oder_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
@@ -979,7 +1121,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `user_address`
+--
+ALTER TABLE `user_address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -990,6 +1138,18 @@ ALTER TABLE `user`
 --
 ALTER TABLE `img_products`
   ADD CONSTRAINT `img_products_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `oder_detail`
+--
+ALTER TABLE `oder_detail`
+  ADD CONSTRAINT `oder_detail_ibfk_1` FOREIGN KEY (`code_oder`) REFERENCES `oder` (`code_oder`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user_address`
+--
+ALTER TABLE `user_address`
+  ADD CONSTRAINT `user_address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

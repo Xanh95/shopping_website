@@ -287,3 +287,9 @@ span.price_text {
   grid-template-columns: repeat(8, 100px);
   grid-gap: 10px;
 }
+.status_oder {
+  margin-bottom: 10px;
+}
+.logged {
+  background-color: #bcffbc !important;
+}

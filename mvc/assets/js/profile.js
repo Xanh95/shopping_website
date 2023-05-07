@@ -303,3 +303,95 @@ $("input.input__field--isao").change(function () {
 $('input.input__field--isao[value!=""]').each(function () {
   $(this).next().find("span").css("top", 0);
 });
+// ajax search don hang va chuyen huong den do
+$("#btn_search_name_product_nav").click(function () {
+  let name = $("#ipt_search_name_product_nav").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/findIDProduct",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name: name,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (id) {
+      window.location.href = `home/product/${id}`;
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete code_oder nav
+$("#ipt_search_name_product_nav").keyup(function () {
+  let name_product = $("#ipt_search_name_product_nav").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./home/searchAutoNameProduct",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name_product: name_product,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (data) {
+      list_name = JSON.parse(data);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#ipt_search_name_product_nav")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});

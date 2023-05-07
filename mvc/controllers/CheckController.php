@@ -49,6 +49,7 @@ class CheckController extends Controller
                         $_SESSION['user'] = $employee['name'];
                         $_SESSION['role'] = $employee['role'];
                         $_SESSION['id'] = $employee['id'];
+                        $_SESSION['email'] = $employee['email'];
                         $_SESSION['password'] = $employee['password'];
                         if ($employee['role'] == 1) {
                             $_SESSION['role'] = 0;

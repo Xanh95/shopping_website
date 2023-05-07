@@ -90,7 +90,9 @@ if ($("#list-department").length > 0) {
     transform: "translate(-39px, 100px)",
   });
 }
-$("#item-4").click(function () {
+//
+if ($("#list-oder").length > 0) {
+  $("#collapseTwo").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 52px)",
@@ -101,7 +103,9 @@ $("#item-4").click(function () {
       transform: "translate(-39px, 27px)",
     });
   }
-});
+}
+
+//
 //
 if ($("#list-product").length > 0) {
   $("#collapseThree").addClass("show");
@@ -134,7 +138,8 @@ if ($("#createproducts").length > 0) {
 }
 
 //
-$("#item-7").click(function () {
+if ($("#list-user").length > 0) {
+  $("#collapsefour").addClass("show");
   robot.css({
     opacity: 1,
     transform: "translate(-39px, 106px)",
@@ -145,7 +150,8 @@ $("#item-7").click(function () {
       transform: "translate(-39px, 77px)",
     });
   }
-});
+}
+$("#item-7").click(function () {});
 //
 if ($("#sale").length > 0) {
   $("#collapsefive").addClass("show");
@@ -415,6 +421,58 @@ $("#search-employee").click(function () {
   // Gọi ajax với jQuery
   $.ajax(obj_ajax);
 });
+// ajax search user
+$("#search-user").click(function () {
+  let name = $("#user-name").val();
+
+  let birthday = $("#user-birthday").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchUser",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name: name,
+
+      birthday: birthday,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (user) {
+      $("#list-search-users").html(user);
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// ajax search oders
+$("#search-oder").click(function () {
+  let code_oder = $("#code_oder").val();
+
+  let user_name = $("#oder_user_name").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchOders",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      code_oder: code_oder,
+
+      user_name: user_name,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (oders) {
+      $("#list-search-oders").html(oders);
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
 // ajax search products
 $("#search-product").click(function () {
   let name = $("#product-name").val();
@@ -497,6 +555,356 @@ $("#employee-name").keyup(function () {
         }
 
         $("#employee-name")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete name user
+$("#user-name").keyup(function () {
+  let name = $("#user-name").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoUserName",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name: name,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (user) {
+      list_name = JSON.parse(user);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#user-name")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete birthday user
+$("#user-birthday").keyup(function () {
+  let birthday = $("#user-birthday").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoUserBirthday",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      birthday: birthday,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (user) {
+      list_name = JSON.parse(user);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#user-birthday")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete code_oder
+$("#code_oder").keyup(function () {
+  let code = $("#code_oder").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoCode",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      code: code,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (employee) {
+      list_name = JSON.parse(employee);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#code_oder")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete code_oder nav
+$("#input_seach_nav").keyup(function () {
+  let code = $("#input_seach_nav").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoCode",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      code: code,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (employee) {
+      list_name = JSON.parse(employee);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#input_seach_nav")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+            if (
+              event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active
+            ) {
+              event.preventDefault();
+            }
+          })
+          .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+              // delegate back to autocomplete, but extract the last term
+              response(
+                $.ui.autocomplete.filter(
+                  availableTags,
+                  extractLast(request.term)
+                )
+              );
+            },
+            focus: function () {
+              // prevent value inserted on focus
+              return false;
+            },
+            select: function (event, ui) {
+              var terms = split(this.value);
+              // remove the current input
+              terms.pop();
+              // add the selected item
+              terms.push(ui.item.value);
+              // add placeholder to get the comma-and-space at the end
+              terms.push("");
+              this.value = terms.join("");
+              return false;
+            },
+          });
+      });
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// search autocomplete name_user
+$("#oder_user_name").keyup(function () {
+  let name = $("#oder_user_name").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchAutoOderUserName",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      name: name,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (employee) {
+      list_name = JSON.parse(employee);
+
+      $(function () {
+        var availableTags = list_name;
+        function split(val) {
+          return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+          return split(term).pop();
+        }
+
+        $("#oder_user_name")
           // don't navigate away from the field on tab when selecting an item
           .on("keydown", function (event) {
             if (
@@ -885,6 +1293,14 @@ $("#go_page_sale").on("input", function () {
   var goPageInput = $(this).val();
   $("#go_link_sale").attr("href", "./post/index/" + goPageInput);
 });
+$("#go_page_oder").on("input", function () {
+  var goPageInput = $(this).val();
+  $("#go_link_oder").attr("href", "./oder/index/" + goPageInput);
+});
+$("#go_page_user").on("input", function () {
+  var goPageInput = $(this).val();
+  $("#go_link_user").attr("href", "./user/index/" + goPageInput);
+});
 
 // validate post sale
 $("#sale").validate({
@@ -900,4 +1316,26 @@ $("#sale").validate({
       maxlength: "nhiều nhất 75 ký tự",
     },
   },
+});
+// ajax search don hang va chuyen huong den do
+$("#btn_search_nav").click(function () {
+  let code = $("#input_seach_nav").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/findIDOder",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      code: code,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (id) {
+      window.location.href = `oder/detail/${id}`;
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
 });

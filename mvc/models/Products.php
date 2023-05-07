@@ -212,7 +212,7 @@ class Products extends Model
         $is_delete = $obj_delete->execute();
         return $is_delete;
     }
-    // đếm tổng số employee hiển thị
+    // đếm tổng số products hiển thị
     public function countTotal()
     {
         $sql_select_all = "SELECT COUNT(*) FROM products ";
@@ -228,5 +228,18 @@ class Products extends Model
 
         $obj_select_all->execute();
         return $obj_select_all->fetchColumn();
+    }
+    public function findIDProduct($name)
+    {
+        $sql_select_all = "SELECT * FROM products WHERE name = :name";
+        $obj_select_all = $this->connection
+            ->prepare($sql_select_all);
+        $selects = [
+            ':name' => $name
+        ];
+
+        $obj_select_all->execute($selects);
+        $oder = $obj_select_all->fetch(PDO::FETCH_ASSOC);
+        return $oder;
     }
 }

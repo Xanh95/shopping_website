@@ -359,7 +359,7 @@ a > span {
   box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
   border-radius: 12px;
   position: relative;
-  height: 328px;
+  height: 349px;
 }
 .card-product-body-sale {
   border: 1px solid #e4e5f0;
@@ -921,7 +921,8 @@ input.qty-input {
 .btn-cart,
 .btn-cart-confirm,
 .btn-cart-dell,
-.btn-cart-more {
+.btn-cart-more,
+#confirm-pay-finish {
   display: block;
   color: white;
   width: 200px;
@@ -931,7 +932,8 @@ input.qty-input {
   align-items: center;
   justify-content: center;
 }
-.btn-cart-confirm {
+.btn-cart-confirm,
+#confirm-pay-finish {
   background-color: #008f00;
 }
 .btn-cart:hover {
@@ -1050,4 +1052,24 @@ input.qty-input {
 }
 .contact-info {
   padding-left: 10px;
+}
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.delete {
+  cursor: pointer;
+}
+.form-item {
+  display: flex;
+  align-items: center;
+}
+.logged {
+  background-color: #bcffbc !important;
 }

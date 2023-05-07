@@ -915,3 +915,10 @@ ul.drop-menu li {
 .contact-info {
   padding-left: 10px;
 }
+.logged {
+  background-color: #bcffbc !important;
+}
+.table-employee td,
+th {
+  font-size: 11px;
+}
