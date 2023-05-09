@@ -1,8 +1,3 @@
-<?php
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-?>
 <form action="" method="post" id="update_user">
     <div class="container-employee" id="list-user">
         <h6>Thông tin Khách hàng</h6>
