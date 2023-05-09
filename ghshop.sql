@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 12:11 AM
+-- Generation Time: May 09, 2023 at 08:17 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -584,7 +584,9 @@ INSERT INTO `oder` (`id`, `name`, `created_at`, `updated_at`, `phone`, `city`, `
 (12, 'Tăng Xuân Anh', '2023-05-07 16:49:31', '2023-05-07 16:49:31', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 1, 1, 'ĐH1683478165', 71860000, '0'),
 (13, 'hồng thất công', '2023-05-07 16:49:40', '2023-05-07 16:49:40', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478174', 71860000, '0'),
 (14, 'Tăng Xuân Anh', '2023-05-07 16:49:50', '2023-05-07 16:49:50', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478183', 149820000, '0'),
-(15, 'hồng thất công', '2023-05-07 16:49:59', '2023-05-07 16:49:59', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478193', 149820000, '0');
+(15, 'hồng thất công', '2023-05-07 16:49:59', '2023-05-07 16:49:59', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478193', 149820000, '0'),
+(18, '123', '2023-05-09 00:52:22', '2023-05-09 00:52:22', '0389607406', 'ha noi', 'long bien', '142635146235', '', 2, 1, 'ĐH1683593526', 13190000, ''),
+(19, 'Tang xuan anh', '2023-05-09 00:55:35', '2023-05-09 00:55:35', '0389607406', 'ha noi', 'long bien', '123', '', 2, 1, 'ĐH1683593725', 13190000, '');
 
 -- --------------------------------------------------------
 
@@ -628,7 +630,9 @@ INSERT INTO `oder_detail` (`id`, `product_id`, `quantity`, `code_oder`, `name_pr
 (54, 85, 1, 'ĐH1683478193', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
 (55, 84, 7, 'ĐH1683478193', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
 (56, 125, 1, 'ĐH1683478193', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
-(57, 126, 1, 'ĐH1683478193', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg');
+(57, 126, 1, 'ĐH1683478193', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(61, 187, 1, 'ĐH1683593526', 'Màn Hình Gaming LG 35WN75CN-B', 13190000, '1683128864-LG 35WN75CN-B-500x500.jpg'),
+(62, 187, 1, 'ĐH1683593725', 'Màn Hình Gaming LG 35WN75CN-B', 13190000, '1683128864-LG 35WN75CN-B-500x500.jpg');
 
 -- --------------------------------------------------------
 
@@ -972,7 +976,7 @@ INSERT INTO `user` (`id`, `name`, `birthday`, `phone`, `password`, `address`, `h
 (17, 'vodang', '04/12/1995', '123123123', '$2y$10$mgKqtrziVbNw/u/sHNvnb.NoB1ysuH.HM0.4j6G9fBt/xMbTB/W9.', 'thượng thanh long biên hà nội', 'phú thọ', 'tangx3a212295@gmail.com', '1', 'Lãnh Đạo', 1, '2023-04-27 19:27:35', '2023-04-29 05:57:57'),
 (18, 'thieu lam 123', '03/31/1991', '0332602406', '$2y$10$qZqu89zMFzymJRQUSmznQO2mHu5oOU0vYmlDB1.HCbD8JfSEJKeD6', 'thượng thanh long biên hà nội', 'phú thọ', '123qwe@gmail.com', '1', 'Lãnh Đạo', 3, '2023-04-28 16:17:37', '2023-04-29 05:57:42'),
 (19, 'tu duy', '03/31/1995', '0382236207', '$2y$10$xZoxgUp79JCifzXnuUzMK.yeJP5/6egUsuCDpidfzmS0bkTnkBffW', 'thượng thanh long biên hà nội', 'phú thọ', 'ta123ngxuan23nh1995@gmail.com', '1', 'Văn Phòng', 4, '2023-04-29 12:46:23', '2023-04-29 19:46:23'),
-(21, 'du dua', '03/12/1995', '0381239607406', '', 'thượng thanh long biên hà nội', 'phú thọ 1', '123qw23123easd@gmail.com', '2', 'Lãnh Đạo', 1, '2023-04-29 12:51:50', '2023-05-04 07:43:56'),
+(21, 'du abc', '03/12/1995', '0381239607406', '', 'thượng thanh long biên hà nội', 'phú thọ 1', '123qw23123easd@gmail.com', '2', 'Lãnh Đạo', 1, '2023-04-29 12:51:50', '2023-05-09 09:19:36'),
 (22, 'long', '31/12/1995', '0389607412307', '$2y$10$cqecvLD8o9Tgw.4NpArDC.1CMycr/m2QW2rGyFpmDDM0zreW9Gr.e', 'thượng thanh long biên hà nội', 'phú thọ', 'xuasdna21n3hvolam2@gmail.com', '2', 'Lãnh Đạo', 5, '2023-05-01 13:40:30', '2023-05-04 07:07:20'),
 (24, 'Tăng Xuân Anh', '04/12/1995', '0389607801', '$2y$10$mLPzOU0rPgI4N4ZP2Xynwu7kjjUyt7S1ueQkXQ3FuJ6zXxr.jHhq6', '', '', '123@gmail.com', '1', '', 5, '2023-05-05 23:25:32', '2023-05-08 03:20:57');
 
@@ -1097,13 +1101,13 @@ ALTER TABLE `list_products`
 -- AUTO_INCREMENT for table `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `oder_detail`
 --
 ALTER TABLE `oder_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `post`
