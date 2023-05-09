@@ -182,7 +182,6 @@ class Employee extends Model
         ];
 
         try {
-
             return $obj_update->execute($update);
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {

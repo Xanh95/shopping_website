@@ -172,7 +172,7 @@ class User extends Model
     }
     public function countTotal()
     {
-        $sql_select_all = "SELECT COUNT(*) FROM user ";
+        $sql_select_all = "SELECT COUNT(*) FROM user WHERE role > 4 ";
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $obj_select_all->execute();
         return $obj_select_all->fetchColumn();

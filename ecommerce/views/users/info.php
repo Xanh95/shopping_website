@@ -1,13 +1,11 @@
 <!-- views/layouts/users/info.php -->
 <?php
-
-$birthday = explode("/", filter_var(trim($_SESSION['birthday'], "/")));
-
-$dd_birthday = $birthday[0];
-$mm_birthday = $birthday[1];
-$yy_birthday = $birthday[2];
-
-
+if (!empty($_SESSION['birthday'])) {
+    $birthday = explode("/", filter_var(trim($_SESSION['birthday'], "/")));
+    $dd_birthday = $birthday[0];
+    $mm_birthday = $birthday[1];
+    $yy_birthday = $birthday[2];
+}
 ?>
 <div class="info-user">
     <div class="info-user-title">
@@ -56,7 +54,10 @@ $yy_birthday = $birthday[2];
                         <select name="dd_birthday">
                             <option value="">Ngày</option>
                             <?php for ($i = 1; $i < 32; $i++) : ?>
-                            <option value="<?php echo $i ?>" <?php echo $dd_birthday == $i ? 'selected' : '' ?>>
+                            <option value="<?php echo $i ?>" <?php
+                                    if (!empty($_SESSION['birthday'])) {
+                                        echo $dd_birthday == $i ? 'selected' : '';
+                                        }  ?>>
                                 <?php echo $i ?>
                             </option>
                             <?php endfor ?>
@@ -64,7 +65,9 @@ $yy_birthday = $birthday[2];
                         <select name="mm_birthday">
                             <option value="">Tháng</option>
                             <?php for ($i = 1; $i < 13; $i++) : ?>
-                            <option value="<?php echo $i ?>" <?php echo $mm_birthday == $i ? 'selected' : '' ?>>
+                            <option value="<?php echo $i ?>" <?php if (!empty($_SESSION['birthday'])) {
+                                        echo $mm == $i ? 'selected' : '';
+                                        } ?>>
                                 <?php echo $i ?>
                             </option>
                             <?php endfor ?>
@@ -72,7 +75,9 @@ $yy_birthday = $birthday[2];
                         <select name="yy_birthday">
                             <option value="">Năm</option>
                             <?php for ($i = 1960; $i <= ($yeah = date('Y')); $i++) : ?>
-                            <option value="<?php echo $i ?>" <?php echo $yy_birthday == $i ? 'selected' : '' ?>>
+                            <option value="<?php echo $i ?>" <?php if (!empty($_SESSION['birthday'])) {
+                                        echo $yy_birthday == $i ? 'selected' : '';
+                                        } ?>>
                                 <?php echo $i ?></option>
                             <?php endfor ?>
 
