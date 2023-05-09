@@ -108,9 +108,11 @@ class ProfileController extends Controller
                 $this->error = 'Nhập lại mật khẩu mới chưa chính xác';
             }
             if (empty($this->error)) {
-                $is_same_password = password_verify($curent_pass, $_SESSION['password']);
+                $user_model = new User();
+                $user = $user_model->getUser($_SESSION['email']);
+                $password_hash = $user['password'];
+                $is_same_password = password_verify($curent_pass, $password_hash);
                 if ($is_same_password) {
-                    $user_model = new User();
                     $newpass = password_hash($newpass, PASSWORD_BCRYPT);
                     $user_model->password = $newpass;
                     $is_edit_pass = $user_model->upDatePass($id);

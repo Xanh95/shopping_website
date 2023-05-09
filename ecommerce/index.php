@@ -3,7 +3,13 @@
 session_start();
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-
+if (isset($_COOKIE['user'])) {
+    //Tạo session để đánh dấu login thành công
+    $_SESSION['user'] = $_COOKIE['user'];
+    $_SESSION['role'] = $_COOKIE['role'];
+    $_SESSION['id'] = $_COOKIE['id'];
+    $_SESSION['email'] = $_COOKIE['email'];
+}
 function UrlProcess()
 {
     if (isset($_GET["url"])) {

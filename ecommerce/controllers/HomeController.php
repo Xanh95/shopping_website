@@ -514,7 +514,12 @@ class HomeController extends Controller
                         $_SESSION['role'] = $user['role'];
                         $_SESSION['id'] = $user['id'];
                         $_SESSION['email'] = $user['email'];
-                        $_SESSION['password'] = $user['password'];
+
+                        setcookie('user', $user['name'], time() + 3600);
+                        setcookie('role', $user['role'], time() + 3600);
+                        setcookie('id', $user['id'], time() + 3600);
+                        setcookie('email', $user['email'], time() + 3600);
+
 
                         if ($user['role'] == 1) {
                             $_SESSION['role'] = 0;
