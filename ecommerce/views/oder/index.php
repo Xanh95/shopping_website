@@ -7,6 +7,12 @@
 
         Theo tên Khách Hàng
         <input type="search" id="oder_user_name">
+        Theo tình trạng
+        <select name="status" id="oder_status">
+            <option value="">Thanh toán của ĐH</option>
+            <option value="1">Chưa Thanh Toánn</option>
+            <option value="2">Đã Thanh Toánn</option>
+        </select>
         <button class="btn-search-employee" id="search-oder">Tìm Kiếm</button>
     </div>
     <hr>
@@ -29,22 +35,21 @@
                     <th></th>
                 </tr>
                 <?php foreach ($orders as $value) : ?>
-                <tr>
-                    <td><?php echo $value['code_oder'] ?></td>
-                    <td><?php echo $value['name'] ?></td>
-                    <td><?php echo $value['phone'] ?></td>
-                    <td><?php echo $value['city'] ?> </td>
-                    <td><?php echo $value['district'] ?></td>
-                    <td><?php echo $value['address'] ?></td>
-                    <td><?php echo $value['note'] ?></td>
-                    <td><?php echo $value['method_pay'] == 1 ? "tại nơi giao hàng" : "Banking" ?></td>
-                    <td><?php echo $value['status'] == 1 ? "Chưa Thanh Toán" : "Đã Thanh Toán" ?></td>
-                    <td style="color: red;">
-                        <b><?php echo number_format($value['total_pay'], 0, ',', '.') . "  VNĐ" ?></b></td>
-                    <td><a href="oder/detail/<?php echo $value['id']; ?>">Chi Tiết</a> <a
-                            href="oder/delete/<?php echo $value['id']; ?>"
-                            onclick="return confirm('Bạn có chắc chắn muốn xóa nhận sự này')">Xoá</a></td>
-                </tr>
+                    <tr>
+                        <td><?php echo $value['code_oder'] ?></td>
+                        <td><?php echo $value['name'] ?></td>
+                        <td><?php echo $value['phone'] ?></td>
+                        <td><?php echo $value['city'] ?> </td>
+                        <td><?php echo $value['district'] ?></td>
+                        <td><?php echo $value['address'] ?></td>
+                        <td><?php echo $value['note'] ?></td>
+                        <td><?php echo $value['method_pay'] == 1 ? "tại nơi giao hàng" : "Banking" ?></td>
+                        <td><?php echo $value['status'] == 1 ? "Chưa Thanh Toán" : "Đã Thanh Toán" ?></td>
+                        <td style="color: red;">
+                            <b><?php echo number_format($value['total_pay'], 0, ',', '.') . "  VNĐ" ?></b>
+                        </td>
+                        <td><a href="oder/detail/<?php echo $value['id']; ?>">Chi Tiết</a> <a href="oder/delete/<?php echo $value['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa nhận sự này')">Xoá</a></td>
+                    </tr>
                 <?php endforeach ?>
 
             </tbody>
@@ -52,26 +57,24 @@
         <hr>
         <div class="pagination">
             <?php if ($count_total > $limit) : ?>
-            <a href="./oder/index/<?php echo ($page - 1) <= 0 ? 1 : ($page - 1)
+                <a href="./oder/index/<?php echo ($page - 1) <= 0 ? 1 : ($page - 1)
                                         ?>">&lt;&lt;</a>
-            <?php if ($total_page > 10) : ?>
-            <a href="./oder/index/1">1</a>
-            <a href="./oder/index/2">2</a>
-            <a href="./oder/index/3">3</a>
-            <input type="text" style="width: 30px;" value="<?php echo $page ?>" id="go_page_oder"> <a
-                href="./oder/index/" id="go_link_oder">Go</a>
-            <a href="./oder/index/<?php echo $total_page - 2 ?>"><?php echo $total_page - 2 ?></a>
-            <a href="./oder/index/<?php echo $total_page - 1 ?>"><?php echo $total_page - 1 ?></a>
-            <a href="./oder/index/<?php echo $total_page ?>"><?php echo $total_page ?></a>
-            <?php else : ?>
-            <?php for ($i = 1; $i <= $total_page; ++$i) : ?>
-            <a href="./oder/index/<?php echo $i; ?>"
-                style="color: <?php echo ($page == $i) ? '#ff6000' : '#007bff' ?>;"><?php echo $i; ?></a>
-            <?php endfor; ?>
-            <?php endif ?>
+                <?php if ($total_page > 10) : ?>
+                    <a href="./oder/index/1">1</a>
+                    <a href="./oder/index/2">2</a>
+                    <a href="./oder/index/3">3</a>
+                    <input type="text" style="width: 30px;" value="<?php echo $page ?>" id="go_page_oder"> <a href="./oder/index/" id="go_link_oder">Go</a>
+                    <a href="./oder/index/<?php echo $total_page - 2 ?>"><?php echo $total_page - 2 ?></a>
+                    <a href="./oder/index/<?php echo $total_page - 1 ?>"><?php echo $total_page - 1 ?></a>
+                    <a href="./oder/index/<?php echo $total_page ?>"><?php echo $total_page ?></a>
+                <?php else : ?>
+                    <?php for ($i = 1; $i <= $total_page; ++$i) : ?>
+                        <a href="./oder/index/<?php echo $i; ?>" style="color: <?php echo ($page == $i) ? '#ff6000' : '#007bff' ?>;"><?php echo $i; ?></a>
+                    <?php endfor; ?>
+                <?php endif ?>
 
 
-            <a href="./oder/index/<?php echo ($page + 1) >= $total_page ? $total_page : ($page + 1)
+                <a href="./oder/index/<?php echo ($page + 1) >= $total_page ? $total_page : ($page + 1)
                                         ?>">&gt;&gt;</a>
             <?php endif
             ?>

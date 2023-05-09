@@ -450,6 +450,7 @@ $("#search-user").click(function () {
 // ajax search oders
 $("#search-oder").click(function () {
   let code_oder = $("#code_oder").val();
+  let status = $("#oder_status").val();
 
   let user_name = $("#oder_user_name").val();
 
@@ -462,7 +463,7 @@ $("#search-oder").click(function () {
     // Set dữ liệu truyền lên
     data: {
       code_oder: code_oder,
-
+      status: status,
       user_name: user_name,
     },
     // Nơi nhận dữ liệu trả về từ PHP

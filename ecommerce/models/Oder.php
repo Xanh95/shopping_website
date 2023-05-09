@@ -162,20 +162,24 @@ class Oder extends Model
         $is_delete = $obj_delete->execute();
         return $is_delete;
     }
-    public function search($name, $code_oder)
+    public function search($name, $code_oder, $status)
     {
         $sql_select_all = "SELECT * FROM oder  ";
         $selects = array();
-        if (!empty($name) && !empty($code_oder)) {
-            $sql_select_all .= " WHERE (name LIKE :name AND code_oder = :code_oder)";
+        if (!empty($name) && !empty($code_oder) && !empty($status)) {
+            $sql_select_all .= " WHERE (name LIKE :name AND code_oder = :code_oder AND status = :status)";
             $selects[':name'] = "%$name%";
             $selects[':code_oder'] = $code_oder;
+            $selects[':status'] = $status;
         } else if (!empty($name)) {
             $sql_select_all .= " WHERE name LIKE :name";
             $selects[':name'] = "%$name%";
         } else if (!empty($code_oder)) {
             $sql_select_all .= " WHERE code_oder = :code_oder";
             $selects[':code_oder'] = $code_oder;
+        } elseif (!empty($status)) {
+            $sql_select_all .= " WHERE status = :status";
+            $selects[':status'] = $status;
         }
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $obj_select_all->execute($selects);

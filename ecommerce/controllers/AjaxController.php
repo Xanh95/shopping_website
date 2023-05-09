@@ -132,12 +132,12 @@ class AjaxController extends Controller
     {
 
         $code_oder = $_POST['code_oder'];
-
+        $status = $_POST['status'];
         $name = $_POST['user_name'];
 
         // -controller gọi models để lấy dữ liệu các bộ phận
         $oder_model = new Oder();
-        $orders = $oder_model->search($name, $code_oder);
+        $orders = $oder_model->search($name, $code_oder, $status);
 
         //view
         $this->content =  $this->render('views/oder/search.php', ['orders' => $orders]);

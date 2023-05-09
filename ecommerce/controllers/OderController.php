@@ -102,7 +102,7 @@ class OderController extends Controller
 
                 $is_update_status = $oder_model->updateStatus($status, $detail);
                 if ($is_update_quantity && $is_update_status) {
-                    $_SESSION['success'] = "Cập Nhật giỏ Hàng Thành Công";
+                    $_SESSION['success'] = "Cập Nhật Đơn Hàng $code Thành Công";
                     header("Location: ../../oder/detail/$detail");
                     exit();
                 } else {
