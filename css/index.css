@@ -119,6 +119,7 @@
   }
   .total-pay > .container {
     width: 120px !important;
+    margin: 0;
   }
   .btn-cart {
     width: 108px !important;

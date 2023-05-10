@@ -275,6 +275,7 @@ button {
   width: 100%;
   text-align: center;
   margin-top: 20px;
+  display: none;
 }
 
 .social-media ul {
