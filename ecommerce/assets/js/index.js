@@ -114,6 +114,7 @@ $("#muahang").click(function () {
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (data) {
       $("#notify-box-cart").html(data);
+      window.location.href = "home/confirmCart";
     },
   };
   // Gọi ajax với jQuery
@@ -340,9 +341,6 @@ function cart() {
   });
   $("#confirm-pay").click(function () {
     window.location.href = "home/confirmPay";
-  });
-  $("#muahang").click(function () {
-    window.location.href = "home/confirmCart";
   });
 }
 cart();

@@ -74,7 +74,10 @@ if ($(".select-address").length > 1) {
   $("#confirm-pay-cart").validate({
     rules: {
       "input-name-recipient": "required",
-      "input-phone-recipient": "required",
+      "input-phone-recipient": {
+        required: true,
+        minlength: 9,
+      },
       "input-city-recipient": "required",
       "input-district-recipient": "required",
       "input-address-recipient": "required",
@@ -83,7 +86,10 @@ if ($(".select-address").length > 1) {
     },
     messages: {
       "input-name-recipient": "phải nhập/chọn",
-      "input-phone-recipient": "phải nhập/chọn",
+      "input-phone-recipient": {
+        required: "phải nhập",
+        minlength: "SĐT ít nhất 9 số",
+      },
       "input-city-recipient": "phải nhập/chọn",
       "input-district-recipient": "phải nhập/chọn",
       "input-address-recipient": "phải nhập/chọn",
