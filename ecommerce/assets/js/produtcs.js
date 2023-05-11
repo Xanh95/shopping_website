@@ -59,7 +59,7 @@ if ($(".products-seen").length) {
   });
 }
 // validate comfirm cart
-if ($(".select-address").length > 1) {
+if ($(".select-address").length > 0) {
   $("#confirm-pay-cart").validate({
     rules: {
       "ship-address": "required",
