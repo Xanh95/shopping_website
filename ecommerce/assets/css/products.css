@@ -66,6 +66,12 @@
     font-size: 11px;
     text-align: left !important;
   }
+  .show-activity {
+    width: 100% !important;
+  }
+  .address-form {
+    margin-bottom: 10px;
+  }
   .cart-process {
     flex-direction: row !important;
   }

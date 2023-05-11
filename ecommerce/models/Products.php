@@ -85,6 +85,17 @@ class Products extends Model
         $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
+    public function getAllProductsWithName($page, $limit, $product_name)
+    {
+        $sql_select_all = "SELECT * FROM products WHERE name LIKE :name ORDER BY created_at DESC LIMIT :page,:limit";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':name', '%' . (string)$product_name . '%', PDO::PARAM_STR);
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
 
     public function search($name, $sortname, $sorttime, $category)
     {
@@ -185,6 +196,16 @@ class Products extends Model
         $sql_select_all = "SELECT COUNT(*) FROM products WHERE category_id = $id_product";
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $obj_select_all->execute();
+        return $obj_select_all->fetchColumn();
+    }
+    public function countTotalProductsWithName($name)
+    {
+        $sql_select_all = "SELECT COUNT(*) FROM products WHERE name LIKE :name";
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $name = [
+            ':name' => "%$name%"
+        ];
+        $obj_select_all->execute($name);
         return $obj_select_all->fetchColumn();
     }
     public function findIDProduct($name)

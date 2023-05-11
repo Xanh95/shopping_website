@@ -126,19 +126,19 @@ class CartController extends Controller
     public function updateQuantityCart()
     {
 
-
-        $total_quantity = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $total_quantity += $item['quantity'];
-        }
-        $total_quantity = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $total_quantity += $item['quantity'];
-        }
-
-        $_SESSION['total_quantity'] = $total_quantity;
-        echo $total_quantity;
+     
         if (isset($_SESSION['cart'])) {
+            $total_quantity = 0;
+            foreach ($_SESSION['cart'] as $item) {
+                $total_quantity += $item['quantity'];
+            }
+            $total_quantity = 0;
+            foreach ($_SESSION['cart'] as $item) {
+                $total_quantity += $item['quantity'];
+            }
+    
+            $_SESSION['total_quantity'] = $total_quantity;
+            echo $total_quantity;
             foreach ($_SESSION['cart'] as $value) {
                 $id_product = $value['id_products'];
                 $id_product = "product_$id_product";
@@ -149,22 +149,24 @@ class CartController extends Controller
     public function updatePriceCart()
     {
 
+        if (isset($_SESSION['cart'])) {
+            $total_price = 0;
+            foreach ($_SESSION['cart'] as $item) {
+                $total_price += ($item['price'] * $item['quantity']);
+            }
+            $_SESSION['total_price'] = 0;
+            foreach ($_SESSION['cart'] as $item) {
+                $_SESSION['total_price'] += ($item['price'] * $item['quantity']);
+            }
+    
+            echo number_format($total_price, 0, ',', '.') . "  VNĐ";
 
-        $total_price = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $total_price += ($item['price'] * $item['quantity']);
         }
-        $_SESSION['total_price'] = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $_SESSION['total_price'] += ($item['price'] * $item['quantity']);
-        }
-
-        echo number_format($total_price, 0, ',', '.') . "  VNĐ";
     }
     public function deleteCart()
     {
         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-            unset($_SESSION['cart']);
+
             unset($_SESSION['total_quantity']);
             unset($_SESSION['code_oder']);
             unset($_SESSION['total_price']);
@@ -176,6 +178,7 @@ class CartController extends Controller
                 $id_product = "product_$id_product";
                 $_SESSION[$id_product] = $value['quantity'];
             }
+            unset($_SESSION['cart']);
         }
         $this->content =  $this->render('views/products/notify_quantity.php', ['total_quantity' => $total_quantity]);
         require_once 'views/layouts/result.php';

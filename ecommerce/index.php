@@ -61,8 +61,3 @@ if (!method_exists($controller, $action)) {
 
 $obj = new $controller();
 call_user_func_array([$obj, $action], $variables);
-?>
-
-<head>
-    <link rel="icon" href="favicon.ico" type="image/ico">
-</head>

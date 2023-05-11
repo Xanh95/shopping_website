@@ -124,8 +124,7 @@
     padding-top: 0 !important ;
   }
   .total-pay > .container {
-    width: 120px !important;
-    margin: 0;
+    margin: 0 auto !important;
   }
 
   .btn-cart {
@@ -139,7 +138,8 @@
   }
   .btn-cart-confirm,
   .btn-cart-more,
-  .btn-cart-dell {
+  .btn-cart-dell,
+  #confirm-pay-finish {
     width: 152px !important;
   }
   .add-cart-buttons {

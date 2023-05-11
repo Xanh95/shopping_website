@@ -607,6 +607,53 @@ class HomeController extends Controller
         $name = $_POST['name'];
         $product_model = new Products();
         $product = $product_model->findIDProduct($name);
-        echo $product['id'];
+
+        if (!empty($product)) {
+            echo $product['id'];
+        } else {
+            echo "false";
+        }
+    }
+    public function sanPhamTimThay($curent_page = 1)
+    {
+
+        $category = "Sản Phẩm Tìm Thấy";
+        $limit = 16;
+        $action = "sanPhamTimThay";
+        $page = $curent_page;
+        if (isset($_POST['name'])) {
+            $name = $_POST['name'];
+            $_SESSION['name_seach_products'] = $name;
+        }
+        $product_name = $_SESSION['name_seach_products'];
+        // model
+        $products_model = new Products();
+        $count_total = $products_model->countTotalProductsWithName($product_name);
+        $total_page = ceil($count_total / $limit);
+        if ($page < 1) {
+            $page = 1;
+        } elseif ($page > $total_page) {
+            $page = $total_page;
+        }
+        $page = ($page - 1) * $limit;
+        if ($page < 0) {
+            $page = 0;
+        }
+        $products = $products_model->getAllProductsWithName($page, $limit, $product_name);
+
+        // view
+        $this->page_title = 'Trang Tìm kiếm sản phẩm';
+        $this->content =
+            $this->render('views/products/showproducts.php', [
+                'products' => $products,
+                'total_page' => $total_page,
+                'page' => $curent_page,
+                'count_total' => $count_total,
+                'limit' => $limit,
+                'category' => $category,
+                'action' => $action
+
+            ]);
+        require_once 'views/layouts/products.php';
     }
 }

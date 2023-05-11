@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf8" />
     <base href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" />
+    <link rel="icon" href="favicon.ico" type="image/ico">
     <title><?php echo $this->page_title; ?></title>
     <!-- include summernote css/js -->
 

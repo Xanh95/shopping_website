@@ -37,6 +37,13 @@
   }
 }
 @media (max-width: 576px) {
+  p.forgot-pass {
+    margin-top: 74px !important;
+  }
+  a.forgot-pass {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
   .cont {
     width: 254px !important;
   }
@@ -67,7 +74,7 @@
     width: 237px !important;
   }
   .social-media ul li {
-    margin: 25px 0px !important;
+    margin: 0px 0px !important;
   }
   .cont.s-signup .sub-cont {
     -webkit-transform: translate3d(-307px, 0, 0) !important;
@@ -85,7 +92,7 @@
   }
   .img-btn {
     color: #fff !important;
-    top: -22px !important;
+    top: -49px !important;
     left: -319px !important;
     border-radius: 30px !important;
     border: 2px solid white !important;

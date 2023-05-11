@@ -215,6 +215,7 @@ $("#add-to-cart-nopopup").click(function () {
 });
 // ajax search don hang va chuyen huong den do
 $("#btn_search_name_product_nav").click(function () {
+  event.preventDefault();
   let name = $("#ipt_search_name_product_nav").val();
 
   var obj_ajax = {
@@ -229,7 +230,29 @@ $("#btn_search_name_product_nav").click(function () {
     },
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (id) {
-      window.location.href = `home/product/${id}`;
+      if (id != "false") {
+        window.location.href = `home/product/${id}`;
+      } else {
+        var obj_ajax = {
+          // url PHP xử lý ajax gửi lên
+          url: "./home/sanPhamTimThay",
+          // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+          method: "POST",
+          // Set dữ liệu truyền lên
+          data: {
+            name: name,
+          },
+          // Nơi nhận dữ liệu trả về từ PHP
+          success: function () {
+            {
+              window.location.href = `home/sanPhamTimThay`;
+            }
+          },
+        };
+        // Gọi ajax với jQuery
+        $.ajax(obj_ajax);
+      }
     },
   };
   // Gọi ajax với jQuery
@@ -252,7 +275,6 @@ $("#ipt_search_name_product_nav").keyup(function () {
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (data) {
       list_name = JSON.parse(data);
-
       $(function () {
         var availableTags = list_name;
         function split(val) {

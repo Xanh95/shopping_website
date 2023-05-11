@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <base href="<?php echo $_SERVER['SCRIPT_NAME'] ?>" />
+    <link rel="icon" href="favicon.ico" type="image/ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $this->page_title; ?></title>
