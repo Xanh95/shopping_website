@@ -87,7 +87,7 @@ class Products extends Model
     }
     public function getAllProductsWithName($page, $limit, $product_name)
     {
-        $sql_select_all = "SELECT * FROM products WHERE name LIKE :name ORDER BY created_at DESC LIMIT :page,:limit";
+        $sql_select_all = "SELECT * FROM products WHERE name LIKE :name OR short_details LIKE :name ORDER BY created_at DESC LIMIT :page,:limit";
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
         $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
@@ -200,7 +200,7 @@ class Products extends Model
     }
     public function countTotalProductsWithName($name)
     {
-        $sql_select_all = "SELECT COUNT(*) FROM products WHERE name LIKE :name";
+        $sql_select_all = "SELECT COUNT(*) FROM products WHERE name LIKE :name OR short_details LIKE :name";
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $name = [
             ':name' => "%$name%"
