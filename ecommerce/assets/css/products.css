@@ -66,14 +66,20 @@
     font-size: 11px;
     text-align: left !important;
   }
-  .show-activity {
-    width: 100% !important;
+  .info-text {
+    width: 90% !important;
+    margin: 0 auto !important;
   }
+
   .address-form {
     margin-bottom: 10px;
   }
   .cart-process {
     flex-direction: row !important;
+  }
+  .show-activity {
+    margin-left: 0px !important;
+    width: 100% !important;
   }
 }
 
