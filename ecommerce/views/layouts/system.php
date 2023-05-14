@@ -127,6 +127,7 @@
                         <div class="menu-item-body">
                             <ul>
                                 <li id="item-4"><a href="oder/index">Danh sách đơn hàng</a></li>
+                                <li id="item-vnpay"><a href="vnpay/index">Thanh Toán VnPay</a></li>
                             </ul>
                         </div>
                     </div>
@@ -162,6 +163,7 @@
                         <div class="menu-item-body">
                             <ul>
                                 <li id="item-7"><a href="user/index">Danh sách khách hàng</a></li>
+
                             </ul>
                         </div>
                     </div>

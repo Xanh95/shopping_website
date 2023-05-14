@@ -12,6 +12,25 @@ function UrlProcess()
     }
 }
 $arr = UrlProcess();
+if (isset($_GET['vnp_Amount'])) {
+    $vnpay = [
+        'vnp_Amount' => $_GET['vnp_Amount'],
+        'vnp_BankCode' => $_GET['vnp_BankCode'],
+        'vnp_BankTranNo' => $_GET['vnp_BankTranNo'],
+        'vnp_CardType' => $_GET['vnp_CardType'],
+        'vnp_OrderInfo' => $_GET['vnp_OrderInfo'],
+        'vnp_PayDate' => $_GET['vnp_PayDate'],
+        'vnp_ResponseCode' => $_GET['vnp_ResponseCode'],
+        'vnp_TmnCode' => $_GET['vnp_TmnCode'],
+        'vnp_TransactionNo' => $_GET['vnp_TransactionNo'],
+        'vnp_TransactionStatus' => $_GET['vnp_TransactionStatus'],
+        'vnp_TxnRef' => $_GET['vnp_TxnRef'],
+        'vnp_SecureHash' => $_GET['vnp_SecureHash'],
+    ];
+    require_once "controllers/HomeController.php";
+    $obj = new HomeController();
+    $obj_action = $obj->order_paid($vnpay);
+};
 
 
 // + Phân tích url để lấy giá trị của controller và action
@@ -55,6 +74,8 @@ require_once "controllers/$controller.php";
 
 
 if (!method_exists($controller, $action)) {
+    $controller = "HomeController";
+    require_once "controllers/$controller.php";
     $action = "index";
     // die("Phương thức $action ko tồn tại trong class $controller");
 }

@@ -126,13 +126,13 @@ class Oder extends Model
         $is_update = $obj_update->execute($update);
         return $is_update;
     }
-    public function updateStatus($status, $detail)
+    public function updateStatus($status, $id)
     {
         $sql_update = "UPDATE oder SET `status` = :status WHERE id = :id";
         $obj_update = $this->connection->prepare($sql_update);
         $update = [
             ':status' => $status,
-            ':id' => $detail
+            ':id' => $id
         ];
         $is_update = $obj_update->execute($update);
         return $is_update;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2023 at 08:17 AM
+-- Generation Time: May 14, 2023 at 05:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -582,11 +582,38 @@ INSERT INTO `oder` (`id`, `name`, `created_at`, `updated_at`, `phone`, `city`, `
 (10, 'Tang xuan anh', '2023-05-07 16:48:52', '2023-05-07 20:49:23', '0389607406', 'ha noi', 'long bien', '142635146235', 'zxc', 2, 1, 'ĐH1683478120', 63580000, ''),
 (11, 'Tăng Xuân Anh', '2023-05-07 16:49:21', '2023-05-07 16:49:21', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478151', 71860000, '0'),
 (12, 'Tăng Xuân Anh', '2023-05-07 16:49:31', '2023-05-07 16:49:31', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 1, 1, 'ĐH1683478165', 71860000, '0'),
-(13, 'hồng thất công', '2023-05-07 16:49:40', '2023-05-07 16:49:40', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478174', 71860000, '0'),
-(14, 'Tăng Xuân Anh', '2023-05-07 16:49:50', '2023-05-07 16:49:50', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478183', 149820000, '0'),
+(13, 'hồng thất công', '2023-05-07 16:49:40', '2023-05-09 20:09:55', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 2, 'ĐH1683478174', 71860000, '0'),
+(14, 'Tăng Xuân Anh', '2023-05-07 16:49:50', '2023-05-09 20:12:17', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 2, 'ĐH1683478183', 149820000, '0'),
 (15, 'hồng thất công', '2023-05-07 16:49:59', '2023-05-07 16:49:59', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1683478193', 149820000, '0'),
 (18, '123', '2023-05-09 00:52:22', '2023-05-09 00:52:22', '0389607406', 'ha noi', 'long bien', '142635146235', '', 2, 1, 'ĐH1683593526', 13190000, ''),
-(19, 'Tang xuan anh', '2023-05-09 00:55:35', '2023-05-09 00:55:35', '0389607406', 'ha noi', 'long bien', '123', '', 2, 1, 'ĐH1683593725', 13190000, '');
+(19, 'Tang xuan anh', '2023-05-09 00:55:35', '2023-05-09 20:21:09', '0389607406', 'ha noi', 'long bien', '123', '', 2, 2, 'ĐH1683593725', 13190000, ''),
+(21, 'Tang xuan anh', '2023-05-13 04:32:51', '2023-05-13 04:32:51', '0389607406', 'ha noi', 'long bien', '142635146235', '123', 2, 1, 'ĐH1683952356', 17190000, '1'),
+(22, 'Tang xuan anh', '2023-05-13 05:15:31', '2023-05-13 05:15:31', '0389607406', 'ha noi', 'long bien', '142635146235', '12', 1, 1, 'ĐH1683954921', 19390000, ''),
+(23, 'Tang xuan anh', '2023-05-13 20:12:31', '2023-05-13 20:12:31', '0389607406', 'ha noi', 'long bien', '142635146235', '', 2, 1, 'ĐH1684008739', 19390000, ''),
+(24, 'Tang xuan anh', '2023-05-13 20:14:00', '2023-05-13 20:14:00', '0389607406', 'ha noi', 'long bien', '123', '2', 1, 1, 'ĐH1684008829', 46390000, '1'),
+(25, 'Tang xuan anh', '2023-05-13 23:11:53', '2023-05-13 23:11:53', '0389607406', 'ha noi', 'long bien', '142635146235', '', 3, 1, 'ĐH1684016542', 19390000, ''),
+(26, 'Tang xuan anh', '2023-05-13 23:46:03', '2023-05-13 23:46:03', '0389607406', 'ha noi', 'long bien', '142635146235123', 'siau', 2, 1, 'ĐH1684021547', 14490000, ''),
+(27, 'hồng thất công', '2023-05-13 23:48:06', '2023-05-13 23:48:06', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 'hi', 2, 1, 'ĐH1684021678', 540000, '24'),
+(28, 'Tăng Xuân Anh', '2023-05-14 00:11:12', '2023-05-14 00:11:12', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684023056', 4790000, '24'),
+(29, 'hồng thất công', '2023-05-14 00:11:52', '2023-05-14 00:11:52', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684023107', 21990000, '24'),
+(30, 'hồng thất công', '2023-05-14 00:14:41', '2023-05-14 00:14:41', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684023184', 21990000, '24'),
+(33, 'hồng thất công', '2023-05-14 00:19:28', '2023-05-14 00:19:28', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684023560', 21990000, '24'),
+(34, 'hồng thất công', '2023-05-14 00:22:03', '2023-05-14 00:22:03', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684023715', 6990000, '24'),
+(35, 'Tăng Xuân Anh', '2023-05-14 00:27:12', '2023-05-14 00:27:12', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684024024', 41980000, '24'),
+(36, 'Tăng Xuân Anh', '2023-05-14 00:29:28', '2023-05-14 00:29:28', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684024162', 76970000, '24'),
+(37, 'hồng thất công', '2023-05-14 00:30:35', '2023-05-14 00:30:35', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684024230', 96460000, '24'),
+(40, 'hồng thất công', '2023-05-14 00:32:01', '2023-05-14 00:32:01', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684024316', 110950000, '24'),
+(42, 'hồng thất công', '2023-05-14 00:34:02', '2023-05-14 00:34:02', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684024437', 110950000, '24'),
+(43, 'hồng thất công', '2023-05-14 00:34:28', '2023-05-14 00:34:28', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684024463', 130440000, '24'),
+(46, 'hồng thất công', '2023-05-14 00:45:43', '2023-05-14 00:45:43', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684025138', 19390000, '24'),
+(47, 'hồng thất công', '2023-05-14 00:47:45', '2023-05-14 00:47:45', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 2, 1, 'ĐH1684025261', 65780000, '24'),
+(48, 'hồng thất công', '2023-05-14 00:48:06', '2023-05-14 00:48:06', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684025281', 17190000, '24'),
+(49, 'Tăng Xuân Anh', '2023-05-14 01:05:29', '2023-05-14 01:05:29', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 1, 'ĐH1684026324', 36580000, '24'),
+(50, 'Tang xuan anh', '2023-05-14 02:27:15', '2023-05-14 02:27:15', '0389607406', 'ha noi', 'long bien', '142635146235', '123', 3, 1, 'ĐH1684031218', 6990000, '1'),
+(51, 'Tang xuan anh', '2023-05-14 02:31:50', '2023-05-14 02:31:50', '0389607406', 'ha noi', 'long bien', '142635146235', '123', 3, 1, 'ĐH1684031499', 14490000, '1'),
+(52, 'Tang xuan anh', '2023-05-14 02:32:44', '2023-05-14 02:32:44', '0389607406', 'ha noi', 'long bien', '142635146235', '6tr', 3, 1, 'ĐH1684031553', 6990000, ''),
+(53, 'Tang xuan anh', '2023-05-14 02:58:39', '2023-05-14 02:59:00', '0389607406', 'ha noi', 'long bien', '123', 'tét 123', 3, 2, 'ĐH1684033103', 1359000, '1'),
+(54, 'hồng thất công', '2023-05-14 03:46:32', '2023-05-14 03:46:56', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', '', 3, 2, 'ĐH1684035985', 17190000, '24');
 
 -- --------------------------------------------------------
 
@@ -632,7 +659,69 @@ INSERT INTO `oder_detail` (`id`, `product_id`, `quantity`, `code_oder`, `name_pr
 (56, 125, 1, 'ĐH1683478193', 'Laptop Dell Vostro 5620', 18490000, '1683119336-laptop-dell-vostro-5620-70282719-1-500x500.jpg'),
 (57, 126, 1, 'ĐH1683478193', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
 (61, 187, 1, 'ĐH1683593526', 'Màn Hình Gaming LG 35WN75CN-B', 13190000, '1683128864-LG 35WN75CN-B-500x500.jpg'),
-(62, 187, 1, 'ĐH1683593725', 'Màn Hình Gaming LG 35WN75CN-B', 13190000, '1683128864-LG 35WN75CN-B-500x500.jpg');
+(62, 187, 1, 'ĐH1683593725', 'Màn Hình Gaming LG 35WN75CN-B', 13190000, '1683128864-LG 35WN75CN-B-500x500.jpg'),
+(64, 86, 1, 'ĐH1683952356', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 16GB / GTX 1660s / 500GB / 550W', 17190000, '1683086384-renda-ADVANCED-I5-11400F-GTX1650super-500x500.jpg'),
+(65, 85, 1, 'ĐH1683954921', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(66, 85, 1, 'ĐH1684008739', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(67, 232, 1, 'ĐH1684008829', 'Sentinel - 03', 46390000, '1683165813-sentinel-03-500x500.jpg'),
+(68, 85, 1, 'ĐH1684016542', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(69, 126, 1, 'ĐH1684021547', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(70, 210, 1, 'ĐH1684021678', 'Chuột Wireless Dual Mode Newmen E500 Pro', 540000, '1683130454-chuot-newmen-e500-500x500.jpg'),
+(71, 230, 1, 'ĐH1684023056', 'Ghế E-dra Iris - EGC228 Red', 4790000, '1683133032-ghe-edra-egc228-red-500x500.jpg'),
+(72, 101, 1, 'ĐH1684023107', 'Laptop Asus TUF Dash F15 FX517ZC-HN077W', 21990000, '1683115269-laptop-asus-tuf-dash-hn079w-0-500x500.jpg'),
+(73, 101, 1, 'ĐH1684023184', 'Laptop Asus TUF Dash F15 FX517ZC-HN077W', 21990000, '1683115269-laptop-asus-tuf-dash-hn079w-0-500x500.jpg'),
+(74, 101, 1, 'ĐH1684023184', 'Laptop Asus TUF Dash F15 FX517ZC-HN077W', 21990000, '1683115269-laptop-asus-tuf-dash-hn079w-0-500x500.jpg'),
+(75, 101, 1, 'ĐH1684023184', 'Laptop Asus TUF Dash F15 FX517ZC-HN077W', 21990000, '1683115269-laptop-asus-tuf-dash-hn079w-0-500x500.jpg'),
+(76, 101, 1, 'ĐH1684023560', 'Laptop Asus TUF Dash F15 FX517ZC-HN077W', 21990000, '1683115269-laptop-asus-tuf-dash-hn079w-0-500x500.jpg'),
+(77, 127, 1, 'ĐH1684023715', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(78, 127, 1, 'ĐH1684024024', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(79, 106, 1, 'ĐH1684024024', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(80, 127, 1, 'ĐH1684024162', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(81, 106, 2, 'ĐH1684024162', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(82, 127, 1, 'ĐH1684024230', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(83, 106, 2, 'ĐH1684024230', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(84, 84, 1, 'ĐH1684024230', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(85, 127, 1, 'ĐH1684024230', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(86, 106, 2, 'ĐH1684024230', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(87, 84, 1, 'ĐH1684024230', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(88, 127, 1, 'ĐH1684024230', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(89, 106, 2, 'ĐH1684024230', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(90, 84, 1, 'ĐH1684024230', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(91, 127, 1, 'ĐH1684024316', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(92, 106, 2, 'ĐH1684024316', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(93, 84, 1, 'ĐH1684024316', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(94, 126, 1, 'ĐH1684024316', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(95, 127, 1, 'ĐH1684024316', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(96, 106, 2, 'ĐH1684024316', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(97, 84, 1, 'ĐH1684024316', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(98, 126, 1, 'ĐH1684024316', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(99, 127, 1, 'ĐH1684024437', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(100, 106, 2, 'ĐH1684024437', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(101, 84, 1, 'ĐH1684024437', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(102, 126, 1, 'ĐH1684024437', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(103, 127, 1, 'ĐH1684024463', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(104, 106, 2, 'ĐH1684024463', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(105, 84, 2, 'ĐH1684024463', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(106, 126, 1, 'ĐH1684024463', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(107, 127, 1, 'ĐH1684024463', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(108, 106, 2, 'ĐH1684024463', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(109, 84, 2, 'ĐH1684024463', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(110, 126, 1, 'ĐH1684024463', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(111, 127, 1, 'ĐH1684024463', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(112, 106, 2, 'ĐH1684024463', 'Laptop Gaming Lenovo Legion 5', 34990000, '1683115725-44469_legion_5_white_ha2-500x500.jpg'),
+(113, 84, 2, 'ĐH1684024463', 'PC Đồ Họa - Renda Advanced - R5 5600X/ B450/ 16GB/ 500GB/ RTX 2060 / 550W', 19490000, '1683086252-renda-advanced-r5-5600x-2060-500x500.jpg'),
+(114, 126, 1, 'ĐH1684024463', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(115, 85, 1, 'ĐH1684025138', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(116, 85, 1, 'ĐH1684025261', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(117, 232, 1, 'ĐH1684025261', 'Sentinel - 03', 46390000, '1683165813-sentinel-03-500x500.jpg'),
+(118, 86, 1, 'ĐH1684025281', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 16GB / GTX 1660s / 500GB / 550W', 17190000, '1683086384-renda-ADVANCED-I5-11400F-GTX1650super-500x500.jpg'),
+(119, 86, 1, 'ĐH1684026324', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 16GB / GTX 1660s / 500GB / 550W', 17190000, '1683086384-renda-ADVANCED-I5-11400F-GTX1650super-500x500.jpg'),
+(120, 85, 1, 'ĐH1684026324', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 8GB / RTX 3050 / 250GB / 550W', 19390000, '1683086322-renda-advanced-i5-11400f-3050-500x500.jpg'),
+(121, 127, 1, 'ĐH1684031218', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(122, 126, 1, 'ĐH1684031499', 'Laptop Lenovo IdeaPad 3', 14490000, '1683119424-laptop-lenovo-ideapad3-14iau7-82rj001bvn-1-500x500.jpg'),
+(123, 127, 1, 'ĐH1684031553', 'Laptop Acer Aspire 3', 6990000, '1683119497-1-500x500.png'),
+(124, 168, 1, 'ĐH1684033103', 'Bàn Phím AKKO MG108 Doll of princess', 1359000, '1683124318-ban-phim-akko-mg108-doll-of-princess-blue-1-500x500.jpg'),
+(125, 86, 1, 'ĐH1684035985', 'PC Đồ Họa - Renda Advanced - I5 11400F / B560M / 16GB / GTX 1660s / 500GB / 550W', 17190000, '1683086384-renda-ADVANCED-I5-11400F-GTX1650super-500x500.jpg');
 
 -- --------------------------------------------------------
 
@@ -975,10 +1064,14 @@ INSERT INTO `user` (`id`, `name`, `birthday`, `phone`, `password`, `address`, `h
 (16, 'caibang', '04/12/1995', '0382312307407', '$2y$10$cDCumb.biB7zm2xbtxVhueJ8RP8ySWlc4aCKrOrdt6jzHdoq3GRie', 'thượng thanh long biên hà nội', 'phú thọ', 'tang2312395@gmail.com', '2', 'Văn Phòng', 1, '2023-04-27 19:25:39', '2023-04-29 05:58:11'),
 (17, 'vodang', '04/12/1995', '123123123', '$2y$10$mgKqtrziVbNw/u/sHNvnb.NoB1ysuH.HM0.4j6G9fBt/xMbTB/W9.', 'thượng thanh long biên hà nội', 'phú thọ', 'tangx3a212295@gmail.com', '1', 'Lãnh Đạo', 1, '2023-04-27 19:27:35', '2023-04-29 05:57:57'),
 (18, 'thieu lam 123', '03/31/1991', '0332602406', '$2y$10$qZqu89zMFzymJRQUSmznQO2mHu5oOU0vYmlDB1.HCbD8JfSEJKeD6', 'thượng thanh long biên hà nội', 'phú thọ', '123qwe@gmail.com', '1', 'Lãnh Đạo', 3, '2023-04-28 16:17:37', '2023-04-29 05:57:42'),
-(19, 'tu duy', '03/31/1995', '0382236207', '$2y$10$xZoxgUp79JCifzXnuUzMK.yeJP5/6egUsuCDpidfzmS0bkTnkBffW', 'thượng thanh long biên hà nội', 'phú thọ', 'ta123ngxuan23nh1995@gmail.com', '1', 'Văn Phòng', 4, '2023-04-29 12:46:23', '2023-04-29 19:46:23'),
-(21, 'du abc', '03/12/1995', '0381239607406', '', 'thượng thanh long biên hà nội', 'phú thọ 1', '123qw23123easd@gmail.com', '2', 'Lãnh Đạo', 1, '2023-04-29 12:51:50', '2023-05-09 09:19:36'),
+(19, 'tu duy 123', '03/12/1995', '0382236207', '', 'thượng thanh long biên hà nội', 'phú thọ', 'ta123ngxuan23nh1995@gmail.com', '1', 'Văn Phòng', 4, '2023-04-29 12:46:23', '2023-05-09 17:01:54'),
+(21, 'du 123', '03/12/1995', '0381239607406', '', 'thượng thanh long biên hà nội', 'phú thọ 1', '123qw23123easd@gmail.com', '2', 'Lãnh Đạo', 1, '2023-04-29 12:51:50', '2023-05-10 01:19:26'),
 (22, 'long', '31/12/1995', '0389607412307', '$2y$10$cqecvLD8o9Tgw.4NpArDC.1CMycr/m2QW2rGyFpmDDM0zreW9Gr.e', 'thượng thanh long biên hà nội', 'phú thọ', 'xuasdna21n3hvolam2@gmail.com', '2', 'Lãnh Đạo', 5, '2023-05-01 13:40:30', '2023-05-04 07:07:20'),
-(24, 'Tăng Xuân Anh', '04/12/1995', '0389607801', '$2y$10$mLPzOU0rPgI4N4ZP2Xynwu7kjjUyt7S1ueQkXQ3FuJ6zXxr.jHhq6', '', '', '123@gmail.com', '1', '', 5, '2023-05-05 23:25:32', '2023-05-08 03:20:57');
+(24, 'Tăng Xuân Anh', '04/12/1995', '0389607801', '$2y$10$L5qioembhEtR7GiLKjBo4ecN7x.faSjKCgeZ79unpuqC8vCagh2YO', '', '', '123@gmail.com', '1', '', 5, '2023-05-05 23:25:32', '2023-05-09 16:43:58'),
+(26, 'khach hang', '', '987654321', '$2y$10$Lny.YyqYfw5KeslwfgE6Muq8X0vNgguITRHiV2V/fxR8WIfTH7K/K', '', '', 'khachhang@gmail.com', '', '', 5, '2023-05-09 18:27:41', '2023-05-11 07:07:44'),
+(27, 'khach hang', '', '0389601123405', '$2y$10$t2MftEScw.ea2Y1ngA5tMe.n9cTw8X98.xo0K5vhkMkYW8.ONRl0m', '', '', 'xuananhvolam2@gmail.com', '', '', 5, '2023-05-09 23:28:13', '2023-05-10 06:28:13'),
+(28, 'khach hang', '', '0389601405123', '$2y$10$WgDkXBmSlpxLWDzc3xOxeOE.SXPt.q/Yr5bp83oRPdyzdvhHHx8ki', '', '', 'kahchang2@gmail.com', '', '', 5, '2023-05-11 00:03:08', '2023-05-11 07:03:08'),
+(29, 'test', '', '0389607405tets', '$2y$10$3trv4sCK1IKjbtyO2c/NV.sx8hj7GaCNXpxUUeQioGM515qIvqz8C', '', '', 'test123123@gmail.com', '', '', 5, '2023-05-13 20:15:05', '2023-05-14 03:15:05');
 
 -- --------------------------------------------------------
 
@@ -1007,7 +1100,42 @@ INSERT INTO `user_address` (`id`, `name`, `phone`, `city`, `district`, `address`
 (2, 'Tăng Xuân Anh', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 1, '2023-05-06 06:35:12', '2023-05-06 10:35:55', 24),
 (3, 'Tăng Xuân Anh', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 2, '2023-05-06 06:37:26', '2023-05-06 06:38:53', 24),
 (4, 'hồng thất công', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 1, '2023-05-06 10:15:35', '2023-05-06 10:15:35', 24),
-(5, 'hồng thất công', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 2, '2023-05-06 10:15:52', '2023-05-06 10:15:52', 24);
+(5, 'hồng thất công', '0389607403', 'Hà Nội', 'Long Biên', 'số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội', 2, '2023-05-06 10:15:52', '2023-05-06 10:15:52', 24),
+(6, 'xuananh vo lam 2', '03896074031', 'Hà Nội', 'Long Biên', '123', 1, '2023-05-09 23:30:46', '2023-05-09 23:30:46', 27),
+(7, 'sd', '03896074031', '123qwe', '123', '123', 1, '2023-05-11 00:03:37', '2023-05-11 00:03:37', 26);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vnpay`
+--
+
+CREATE TABLE `vnpay` (
+  `id` int(11) NOT NULL,
+  `vnp_Amount` varchar(50) NOT NULL,
+  `vnp_BankCode` varchar(50) NOT NULL,
+  `vnp_BankTranNo` varchar(50) NOT NULL,
+  `vnp_CardType` varchar(50) NOT NULL,
+  `vnp_OrderInfo` varchar(100) NOT NULL,
+  `vnp_PayDate` varchar(50) NOT NULL,
+  `vnp_ResponseCode` varchar(50) NOT NULL,
+  `vnp_TmnCode` varchar(50) NOT NULL,
+  `vnp_TransactionNo` varchar(50) NOT NULL,
+  `vnp_TransactionStatus` varchar(50) NOT NULL,
+  `vnp_TxnRef` varchar(50) NOT NULL,
+  `vnp_SecureHash` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vnpay`
+--
+
+INSERT INTO `vnpay` (`id`, `vnp_Amount`, `vnp_BankCode`, `vnp_BankTranNo`, `vnp_CardType`, `vnp_OrderInfo`, `vnp_PayDate`, `vnp_ResponseCode`, `vnp_TmnCode`, `vnp_TransactionNo`, `vnp_TransactionStatus`, `vnp_TxnRef`, `vnp_SecureHash`, `created_at`) VALUES
+(1, '699000000', 'NCB', 'VNP14011929', 'ATM', 'Thanh toán đơn hàng ĐH1684031553', '20230514093319', '00', 'T8WEPLF4', '14011929', '00', 'ĐH1684031553', '2259593809b148902e685f88b92741bb1b4f5969a783eebe3b', '2023-05-14 02:57:32'),
+(2, '135900000', 'NCB', 'VNP14011937', 'ATM', 'Thanh toán đơn hàng ĐH1684033103', '20230514095853', '00', 'T8WEPLF4', '14011937', '00', 'ĐH1684033103', '564bad7e4a758e8ee202be58a7615d3d5dc290964bb4c7ef15', '2023-05-14 02:59:00'),
+(3, '135900000', 'NCB', 'VNP14011937', 'ATM', 'Thanh toán đơn hàng ĐH1684033103', '20230514095853', '00', 'T8WEPLF4', '14011937', '00', 'ĐH1684033103', '564bad7e4a758e8ee202be58a7615d3d5dc290964bb4c7ef15', '2023-05-14 03:46:12'),
+(4, '1719000000', 'NCB', 'VNP14011948', 'ATM', 'Thanh toán đơn hàng ĐH1684035985', '20230514104651', '00', 'T8WEPLF4', '14011948', '00', 'ĐH1684035985', '7b3e3760670ddcca5256b42713040193a48dcb5991b9a434af', '2023-05-14 03:46:56');
 
 --
 -- Indexes for dumped tables
@@ -1076,6 +1204,12 @@ ALTER TABLE `user_address`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `vnpay`
+--
+ALTER TABLE `vnpay`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1101,13 +1235,13 @@ ALTER TABLE `list_products`
 -- AUTO_INCREMENT for table `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `oder_detail`
 --
 ALTER TABLE `oder_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `post`
@@ -1125,13 +1259,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `user_address`
 --
 ALTER TABLE `user_address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `vnpay`
+--
+ALTER TABLE `vnpay`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

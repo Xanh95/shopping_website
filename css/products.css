@@ -70,11 +70,16 @@
     flex-direction: row !important;
   }
 }
+.info-text {
+  width: 90% !important;
+  margin: 0 auto !important;
+}
 
 .user-activity ul li {
   display: block;
   margin: 5px 0;
 }
+
 
 .user-activity {
   background-color: #f3f3f7;

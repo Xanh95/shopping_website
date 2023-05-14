@@ -24,8 +24,7 @@ class AdministratorController extends Controller
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
-        } 
-        elseif (!($_SESSION['role'] <= 4)) {
+        } elseif (!($_SESSION['role'] <= 4)) {
             $_SESSION['error'] = 'Bạn cần đăng nhập';
             header('Location: ../check/login');
             exit();
@@ -89,7 +88,6 @@ class AdministratorController extends Controller
                 $this->error = 'Sửa mới thất bại';
             }
         }
-
         // -controller goi view
         $this->page_title = 'Trang Đổi Mật Khẩu';
         $this->content =

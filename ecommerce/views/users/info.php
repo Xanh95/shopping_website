@@ -18,8 +18,7 @@ if (!empty($_SESSION['birthday'])) {
                 <span class="input input--isao">
                     <input class="input__field input__field--isao" type="text" id="input-name" name="input-name" />
                     <label class="input__label input__label--isao" for="input-name" data-content="Tên Của Bạn">
-                        <span
-                            class="input__label-content input__label-content--isao"><?php echo $_SESSION['user']; ?></span>
+                        <span class="input__label-content input__label-content--isao"><?php echo $_SESSION['user']; ?></span>
                     </label>
                 </span>
                 <span class="input input--isao">
@@ -35,13 +34,11 @@ if (!empty($_SESSION['birthday'])) {
                     <div class="item-input ">
 
                         <label for="gender-male">
-                            <input type="radio" name="gender" value="1" id="gender-male" class="check-radio"
-                                <?php echo $_SESSION['gender'] == 1 ? 'checked' : ''  ?>>
+                            <input type="radio" name="gender" value="1" id="gender-male" class="check-radio" <?php echo $_SESSION['gender'] == 1 ? 'checked' : ''  ?>>
                             <span class="radiobtn">Nam</span>
                         </label>
                         <label for="gender-female">
-                            <input type="radio" name="gender" value="2" id="gender-female" class="check-radio"
-                                <?php echo $_SESSION['gender'] == 2 ? 'checked' : ''  ?>>
+                            <input type="radio" name="gender" value="2" id="gender-female" class="check-radio" <?php echo $_SESSION['gender'] == 2 ? 'checked' : ''  ?>>
                             <span class="radiobtn">Nữ</span>
                         </label>
 
@@ -54,31 +51,31 @@ if (!empty($_SESSION['birthday'])) {
                         <select name="dd_birthday">
                             <option value="">Ngày</option>
                             <?php for ($i = 1; $i < 32; $i++) : ?>
-                            <option value="<?php echo $i ?>" <?php
-                                    if (!empty($_SESSION['birthday'])) {
-                                        echo $dd_birthday == $i ? 'selected' : '';
-                                        }  ?>>
-                                <?php echo $i ?>
-                            </option>
+                                <option value="<?php echo $i ?>" <?php
+                                                                    if (!empty($_SESSION['birthday'])) {
+                                                                        echo $dd_birthday == $i ? 'selected' : '';
+                                                                    }  ?>>
+                                    <?php echo $i ?>
+                                </option>
                             <?php endfor ?>
                         </select>
                         <select name="mm_birthday">
                             <option value="">Tháng</option>
                             <?php for ($i = 1; $i < 13; $i++) : ?>
-                            <option value="<?php echo $i ?>" <?php if (!empty($_SESSION['birthday'])) {
-                                        echo $mm == $i ? 'selected' : '';
-                                        } ?>>
-                                <?php echo $i ?>
-                            </option>
+                                <option value="<?php echo $i ?>" <?php if (!empty($_SESSION['birthday'])) {
+                                                                        echo $mm_birthday == $i ? 'selected' : '';
+                                                                    } ?>>
+                                    <?php echo $i ?>
+                                </option>
                             <?php endfor ?>
                         </select>
                         <select name="yy_birthday">
                             <option value="">Năm</option>
                             <?php for ($i = 1960; $i <= ($yeah = date('Y')); $i++) : ?>
-                            <option value="<?php echo $i ?>" <?php if (!empty($_SESSION['birthday'])) {
-                                        echo $yy_birthday == $i ? 'selected' : '';
-                                        } ?>>
-                                <?php echo $i ?></option>
+                                <option value="<?php echo $i ?>" <?php if (!empty($_SESSION['birthday'])) {
+                                                                        echo $yy_birthday == $i ? 'selected' : '';
+                                                                    } ?>>
+                                    <?php echo $i ?></option>
                             <?php endfor ?>
 
                         </select>

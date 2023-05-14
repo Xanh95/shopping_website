@@ -45,6 +45,12 @@
                                                 </label>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td><input type="radio" name="method-pay" id="vnpay" value="3"></td>
+                                            <td>
+                                                <label for="vnpay"> Thanh toán qua VNPay</label>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

@@ -6,6 +6,7 @@ require_once 'models/Listproducts.php';
 require_once 'models/Post.php';
 require_once 'models/Oder.php';
 require_once 'models/User.php';
+require_once 'models/Vnpay.php';
 
 class AjaxController extends Controller
 {
@@ -143,6 +144,17 @@ class AjaxController extends Controller
         $this->content =  $this->render('views/oder/search.php', ['orders' => $orders]);
         require_once 'views/layouts/result.php';
     }
+    public function searchVnpay()
+    {
+        $code_oder = $_POST['code_oder'];
+        // -controller gọi models để lấy dữ liệu các bộ phận
+        $vnpay_model = new Vnpay();
+        $vnpay = $vnpay_model->search($code_oder);
+
+        //view
+        $this->content =  $this->render('views/vnpay/search.php', ['vnpay' => $vnpay]);
+        require_once 'views/layouts/result.php';
+    }
     public function searchSales()
     {
 
@@ -150,11 +162,6 @@ class AjaxController extends Controller
         $name = strval($name);
         $sortname = $_POST['sortname'];
         $sorttime = $_POST['sorttime'];
-
-
-
-
-
 
         if ($sorttime == 1) {
 

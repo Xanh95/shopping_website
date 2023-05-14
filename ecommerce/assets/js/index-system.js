@@ -104,6 +104,19 @@ if ($("#list-oder").length > 0) {
     });
   }
 }
+if ($("#list-vnpay").length > 0) {
+  $("#collapseTwo").addClass("show");
+  robot.css({
+    opacity: 1,
+    transform: "translate(-39px, 78px)",
+  });
+  if (!document.querySelectorAll("#headingOne").length > 0) {
+    robot.css({
+      opacity: 1,
+      transform: "translate(-39px, 53px)",
+    });
+  }
+}
 
 //
 //
@@ -469,6 +482,28 @@ $("#search-oder").click(function () {
     // Nơi nhận dữ liệu trả về từ PHP
     success: function (oders) {
       $("#list-search-oders").html(oders);
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
+// ajax search vnpay
+$("#search-vnpay").click(function () {
+  let code_oder = $("#code_oder").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./ajax/searchVnpay",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      code_oder: code_oder,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function (vnpay) {
+      $("#list-search-vnpay").html(vnpay);
     },
   };
   // Gọi ajax với jQuery
@@ -1301,6 +1336,10 @@ $("#go_page_oder").on("input", function () {
 $("#go_page_user").on("input", function () {
   var goPageInput = $(this).val();
   $("#go_link_user").attr("href", "./user/index/" + goPageInput);
+});
+$("#go_page_vnpay").on("input", function () {
+  var goPageInput = $(this).val();
+  $("#go_link_user").attr("href", "./vnpay/index/" + goPageInput);
 });
 
 // validate post sale

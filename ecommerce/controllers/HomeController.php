@@ -9,6 +9,7 @@ require_once 'models/Imgproducts.php';
 require_once 'models/Post.php';
 require_once 'models/User.php';
 require_once 'models/Oder.php';
+require_once 'models/Vnpay.php';
 
 
 
@@ -476,6 +477,7 @@ class HomeController extends Controller
             if (isset($_POST['method-pay'])) {
                 $method_pay = $_POST['method-pay'];
             }
+
             if (!isset($_POST['ship-address'])) {
                 $name = $_POST['input-name-recipient'];
                 $phone = $_POST['input-phone-recipient'];
@@ -496,45 +498,6 @@ class HomeController extends Controller
                 } elseif (empty($address_recipient)) {
                     $this->error = 'Phải Nhập Địa Chỉ Người Nhận';
                 }
-                if (empty($this->error)) {
-                    $Oder_model = new Oder();
-                    $status = 1;
-                    $code_oder = $_SESSION['code_oder'];
-                    $total_pay = 0;
-                    foreach ($_SESSION['cart'] as $item) {
-                        $product_id = $item['id_products'];
-                        $product_model = new Products;
-                        $product = $product_model->getById($product_id);
-                        $quantity = $item['quantity'];
-                        $price = $product['price'];
-                        $total_pay += ($quantity * $price);
-                    }
-                    $is_insert_oder_detail = false;
-                    $is_insert = $Oder_model->insertOder($name, $city, $phone, $district, $address_recipient, $note, $status, $code_oder, $total_pay, $method_pay, $user_id);
-                    foreach ($_SESSION['cart'] as $item) {
-                        $product_id = $item['id_products'];
-                        $product_model = new Products;
-                        $product = $product_model->getById($product_id);
-                        $name_product = $item['name'];
-                        $quantity = $item['quantity'];
-                        $price = $product['price'];
-                        $avatar = $item['avatar'];
-                        $total_pay += ($quantity * $price);
-                        $is_insert_oder_detail = $Oder_model->insertOderDetail($product_id, $quantity, $code_oder, $name_product, $price, $avatar);
-                    }
-
-                    if ($is_insert && $is_insert_oder_detail) {
-                        $_SESSION['success'] = 'Đặt hàng thành công. Cám Ơn Bạn Đã Ủng Hộ';
-                        unset($_SESSION['cart']);
-                        unset($_SESSION['total_quantity']);
-                        unset($_SESSION['code_oder']);
-                        unset($_SESSION['total_price']);
-                        header('Location: ../home/thanks');
-                        exit();
-                    } else {
-                        $this->error = 'Thêm mới thất bại';
-                    }
-                }
             }
             if (isset($_POST['ship-address'])) {
                 $id_address = $_POST['ship-address'];
@@ -545,33 +508,119 @@ class HomeController extends Controller
                 $district = $address_user_pick['district'];
                 $address_recipient = $address_user_pick['address'];
                 $note = $_POST['note'];
-                if (empty($this->error)) {
-                    $Oder_model = new Oder();
-                    $status = 1;
-                    $code_oder = $_SESSION['code_oder'];
-                    $total_pay = $_SESSION['total_price'];
-                    $is_insert = $Oder_model->insertOder($name, $city, $phone, $district, $address_recipient, $note, $status, $code_oder, $total_pay, $method_pay, $user_id);
-                    $is_insert_oder_detail = false;
-                    foreach ($_SESSION['cart'] as $item) {
-                        $product_id = $item['id_products'];
-                        $name_product = $item['name'];
-                        $quantity = $item['quantity'];
-                        $price = $item['price'];
-                        $avatar = $item['avatar'];
-                        $is_insert_oder_detail = $Oder_model->insertOderDetail($product_id, $quantity, $code_oder, $name_product, $price, $avatar);
-                    }
-                    if ($is_insert && $is_insert_oder_detail) {
-                        $_SESSION['success'] = 'Đặt hàng thành công. Cám Ơn Bạn Đã Ủng Hộ';
-                        unset($_SESSION['cart']);
-                        unset($_SESSION['total_quantity']);
-                        unset($_SESSION['code_oder']);
-                        unset($_SESSION['total_price']);
-                        header('Location: ../home/thanks');
-                        exit();
-                    } else {
+            }
 
-                        $this->error = 'Thêm mới thất bại';
+            if (empty($this->error)) {
+                $Oder_model = new Oder();
+                $status = 1;
+                $code_oder = $_SESSION['code_oder'];
+                $total_pay = 0;
+                foreach ($_SESSION['cart'] as $item) {
+                    $product_id = $item['id_products'];
+                    $product_model = new Products;
+                    $product = $product_model->getById($product_id);
+                    $quantity = $item['quantity'];
+                    $price = $product['price'];
+                    $total_pay += ($quantity * $price);
+                }
+                $is_insert_oder_detail = false;
+                $is_insert = $Oder_model->insertOder($name, $city, $phone, $district, $address_recipient, $note, $status, $code_oder, $total_pay, $method_pay, $user_id);
+                foreach ($_SESSION['cart'] as $item) {
+                    $product_id = $item['id_products'];
+                    $product_model = new Products;
+                    $product = $product_model->getById($product_id);
+                    $name_product = $item['name'];
+                    $quantity = $item['quantity'];
+                    $price = $product['price'];
+                    $avatar = $item['avatar'];
+                    $is_insert_oder_detail = $Oder_model->insertOderDetail($product_id, $quantity, $code_oder, $name_product, $price, $avatar);
+                }
+                // thanh toán vnp
+
+                if ($method_pay == 3) {
+
+                    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+                    $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+                    $vnp_Returnurl = "http://localhost/ecommerce/index.php";
+                    $vnp_TmnCode = "T8WEPLF4"; //Mã website tại VNPAY 
+                    $vnp_HashSecret = "SXCERAVNDDOQGWIENEFSIEEUHLNXRMOJ"; //Chuỗi bí mật
+
+                    $vnp_TxnRef = $code_oder; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+                    $vnp_OrderInfo = "Thanh toán đơn hàng $code_oder";
+                    $vnp_OrderType = "billpayment";
+                    $vnp_Amount = $total_pay * 100;
+                    $vnp_Locale = 'vn';
+                    $vnp_BankCode = 'NCB';
+                    $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+                    //Add Params of 2.0.1 Version
+
+
+                    $inputData = array(
+                        "vnp_Version" => "2.1.0",
+                        "vnp_TmnCode" => $vnp_TmnCode,
+                        "vnp_Amount" => $vnp_Amount,
+                        "vnp_Command" => "pay",
+                        "vnp_CreateDate" => date('YmdHis'),
+                        "vnp_CurrCode" => "VND",
+                        "vnp_IpAddr" => $vnp_IpAddr,
+                        "vnp_Locale" => $vnp_Locale,
+                        "vnp_OrderInfo" => $vnp_OrderInfo,
+                        "vnp_OrderType" => $vnp_OrderType,
+                        "vnp_ReturnUrl" => $vnp_Returnurl,
+                        "vnp_TxnRef" => $vnp_TxnRef,
+
+
+                    );
+
+                    if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                        $inputData['vnp_BankCode'] = $vnp_BankCode;
                     }
+
+
+                    //var_dump($inputData);
+                    ksort($inputData);
+                    $query = "";
+                    $i = 0;
+                    $hashdata = "";
+                    foreach ($inputData as $key => $value) {
+                        if ($i == 1) {
+                            $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                        } else {
+                            $hashdata .= urlencode($key) . "=" . urlencode($value);
+                            $i = 1;
+                        }
+                        $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                    }
+
+                    $vnp_Url = $vnp_Url . "?" . $query;
+                    if (isset($vnp_HashSecret)) {
+                        $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
+                        $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+                    }
+                    $returnData = array(
+                        'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+                    );
+                    if (isset($_POST['confirm-pay'])) {
+                        $_SESSION['success'] = 'Đặt hàng thành công. Cám Ơn Bạn Đã Ủng Hộ';
+                        header('Location: ' . $vnp_Url);
+                        die();
+                    } else {
+                        echo json_encode($returnData);
+                    }
+                    // vui lòng tham khảo thêm tại code demo
+                }
+                if ($is_insert && $is_insert_oder_detail && $method_pay != 3) {
+                    $_SESSION['success'] = 'Đặt hàng thành công. Cám Ơn Bạn Đã Ủng Hộ';
+                    unset($_SESSION['cart']);
+                    unset($_SESSION['total_quantity']);
+                    unset($_SESSION['code_oder']);
+                    unset($_SESSION['total_price']);
+                    header('Location: ../home/thanks');
+                    exit();
+                } else {
+                    $this->error = 'Thêm mới thất bại';
                 }
             }
         }
@@ -591,6 +640,7 @@ class HomeController extends Controller
     }
     public function thanks()
     {
+
         require_once 'views/layouts/products.php';
     }
     public function searchAutoNameProduct()
@@ -655,5 +705,40 @@ class HomeController extends Controller
 
             ]);
         require_once 'views/layouts/products.php';
+    }
+    public function order_paid($vnpay)
+    {
+
+        $vnp_Amount = $vnpay['vnp_Amount'];
+        $vnp_BankCode = $vnpay['vnp_BankCode'];
+        $vnp_BankTranNo = $vnpay['vnp_BankTranNo'];
+        $vnp_CardType = $vnpay['vnp_CardType'];
+        $vnp_OrderInfo = $vnpay['vnp_OrderInfo'];
+        $vnp_PayDate = $vnpay['vnp_PayDate'];
+        $vnp_ResponseCode = $vnpay['vnp_ResponseCode'];
+        $vnp_TmnCode = $vnpay['vnp_TmnCode'];
+        $vnp_TransactionNo = $vnpay['vnp_TransactionNo'];
+        $vnp_TransactionStatus = $vnpay['vnp_TransactionStatus'];
+        $vnp_TxnRef = $vnpay['vnp_TxnRef'];
+        $vnp_SecureHash = $vnpay['vnp_SecureHash'];
+        $Oder_model = new Oder();
+        $oder = $Oder_model->findIDOder($vnpay['vnp_TxnRef']);
+        $id_oder = $oder['id'];
+
+        $vnpay_model = new Vnpay();
+        $vnpay = $vnpay_model->insertVnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
+        if ($vnpay) {
+            if ((($oder['total_pay'] * 100) == $vnp_Amount) && $vnp_ResponseCode == "00" && $vnp_TransactionStatus == "00") {
+                $status = 2;
+                $update_status = $Oder_model->updateStatus($status, $id_oder);
+                if ($update_status) {
+                    $_SESSION['success'] = "Đã Thanh Toán Thành Công";
+                    unset($_SESSION['cart']);
+                    unset($_SESSION['total_quantity']);
+                    unset($_SESSION['code_oder']);
+                    unset($_SESSION['total_price']);
+                }
+            }
+        }
     }
 }

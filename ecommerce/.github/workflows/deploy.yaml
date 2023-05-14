@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  Deploy-Project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the latest code
+        uses: actions/checkout@v2
+
+      - name: Copy files to server
+        run: |
+          scp -P 24700 -r ./* root@103.56.162.178:/var/www/greenhome.click
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
