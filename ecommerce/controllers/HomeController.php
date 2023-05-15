@@ -130,8 +130,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
-
+                'action' => $action,
+                'id_category' => $id_product
             ]);
         require_once 'views/layouts/products.php';
     }
@@ -168,7 +168,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -206,7 +207,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -244,7 +246,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -282,7 +285,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -320,7 +324,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -358,7 +363,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -396,7 +402,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_product
 
             ]);
         require_once 'views/layouts/products.php';
@@ -690,7 +697,7 @@ class HomeController extends Controller
             $page = 0;
         }
         $products = $products_model->getAllProductsWithName($page, $limit, $product_name);
-
+        $id_category = '';
         // view
         $this->page_title = 'Trang Tìm kiếm sản phẩm';
         $this->content =
@@ -701,7 +708,8 @@ class HomeController extends Controller
                 'count_total' => $count_total,
                 'limit' => $limit,
                 'category' => $category,
-                'action' => $action
+                'action' => $action,
+                'id_category' => $id_category
 
             ]);
         require_once 'views/layouts/products.php';
@@ -728,7 +736,7 @@ class HomeController extends Controller
         $vnpay_model = new Vnpay();
         $vnpay = $vnpay_model->insertVnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
         if ($vnpay) {
-            if ((($oder['total_pay'] * 100) == $vnp_Amount) && $vnp_ResponseCode == "00" && $vnp_TransactionStatus == "00") {
+            if ((($oder['total_pay'] * 100) <= $vnp_Amount) && $vnp_ResponseCode == "00" && $vnp_TransactionStatus == "00") {
                 $status = 2;
                 $update_status = $Oder_model->updateStatus($status, $id_oder);
                 if ($update_status) {
@@ -740,5 +748,65 @@ class HomeController extends Controller
                 }
             }
         }
+    }
+    public function sapXep($curent_page = 1)
+    {
+        if (isset($_POST['id_category'])) {
+            $id_category = $_POST['id_category'];
+            $_SESSION['id_category'] = $id_category;
+        }
+        $list_products_model = new Listproducts();
+        $list_products = $list_products_model->getById($_SESSION['id_category']);
+        $category_name = $list_products['listproducts'];
+        $_SESSION['category_name'] = $category_name;
+        $category = $_SESSION['category_name'];
+        $limit = 16;
+        $action = "sapXep";
+        $page = $curent_page;
+        if (isset($_POST['range'])) {
+            $range = $_POST['range'];
+            $_SESSION['range'] = $range;
+        }
+        if (isset($_POST['sort_price'])) {
+
+            $_SESSION['sort_price'] = $_POST['sort_price'];
+        }
+        if (isset($_POST['sort_products'])) {
+
+            $_SESSION['sort_products'] = $_POST['sort_products'];
+        }
+
+
+
+        // model
+        $products_model = new Products();
+        $count_total = $products_model->countTotalProductsSort($_SESSION['id_category'], $_SESSION['range']);
+        $total_page = ceil($count_total / $limit);
+        if ($page < 1) {
+            $page = 1;
+        } elseif ($page > $total_page) {
+            $page = $total_page;
+        }
+        $page = ($page - 1) * $limit;
+        if ($page < 0) {
+            $page = 0;
+        }
+        $products = $products_model->getAllProductsSort($page, $limit);
+
+        // view
+        $this->page_title = 'Trang Pc Gaming ';
+        $this->content =
+            $this->render('views/products/showproducts.php', [
+                'products' => $products,
+                'total_page' => $total_page,
+                'page' => $curent_page,
+                'count_total' => $count_total,
+                'limit' => $limit,
+                'category' => $category,
+                'action' => $action,
+                'id_category' => $_SESSION['id_category']
+
+            ]);
+        require_once 'views/layouts/products.php';
     }
 }

@@ -96,6 +96,55 @@ class Products extends Model
         $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
+    public function getAllProductsSort($page, $limit)
+    {
+        if ($_SESSION['sort_price'] == 1) {
+            $sort_price = "ASC";
+        } else if ($_SESSION['sort_price'] == 2) {
+            $sort_price = "DESC";
+        } else {
+            $sort_price = "";
+        }
+
+        if ($_SESSION['sort_products'] == 1) {
+            $sort_products = "ASC";
+        } else if ($_SESSION['sort_products'] == 2) {
+            $sort_products = "DESC";
+        } else {
+            $sort_products = "";
+        }
+        $sql_select_all = "SELECT * FROM products WHERE category_id = :category_id  ";
+        if ($_SESSION['range'] == 1) {
+            $sql_select_all .= "AND price < 10000000";
+        } elseif ($_SESSION['range'] == 2) {
+            $sql_select_all .= "AND price >= 10000000 AND price < 20000000";
+        } elseif ($_SESSION['range'] == 3) {
+            $sql_select_all .= "AND price >= 20000000 AND price < 30000000";
+        } elseif ($_SESSION['range'] == 4) {
+            $sql_select_all .= "AND price >= 30000000 AND price < 40000000";
+        } elseif ($_SESSION['range'] == 5) {
+            $sql_select_all .= "AND price >= 40000000 AND price < 50000000";
+        } elseif ($_SESSION['range'] == 6) {
+            $sql_select_all .= "AND price >= 50000000";
+        }
+        if (!empty($sort_products) && !empty($sort_price)) {
+            $sql_select_all .= " ORDER BY price $sort_price, created_at $sort_products LIMIT :page,:limit";
+        } elseif (!empty($sort_products)) {
+            $sql_select_all .= " ORDER BY created_at $sort_products LIMIT :page,:limit";
+        } elseif (!empty($sort_price)) {
+            $sql_select_all .= " ORDER BY price $sort_price LIMIT :page,:limit";
+        } else {
+            $sql_select_all .= " LIMIT :page,:limit";
+        }
+
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->bindValue(':page', (int)$page, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $obj_select_all->bindValue(':category_id', (string)$_SESSION['id_category'], PDO::PARAM_STR);
+        $obj_select_all->execute();
+        $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    }
 
     public function search($name, $sortname, $sorttime, $category)
     {
@@ -208,6 +257,29 @@ class Products extends Model
         $obj_select_all->execute($name);
         return $obj_select_all->fetchColumn();
     }
+    public function countTotalProductsSort()
+    {
+        $sql_select_all = "SELECT COUNT(*) FROM products WHERE category_id = :category_id";
+        $selects = [
+            ':category_id' => $_SESSION['id_category']
+        ];
+        if ($_SESSION['range'] == 1) {
+            $sql_select_all .= " AND price < 10000000";
+        } elseif ($_SESSION['range'] == 2) {
+            $sql_select_all .= " AND price >= 10000000 AND price < 20000000";
+        } elseif ($_SESSION['range'] == 3) {
+            $sql_select_all .= " AND price >= 20000000 AND price < 30000000";
+        } elseif ($_SESSION['range'] == 4) {
+            $sql_select_all .= " AND price >= 30000000 AND price < 40000000";
+        } elseif ($_SESSION['range'] == 5) {
+            $sql_select_all .= " AND price >= 40000000 AND price < 50000000";
+        } elseif ($_SESSION['range'] == 6) {
+            $sql_select_all .= " AND price >= 50000000";
+        }
+        $obj_select_all = $this->connection->prepare($sql_select_all);
+        $obj_select_all->execute($selects);
+        return $obj_select_all->fetchColumn();
+    }
     public function findIDProduct($name)
     {
         $sql_select_all = "SELECT * FROM products WHERE name = :name";
@@ -216,6 +288,7 @@ class Products extends Model
         $selects = [
             ':name' => $name
         ];
+
         $obj_select_all->execute($selects);
         $oder = $obj_select_all->fetch(PDO::FETCH_ASSOC);
         return $oder;

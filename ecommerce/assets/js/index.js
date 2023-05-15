@@ -622,3 +622,32 @@ function number() {
   });
 }
 number();
+// ajax sap xep san pham
+$("#btn-sort-products").click(function () {
+  event.preventDefault();
+  let range = $("#range-price-products").val();
+  let sort_price = $("#sort-price-products").val();
+  let sort_products = $("#sort-products").val();
+  let id_category = $("#id_category").val();
+
+  var obj_ajax = {
+    // url PHP xử lý ajax gửi lên
+    url: "./home/sapXep",
+    // phương thức gửi dữ liệu: GET, POST, PUT, DELETE
+
+    method: "POST",
+    // Set dữ liệu truyền lên
+    data: {
+      range: range,
+      sort_price: sort_price,
+      sort_products: sort_products,
+      id_category: id_category,
+    },
+    // Nơi nhận dữ liệu trả về từ PHP
+    success: function () {
+      window.location.href = `home/sapXep`;
+    },
+  };
+  // Gọi ajax với jQuery
+  $.ajax(obj_ajax);
+});
