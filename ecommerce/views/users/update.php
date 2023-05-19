@@ -39,119 +39,38 @@
         </div>
     </div>
 </form>
+
+
 <div class="select-address">
     <h5>địa chỉ khách hàng đã lưu</h5>
     <hr>
-    <label for="address-2" class="option-address">
-        <table>
-            <tbody>
-                <tr>
-                    <td>Họ Và Tên</td>
-                    <td>Tăng Xuân Anh</td>
-                </tr>
-                <tr>
-                    <td>Số Điện Thoại</td>
-                    <td>0389607403</td>
-                    <td rowspan="4">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Địa Chỉ</td>
-                    <td>
-                        số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="color: red">
-                        <i class="fas fa-house-user"></i>
-                        <span>Nhà Riêng</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </label>
-    <label for="address-3" class="option-address">
-        <table>
-            <tbody>
-                <tr>
-                    <td>Họ Và Tên</td>
-                    <td>Tăng Xuân Anh</td>
-                </tr>
-                <tr>
-                    <td>Số Điện Thoại</td>
-                    <td>0389607403</td>
-                    <td rowspan="4">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Địa Chỉ</td>
-                    <td>
-                        số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="color: red">
-                        <i class="fas fa-building"></i>
-                        <span>Cơ Quan</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </label>
-    <label for="address-4" class="option-address">
-        <table>
-            <tbody>
-                <tr>
-                    <td>Họ Và Tên</td>
-                    <td>hồng thất công</td>
-                </tr>
-                <tr>
-                    <td>Số Điện Thoại</td>
-                    <td>0389607403</td>
-                    <td rowspan="4">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Địa Chỉ</td>
-                    <td>
-                        số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="color: red">
-                        <i class="fas fa-house-user"></i>
-                        <span>Nhà Riêng</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </label>
-    <label for="address-5" class="option-address">
-        <table>
-            <tbody>
-                <tr>
-                    <td>Họ Và Tên</td>
-                    <td>hồng thất công</td>
-                </tr>
-                <tr>
-                    <td>Số Điện Thoại</td>
-                    <td>0389607403</td>
-                    <td rowspan="4">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Địa Chỉ</td>
-                    <td>
-                        số 17 hẻm 99/1/4 phố đức giang thượng thanh long biên hà nội, Quận Long Biên, Hà Nội </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="color: red">
-                        <i class="fas fa-building"></i>
-                        <span>Cơ Quan</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </label>
+    <?php foreach ($address_user as $values) : ?>
+        <label for="address-2" class="option-address">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Họ Và Tên</td>
+                        <td><?php echo $values['name'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Số Điện Thoại</td>
+                        <td><?php echo $values['phone'] ?></td>
+                        <td rowspan="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Địa Chỉ</td>
+                        <td><?php echo $values['address'] ?></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="color: red;"><i class="fas <?php echo $values['address_type'] == 1 ? "fa-house-user" : "fa-building" ?>"></i>
+                            <span><?php echo $values['address_type'] == 1 ? "Nhà riêng" : "Cơ Quan" ?></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </label>
+
+    <?php endforeach ?>
 </div>

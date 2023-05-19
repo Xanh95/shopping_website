@@ -78,6 +78,7 @@ class UserController extends Controller
         $user_id = $id;
         $user_model = new User();
         $user = $user_model->getById($user_id);
+        $address_user = $user_model->getUserAdress($user_id);
 
         if (empty($user)) {
             $_SESSION['error'] = 'Khách Hàng không tồn tại';
@@ -136,7 +137,7 @@ class UserController extends Controller
         // - Controller gọi View
         $this->page_title = 'Trang Sửa Thông Tin KH';
         $this->content =
-            $this->render('views/users/update.php', ['users' => $user]);
+            $this->render('views/users/update.php', ['users' => $user, 'address_user' => $address_user]);
         require_once 'views/layouts/system.php';
     }
     public function delete($id = "")
