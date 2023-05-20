@@ -125,7 +125,7 @@ class Products extends Model
         } elseif ($_SESSION['range'] == 5) {
             $sql_select_all .= " AND price BETWEEN 40000000 AND 50000000";
         } elseif ($_SESSION['range'] == 6) {
-            $sql_select_all .= "AND price >= 50000000";
+            $sql_select_all .= " AND price >= 50000000";
         }
         if (!empty($sort_products) && !empty($sort_price)) {
             $sql_select_all .= " ORDER BY price $sort_price, created_at $sort_products LIMIT :page,:limit";
@@ -274,7 +274,7 @@ class Products extends Model
         } elseif ($_SESSION['range'] == 5) {
             $sql_select_all .= " AND price BETWEEN 40000000 AND 50000000";
         } elseif ($_SESSION['range'] == 6) {
-            $sql_select_all .= "AND price >= 50000000";
+            $sql_select_all .= " AND price >= 50000000";
         }
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $obj_select_all->execute($selects);
