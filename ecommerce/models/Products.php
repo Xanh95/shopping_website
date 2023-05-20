@@ -115,7 +115,7 @@ class Products extends Model
         }
         $sql_select_all = "SELECT * FROM products WHERE category_id = :category_id  ";
         if ($_SESSION['range'] == 1) {
-            $sql_select_all .= "AND price < 10000000";
+            $sql_select_all .= " AND price < 10000000";
         } elseif ($_SESSION['range'] == 2) {
             $sql_select_all .= " AND price BETWEEN 10000000 AND 20000000";
         } elseif ($_SESSION['range'] == 3) {
@@ -264,7 +264,7 @@ class Products extends Model
             ':category_id' => $_SESSION['id_category']
         ];
         if ($_SESSION['range'] == 1) {
-            $sql_select_all .= "AND price < 10000000";
+            $sql_select_all .= " AND price < 10000000";
         } elseif ($_SESSION['range'] == 2) {
             $sql_select_all .= " AND price BETWEEN 10000000 AND 20000000";
         } elseif ($_SESSION['range'] == 3) {
