@@ -264,17 +264,17 @@ class Products extends Model
             ':category_id' => $_SESSION['id_category']
         ];
         if ($_SESSION['range'] == 1) {
-            $sql_select_all .= " AND price < 10000000";
+            $sql_select_all .= "AND price < 10000000";
         } elseif ($_SESSION['range'] == 2) {
-            $sql_select_all .= " AND price >= 10000000 AND price < 20000000";
+            $sql_select_all .= " AND price BETWEEN 10000000 AND 20000000";
         } elseif ($_SESSION['range'] == 3) {
-            $sql_select_all .= " AND price >= 20000000 AND price < 30000000";
+            $sql_select_all .= " AND price BETWEEN 20000000 AND 30000000";
         } elseif ($_SESSION['range'] == 4) {
-            $sql_select_all .= " AND price >= 30000000 AND price < 40000000";
+            $sql_select_all .= " AND price BETWEEN 30000000 AND 40000000";
         } elseif ($_SESSION['range'] == 5) {
-            $sql_select_all .= " AND price >= 40000000 AND price < 50000000";
+            $sql_select_all .= " AND price BETWEEN 40000000 AND 50000000";
         } elseif ($_SESSION['range'] == 6) {
-            $sql_select_all .= " AND price >= 50000000";
+            $sql_select_all .= "AND price >= 50000000";
         }
         $obj_select_all = $this->connection->prepare($sql_select_all);
         $obj_select_all->execute($selects);
